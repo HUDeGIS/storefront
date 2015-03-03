@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--<link rel="shortcut icon" href="assets/ico/favicon.ico">-->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/ico/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/ico/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/ico/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/ico/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/ico/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/ico/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="assets/ico/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/ico/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="assets/ico/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="assets/ico/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="assets/ico/manifest.json">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="assets/ico/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>HUD's Zillow Hackathon</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!--<link href="assets/css/font-awesome.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]>
+    <script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+</head>
+
+<body>
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">HUD's Zillow Hackathon</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">HOME</a></li>
+                <li class="active"><a href="intro.html">INTRO</a></li>
+                <li><a href="http://zillowhack.hud.opendata.arcgis.com">DATA</a></li>
+                <li><a href="docs.html">DOCS</a></li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search" action="javascript: search()">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search Data" id="search-input">
+                </div>
+            </form>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</div>
+
+<!-- *****************************************************************************************************************
+ BLUE WRAP
+ ***************************************************************************************************************** -->
+<div id="blue">
+    <div class="container">
+        <div class="row">
+            <h3>Introduction</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+<div class="col-md-12" style="text-align:center;margin-bottom:30px">
+    <h3>Qucklinks</h3>
+    <!--<div class="col-sm-3">-->
+    <!--<a href="#intro"><button class="btn btn-default" style="width:280px"><h4>Introduction</h4></button></a>-->
+    <!--</div>-->
+    <div class="col-sm-3">
+    <a href="#laiwrap"><button class="btn btn-default" style="width:280px"><h4>Location Affordability Index</h4></button></a>
+    </div>
+    <div class="col-sm-3">
+    <a href="#hrlwrap"><button class="btn btn-default" style="width:280px"><h4>HUD Resource Locator</h4></button></a>
+    </div>
+    <div class="col-sm-3">
+        <a href="#refwrap"><button class="btn btn-default" style="width:280px"><h4>HUD Reflections</h4></button></a>
+    </div>
+    <div class="col-sm-3">
+    <a href="#jwrap"><button class="btn btn-default" style="width:280px"><h4>City SDK</h4></button></a>
+    </div>
+    <!--<div class="well col-md-3" style="text-align:center">-->
+        <!--<a href="#intro">Introduction</a>-->
+    <!--</div>-->
+    <!--<div class="well col-md-3" style="text-align:center">-->
+        <!--<a class="nav" href="#laiwrap">Location Affordability Index</a>-->
+    <!--</div>-->
+    <!--<div class="well col-md-3" style="text-align:center">-->
+        <!--<a class="nav" href="#hrlwrap">HUD Resource Locator</a>-->
+    <!--</div>-->
+    <!--<div class="well col-md-3" style="text-align:center">-->
+        <!--<a class="nav" href="#refwrap">Hackathon Reflections</a>-->
+    <!--</div>-->
+</div>
+
+
+
+<!-- *****************************************************************************************************************
+ INTRODUCTION
+ ***************************************************************************************************************** -->
+
+<div id="intro" class="container mtb">
+    <div class="row">
+        <div class="col-sm-6">
+            <img class="img-responsive"
+                 src="http://thestraighttorquer.com/wp-content/uploads/2010/07/housing-and-urban-development-5s.jpg"
+                 alt="">
+        </div>
+
+        <div class="col-sm-6">
+            <h4>Purpose of the hackathon</h4>
+
+            <p>The people HUD serves face a daunting task: finding a home that suits their needs in a program for which
+                they qualify. As the Baby Boomer generation ages into retirement, the demand for living situations that
+                meet the particular needs of older Americans is steadily increasing.</p>
+
+            <p>Older Americans want to live in their homes and communities safely, comfortably, and independently,
+                regardless of decreased mobility, changing healthcare needs, and other challenges. HUD also subsidizes
+                rent and utility costs for many lower-income families so that they can attain safe, decent housing.</p>
+
+            <p>Finding units in which they can use their housing subsidy, though, is a perennial problem for families
+                with rental assistance, particularly in strong-market regions. The biggest barrier to “leasing up” for
+                assisted families is finding a unit that is affordable given the housing assistance payment standards in
+                their area. Both groups need simple, consumer-friendly solutions to narrow their options, find available
+                units, submit necessary information and connect with service providers.</p>
+        </div>
+        <div class="col-sm-12">
+            <p>HUD, along with local housing authorities, health care and social service providers, has a strong
+                interest in matching the people it serves with affordable, eligible units, particularly those in
+                locations that give them the greatest chance of succeeding: neighborhoods with access to transit, local
+                retail, good schools, social services, and employment opportunities. But people need better information
+                about the availability of accessible units, access to social services and neighborhood amenities, and
+                features that suit their individual needs—including wheelchair access, walking, and public
+                transportation.</p>
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#hud-data" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+<!-- *****************************************************************************************************************
+Our Data
+***************************************************************************************************************** -->
+<div class="blue" id="hud-data">
+    <div class="container">
+        <div class="row">
+            <h3>HUD Provided Data</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb">
+    <div class="row">
+        <div class="col-sm-4">
+            <ul style="padding-left: 25px">
+                <h3>
+                    <li><a href="http://zillowhack.hud.opendata.arcgis.com/">Our Open Data website</a></li>
+                </h3>
+                <h3>
+                    <li>Data Availability</li>
+                </h3>
+                <ul style="padding-left: 25px">
+                    <h4>
+                        <li>GeoService</li>
+                    </h4>
+                    <h4>
+                        <li>GeoJSON</li>
+                    </h4>
+                    <h4>
+                        <li>CSV</li>
+                    </h4>
+                    <h4>
+                        <li>KML</li>
+                    </h4>
+                    <h4>
+                        <li>SHP</li>
+                    </h4>
+                </ul>
+                <h3>
+                    <li><a href="docs.html">Documentation</a></li>
+                </h3>
+                <ul style="padding-left: 25px">
+                    <h4>
+                        <li><a href="docs.html#geoservice">GeoService</a></li>
+                    </h4>
+                    <h4>
+                        <li><a href="docs.html#ddict">Data Dictionaries</a></li>
+                    </h4>
+                </ul>
+            </ul>
+        </div>
+        <div class="col-sm-8">
+            <img class="img-responsive" src="assets/img/portfolio/open_data.jpg" alt="">
+        </div>
+    </div>
+
+    <div class="col-lg-12" style="text-align:center">
+        <div style="margin:65px 0 0 0">
+            <a href="#purpose" class="fa fa-arrow-circle-down fa-5x"></a>
+        </div>
+    </div>
+</div>
+<! --/row -->
+</div><! --/container -->
+
+
+<!-- *****************************************************************************************************************
+Purpose
+***************************************************************************************************************** -->
+<div class="blue" id="purpose">
+    <div class="container">
+        <div class="row">
+            <h3>What we hope to get out of the hackathon</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb">
+    <div class="row">
+        <div class="col-sm-6">
+            <img class="img-responsive" src="assets/img/zillow_ss.jpg" alt="">
+        </div>
+
+        <div class="col-sm-6">
+            <ul style="padding-left: 25px">
+                <h3>
+                    <li>We're looking for more context</li>
+                </h3>
+                <ul style="padding-left: 25px">
+                    <h4>
+                        <li>
+                            Our data is only a small part of the full picture and
+                            we rely on local data or data from other sources
+                        </li>
+                    </h4>
+                </ul>
+
+                <h3>
+                    <li>A fresh perspective</li>
+                </h3>
+                <ul style="padding-left: 25px">
+                    <h4>
+                        <li>
+                            Census provides great aggregated estimates, but Zillow data is up-to-date and specific
+                        </li>
+                    </h4>
+                </ul>
+                <h3>
+                    <li>Targeted Applications</li>
+                </h3>
+                <ul style="padding-left: 25px">
+                    <h4>
+                        <li>
+                            We'd like to focus on apps that assist our service providers and customers
+                        </li>
+                    </h4>
+                </ul>
+                <h3>
+                    <li>A Continuing Relationship</li>
+                </h3>
+                <ul style="padding-left: 25px">
+                    <h4>
+                        <li>
+                            We'd like to foster collaboration wherever possible and engage in more hackathons!
+                        </li>
+                    </h4>
+                </ul>
+                <!--
+                <p><li>Data we're providing is a samll part of the full picture. Most of the questions
+                depends on local data or data from other sources</li></p>
+                <p><li>Affordable housing stock that we know about is only a small part
+                because we subsidize it.  </li></p>
+                <p><li>CEnsus can tell us where concentations of affordable rental units are, but
+            taht's just an estimate is and it's an aggregate. Zillow knows exactly where these are, and what the rent is.</li></p>
+                <p><li>Data for local assets are available at the local level. these dataset speak to the quality of life in a neighborhood. crime schools etc. </li></p>
+                <p><li>We're looking for contextual data to better serve our mission</li></p>
+                <p><li>Hoping there are people in the room from local housing authorities that can speak to the local needs</li></p>
+                <p><li>how can we build a tool taht will allow a counseler from a housing council agency help low, elderly, disabled folks find quality housing that meet their needs. Don't always assume it's a citizen using the app. it could be a service provider</li></p>
+                -->
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-12" style="text-align:center">
+        <div style="margin:65px 0 0 0">
+            <a href="#questions" class="fa fa-arrow-circle-down fa-5x"></a>
+        </div>
+    </div>
+</div>
+<! --/row -->
+</div><! --/container -->
+
+
+
+
+<!-- *****************************************************************************************************************
+Questions
+***************************************************************************************************************** -->
+<div class="blue" id="questions">
+    <div class="container">
+        <div class="row">
+            <h3>How to ask questions</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb">
+    <div class="row">
+        <!--<div class="col-lg-6">-->
+        <!--<img class="img-responsive" src="assets/img/agency.jpg" alt="">-->
+        <!--</div>-->
+
+        <div class="col-lg-12" style="text-align:center">
+            <h3><a href="http://stackoverflow.com/questions/tagged/hackhousing">We've set up a thread on Stack Exchange</a></h3>
+            <a class="btn btn-default" href="http://opendata.stackexchange.com/questions/tagged/hackhousing">Thread</a>
+            <a class="btn btn-default" href="http://opendata.stackexchange.com/questions/ask?tags=hackhousing">Ask A Question</a>
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <br>
+            <h4>Or come talk to us</h4>
+                <p>Logan Powell - Census
+                    <br>Rick Campbell - Census
+                    <br>Jeff Meisel - Census
+                    <br>Rob Renner - HUD
+                    <br>Connor McDonnell - HUD
+                    <br>Josh Geyer - HUD
+                    <br>Sean Turner - HUD
+                    <br>Shula Markland - HUD
+
+        </p>
+            </ul>
+            <div style="margin:65px 0 0 0">
+                <a href="#laiwrap" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<!-- *****************************************************************************************************************
+LAI Deep Dive
+***************************************************************************************************************** -->
+<div id="laiwrap">
+    <div class="container centered">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2" style="padding-top:60px">
+                <h1 style="color:white"><br/>Location Affordability Index Deep Dive</h1>
+                <a style="margin-top:40px;color:white" href="#lai-dive" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+        <! --/row -->
+    </div>
+    <! --/container -->
+</div>
+<! --/twrap -->
+
+
+<div class="blue" id="lai-dive">
+    <div class="container">
+        <div class="row">
+            <h3>Index Specifications</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul style="padding-left: 25px">
+                <h3>
+                    <li>Description</li>
+                </h3>
+                <ul style="padding-left: 25px">
+                    <h4>
+                        <li>
+                            Indicates housing and transportation costs as a percentage of income for
+                            various household profiles at the neighborhood level
+                        </li>
+                    </h4>
+                </ul>
+                <h3>
+                    <li>Geographical unit of analysis</li>
+                </h3>
+                <ul style="padding-left: 25px">
+                    <h4>
+                        <li>
+                            Census block group
+                        </li>
+                    </h4>
+                </ul>
+                <h3>
+                    <li>Coverage area</li>
+                </h3>
+                <ul style="padding-left: 25px">
+                    <h4>
+                        <li>
+                            All populated areas in the 50 states and District of Columbia
+                        </li>
+                    </h4>
+                </ul>
+                <h3>
+                    <li>Last update</li>
+                </h3>
+                <ul style="padding-left: 25px">
+                    <h4>
+                        <li>
+                            August 2014 (2008-2012 ACS)
+                        </li>
+                    </h4>
+                </ul>
+                <h3>
+                    <li><a href="http://www.locationaffordability.info/LAPMethodsV2.pdf">Detailed methodology</a></li>
+                </h3>
+            </ul>
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#lai-data" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<div class="blue" id="lai-data">
+    <div class="container">
+        <div class="row">
+            <h3>LAI Data</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul style="padding-left: 25px">
+                <h3>
+                    <li><a href="http://lai.locationaffordability.info/lai_data_dictionary.pdf">Data dictionary</a></li>
+                </h3>
+                <h3>
+                    <li>Four types of data:</li>
+                </h3>
+                <ul style="padding-left: 25px">
+                    <h4>
+                        <li>
+                            Index - housing and transportation costs by household profile
+                        </li>
+                        <li>
+                            Transportation behavior
+                        </li>
+                        <li>
+                            Housing costs
+                        </li>
+                        <li>
+                            Built environment
+                        </li>
+                        <li>
+                            Household profiles
+                        </li>
+                        <li>
+                            Geographical - census FIPS codes
+                        </li>
+                    </h4>
+                </ul>
+            </ul>
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#lai-hi" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<div class="blue" id="lai-hi">
+    <div class="container">
+        <div class="row">
+            <h3>Data hierarchy</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<!--
+  base blue: #0B486B
+  dark blue: #001021
+  light blue: #1481BA
+  green: #417B5A
+  light green: #79B473
+-->
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="well" style="text-align:center;background-color:#79B473">
+                <h3 style="color:white">Location Affordability Index</h3>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="well" style="text-align:center;background-color:#52AD9C">
+                <h3 style="color:white">Transportation Costs</h3>
+            </div>
+            <div class="well" style="text-align:center;background-color:#1481BA">
+                <h4 style="color:white">Transportation Consumption</h4>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="well" style="text-align:center;background-color:#1481BA"> <!--background-color:#417B5A-->
+                <br/><br/>
+
+                <h3 style="color:white">Housing Costs</h3>
+                <br/><br/>
+                <br/>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="well" style="text-align:center;background-color:#0B486B">
+                <h3 style="color:white">Demographics</h3>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="well" style="text-align:center;background-color:#001021">
+                <h3 style="color:white">Built Environment</h3>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+    <div class="col-lg-12" style="text-align:center">
+        <div style="margin:65px 0 0 0">
+            <a href="#lai-inbe" class="fa fa-arrow-circle-down fa-5x"></a>
+        </div>
+    </div>
+</div>
+<! --/container -->
+
+
+<div class="blue" id="lai-inbe" style="background-color:#001021">
+    <div class="container">
+        <div class="row">
+            <h3>Input Data - Built Environment</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul style="padding-left: 25px">
+                <h3>
+                    <li>Population density - households/area</li>
+                </h3>
+                <h3>
+                    <li>Walkability - city blocks/area</li>
+                </h3>
+                <h3>
+                    <li>Employment access - Employment Access Index, Retail Employment Index,
+                        Median Commute Distance
+                    </li>
+                </h3>
+                <h3>
+                    <li>Commercial amenities - local job density, local retail density</li>
+                </h3>
+                <h3>
+                    <li>Housing stock - % units that are rentals, % units that are SF detached,
+                        # of rooms/occupied unit for O/R*
+                    </li>
+                </h3>
+                <ul style="padding-left: 25px">
+                    <h4>
+                        <li>
+                            *O/R = denotes separate variables for owners and renters
+                        </li>
+                    </h4>
+                </ul>
+            </ul>
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#lai-inde" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<div class="blue" id="lai-inde" style="background-color:#0B486B">
+    <div class="container">
+        <div class="row">
+            <h3>Input Data - Demographics</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul style="padding-left: 25px">
+                <h3>
+                    <li>O/R incomes as fraction of ara median income</li>
+                </h3>
+                <h3>
+                    <li>Household profiles - area median income, average HH size for
+                        O/R, average commuters/HH for O/R
+                    </li>
+                </h3>
+                <ul style="padding-left: 25px">
+                    <h4>
+                        <li>
+                            *Model is run for eight different (fictional) profiles across
+                            each metropolitan area to meet needs of variety of users
+                        </li>
+                    </h4>
+                </ul>
+            </ul>
+        </div>
+
+        <div class="col-lg-12">
+            <table class="table lai-table">
+                <thead>
+                <tr>
+                    <th title="Field #1">Household Type</th>
+                    <th title="Field #2">Income</th>
+                    <th title="Field #3" style="text-align:center">HH Size</th>
+                    <th title="Field #4" style="text-align:center"># of Commuters</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Median-Income Family</td>
+                    <td>MHHI</td>
+                    <td align="center">4</td>
+                    <td align="center">2</td>
+                </tr>
+                <tr>
+                    <td>Very Low-Income Individual</td>
+                    <td>National poverty line</td>
+                    <td align="center">1</td>
+                    <td align="center">1</td>
+                </tr>
+                <tr>
+                    <td>Working Individual</td>
+                    <td>50% of MHHI</td>
+                    <td align="center">1</td>
+                    <td align="center">1</td>
+                </tr>
+                <tr>
+                    <td>Single Professional</td>
+                    <td>135% of MHHI</td>
+                    <td align="center">1</td>
+                    <td align="center">1</td>
+                </tr>
+                <tr>
+                    <td>Retired Couple</td>
+                    <td>80% of MHHI</td>
+                    <td align="center">2</td>
+                    <td align="center">0</td>
+                </tr>
+                <tr>
+                    <td>Single-Parent Family</td>
+                    <td>50% of MHHI</td>
+                    <td align="center">3</td>
+                    <td align="center">1</td>
+                </tr>
+                <tr>
+                    <td>Moderate-Income Family</td>
+                    <td>80% of MHHI</td>
+                    <td align="center">3</td>
+                    <td align="center">1</td>
+                </tr>
+                <tr>
+                    <td>Dual-Professional Family</td>
+                    <td>150% of MHHI</td>
+                    <td align="center">4</td>
+                    <td align="center">2</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#lai-mod" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+<div class="blue" id="lai-mod">
+    <div class="container">
+        <div class="row">
+            <h3>Modeled values</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul style="padding-left: 25px">
+                <h3>
+                    <li>Uses Simultaneous Equations Modeling – regression technique</li>
+                </h3>
+                <h3>
+                    <li>Housing costs for owner and renter households fitting the eight household profiles</li>
+                </h3>
+                <h3>
+                    <li>Transportation <strong>consumption</strong> for owner and renter households fitting the eight
+                        household profiles:
+                    </li>
+                </h3>
+                <ul style="padding-left: 25px">
+                    <h4>
+                        <li>
+                            Average autos owned/HH
+                        </li>
+                        <li>
+                            Average annual VMT
+                        </li>
+                        <li>
+                            % of commuters using transit
+                        </li>
+                    </h4>
+                </ul>
+            </ul>
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#lai-trans" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<div class="blue" id="lai-trans" style="background-color:#52AD9C">
+    <div class="container">
+        <div class="row">
+            <h3>Transportation costs</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul style="padding-left: 25px">
+                <h3>
+                    <li>
+                        For auto ownership and usage, takes modeled transportation consumption estimates
+                        and multiplies by unit costs:
+                    </li>
+                </h3>
+                <ul style="padding-left: 25px">
+                    <h4>
+                        <li>
+                            Auto ownership cost = auto/HH * cost per auto
+                        </li>
+                        <li>
+                            Auto usage cost = annual VMT * cost per mile
+                        </li>
+                    </h4>
+                </ul>
+                <h3>
+                    <li>
+                        <a href="http://www.locationaffordability.info/About_Data.aspx#CalculatingTrans">
+                            More detail on annual transit trips and costs
+                        </a>
+                    </li>
+                </h3>
+            </ul>
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#lai-lai" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<div class="blue" id="lai-lai" style="background-color:#79B473">
+    <div class="container">
+        <div class="row">
+            <h3>Location Affordability Index</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul style="padding-left: 25px">
+                <h3>
+                    <li>
+                        Composed of (housing + transportation costs)/income for each household profile (owners and
+                        renters) for each block group
+                    </li>
+                </h3>
+                <h3>
+                    <li>
+                        Data contains separate and combined percentages
+                    </li>
+                </h3>
+            </ul>
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#hrlwrap" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<!-- *****************************************************************************************************************
+HUD Resource Locator
+***************************************************************************************************************** -->
+<div id="hrlwrap">
+    <div class="container centered">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2" style="padding-top:60px">
+                <a href="http://hud.vsolvit.com/resourcelocator#&ui-state=dialog"><h1 style="color:white"><br/>HUD Resource Locator</h1></a>
+                <a style="margin-top:40px;color:white" href="#hrl" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+        <! --/row -->
+    </div>
+    <! --/container -->
+</div>
+<! --/twrap -->
+
+<div class="blue" id="hrl" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>HUD Resource Locator</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <img src="assets/img/hrl1.jpg">
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#hrl1" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+<div class="blue" id="hrl1" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>HUD Resource Locator</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <img src="assets/img/hrl2.jpg">
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#hrl2" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+<div class="blue" id="hrl2" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>HUD Resource Locator</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <img src="assets/img/hrl3.jpg">
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#hrl3" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+<div class="blue" id="hrl3" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>HUD Resource Locator</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <img src="assets/img/hrl4.jpg">
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#hrl4" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<div class="blue" id="hrl4" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>HUD Resource Locator</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <img src="assets/img/hrl5.jpg">
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#hrl5" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+<div class="blue" id="hrl5" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>HUD Resource Locator</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <img src="assets/img/hrl6.jpg">
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#hrl6" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<div class="blue" id="hrl6" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>HUD Resource Locator</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <img src="assets/img/hrl7.jpg">
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#hrl7" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+<div class="blue" id="hrl7" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>HUD Resource Locator</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <img src="assets/img/hrl8.jpg">
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#ref1" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<!-- *****************************************************************************************************************
+Housing Data Reflections
+***************************************************************************************************************** -->
+
+<div id="refwrap">
+    <div class="container centered">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2" style="padding-top:60px">
+                <h1 style="color:white"><br/>Open Data Reflections for HUD</h1>
+                <a style="margin-top:40px;color:white" href="#ref1" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+        <! --/row -->
+    </div>
+    <! --/container -->
+</div>
+
+
+<div class="blue" id="ref1" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>Topics</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul style="padding-left: 25px">
+                <h3>
+                    <li>Data.gov</li>
+                    <li>Open Data</li>
+                    <li>The Importance of Making Government Data Open</li>
+                    <li>Housing Hackathon</li>
+                    <li>Upcoming Goals and Objectives</li>
+                    <li>Open Discussion/Questions and Answers</li>
+                </h3>
+            </ul>
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#ref2" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<div class="blue" id="ref2" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>Data.gov</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-sm-6">
+            <ul style="padding-left: 25px">
+                <h3>
+                    <li>In March 11, 2009, a memo to Federal CIOs asked for suitable data sets for Data.gov launch.  HUD nominated the following:</li>
+                    <h4>
+                    <ul style="padding-left:25px">
+                        <li><a href="http://www.hud.gov/offices/hsg/mfh/exp/mfassistsec8cont.exe">Multifamily Assistance Section 8 Contracts</a></li>
+                        <li><a href="http://www.huduser.org/datasets/fmr.html">Fair Market Rents for the Section 8 Housing Assistance Payments Program</a></li>
+                        <li><a href="http://www.huduser.org/datasets/50per.html">50th Percentile Rent Estimates</a></li>
+                        <li><a href="http://www.huduser.org/datasets/il/il09/index.html">Program Income Limits</a></li>
+                        <li><a href="http://socds.huduser.org/index.html">State of the Cities Data Systems</a></li>
+                    </ul>
+                        </h4>
+                </h3>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <img src="assets/img/data_gov.jpg">
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#ref3" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<div class="blue" id="ref3" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>Open Data</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul style="padding-left: 25px">
+                <h3>
+                    <li>On May 9, 2013 - Executive Order 13642 – Making Open and Machine Readable the New Default for Government Information</li>
+                    <li>Open Data Policy M-13-13 – Managing Information as an Asset</li>
+                    <li>Completed HUD’s Enterprise Data Inventory</li>
+                </h3>
+            </ul>
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#ref4" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+<div class="blue" id="ref4" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>Importance of Making Government Data Open</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul style="padding-left: 25px">
+                <h3>
+                    <li>Making government data more open and accessible to innovators and the public, fuels entrepreneurship and economic prosperity while increasing government transparency and efficiency</li>
+                    <li>Two big examples:</li>
+                        <ul style="padding-left: 25px">
+                            <h4>
+                            <li>
+                                Public release of weather data from government satellites and ground stations generated an entire economic sector that today includes the Weather Channel
+                            </li>
+                            <li>
+                                Decision to make the Global Positioning System (GPS), once open only to the military for use, available for civilian and commercial access, gave rise to GPS-powered innovations ranging from aircraft navigation systems to precision farming to location-based apps, contributing tens of billions of dollars in annual value to the American economy.
+                            </li>
+                            </h4>
+                        </ul>
+                </h3>
+            </ul>
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#refadd" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<div class="blue" id="refadd" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>Importance of Making Government Data Open <em>(Continued)</em></h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul style="padding-left: 25px">
+                <h3>
+                    <li>An Example at HUD:</li>
+                    <li>Making the Housing Counseling Agency dataset available provided:</li>
+                    <ul style="padding-left: 25px">
+                        <h4>
+                            <li>
+                                Access to data by the Consumer Financial Protection Bureau (CFPB) to create an open source tool that makes it easer to search for housing counselors within a 10 mile radius.
+                            </li>
+                            <li>
+                                <a href="http://www.hud.gov/offices/hsg/sfh/hcc/hcs.cfm">Housing Counseling Agency dataset</a>
+                            </li>
+                            <li>
+                                <a href="http://www.consumerfinance.gov/find-a-housing-counselor/">Tool from CFPB</a>
+                            </li>
+                            <li>
+                                Source code:
+                            </li>
+                            <ul style="padding-left: 25px">
+                                <li>
+                                    <a href="https://github.com/cfpb/find-a-housing-counselor">https://github.com/cfpb/find-a-housing-counselor</a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/cfpb/django-hud">https://github.com/cfpb/django-hud</a>
+                                </li>
+                            </ul>
+                        </h4>
+                    </ul>
+                </h3>
+            </ul>
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#ref5" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<div class="blue" id="ref5" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>Housing Hackathon</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul style="padding-left: 25px">
+                <h3>
+                    <li>Made additional GIS datasets available to our partners in the private sector</li>
+                    <ul style="padding-left: 25px">
+                        <h4>
+                            <li>Overwhelming turn out</li>
+                            <li>Teams working on completing innovative tools</li>
+                        </h4>
+                        </ul>
+
+                </h3>
+            </ul>
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#ref6" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<div class="blue" id="ref6" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>Upcoming Goals & Objectives</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul style="padding-left: 25px">
+                <h3>
+                    <li>Continue to make valuable HUD data available openly and public but protect privacy</li>
+                    <li>Continue to identify HUD’s largest consumers of data</li>
+                    <li>Identify what additional data types our customers need</li>
+                </h3>
+            </ul>
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#ref7" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<div class="blue" id="ref7" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>Questions & Answers</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12" style="text-align:center">
+            <i style="font-size:12em" class="fa fa-question fa-5x"></i>
+            <br>
+            <br>
+            <h4>Shula Markland</h4>
+            <h4>Senior Data Architect</h4>
+            <h4>Department of Housing and Urban Development</h4>
+            <h4>202-402-8335 (office)</h4>
+            <h4>shula.markland@hud.gov</h4>
+
+
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#jwrap" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<!-- *****************************************************************************************************************
+Jeff's Slides
+***************************************************************************************************************** -->
+
+<div id="jwrap">
+    <div class="container centered">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2" style="padding-top:60px">
+                <h1 style="color:white"><br/>City SDK</h1>
+                <a style="margin-top:40px;color:white" href="#j1" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+        <! --/row -->
+    </div>
+    <! --/container -->
+</div>
+
+<div class="blue" id="j1" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>City SDK</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12" style="text-align:center">
+            <h3>New 2015 Initiative from Census to Make Open Data Easier to Use</h3>
+            <img class="img-responsive" align="middle" style="margin:auto; max-height:700px" src="assets/img/jeff1_1.jpg">
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#j2" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+
+
+<div class="blue" id="j2" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>City SDK Beta Release</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12" style="text-align: center">
+            <h3>City SDK Beta Release - Coming Soon in May 2015</h3>
+            <h4>Project Page on Github</h4>
+            <a href = "http://bit.ly/city-sdk">
+                <i class="fa fa-github fa-5x"></i>
+                <h4>bit.ly/city-sdk</h4>
+            </a>
+            <img src="assets/img/jeff2_1.jpg" style="margin: auto; max-height:700px" align="middle">
+        </div>
+        <div class="col-lg-12" style="text-align:center">
+            <div style="margin:65px 0 0 0">
+                <a href="#j3" class="fa fa-arrow-circle-down fa-5x"></a>
+            </div>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+
+
+<div class="blue" id="j3" style="background-color:#1481BA">
+    <div class="container">
+        <div class="row">
+            <h3>Help Us Improve</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+<div class="container mtb" style="margin-top:-30px">
+    <div class="row">
+        <div class="col-lg-12" style="text-align:center">
+            <!--<h3>Provide feedback to Zillow and collaborators</h3>-->
+            <h3>Provide feedback to Zillow and collaborators</h3>
+            <a href="http://bit.ly/hhfeedback"><h3>bit.ly/hhfeedback</h3></a>
+            <img class="img-responsive" style="margin: auto; max-height:700px;" src="assets/img/jeff3_2.jpg">
+        </div>
+    </div>
+    <! --/row -->
+</div>
+
+<!-- *****************************************************************************************************************
+FOOTER
+***************************************************************************************************************** -->
+<div id="footerwrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h4>About PD&R</h4>
+
+                <div class="hline-w"></div>
+                <p>The U.S. Department of Housing and Urban Development's (HUD's) Office of Policy Development and
+                    Research (PD&R) supports the Department's efforts to help create cohesive, economically healthy
+                    communities.</p>
+            </div>
+            <div class="col-lg-4">
+                <h4>Social Links</h4>
+
+                <div class="hline-w"></div>
+                <p>
+                    <a href=""
+                       onclick="window.open('https://twitter.com/share', 'newwindow', 'width=550, height=450'); return false;"><i
+                            class="fa fa-twitter"></i></a>
+                    <a href="//www.reddit.com/submit"
+                       onclick="window.open('//www.reddit.com/submit?url=' + encodeURIComponent(window.location), 'newwindow', 'width=550, height=450'); return false;"><i
+                            class="fa fa-reddit"></i></a>
+                    <a href="https://news.ycombinator.com/submit"
+                       onclick="window.open('http://news.ycombinator.com/submitlink?u='+encodeURIComponent(document.location), 'newwindow', 'width=550, height=450'); return false;">
+                        <i class="fa fa-hacker-news"></i>
+                    </a>
+                    <a href=""
+                       onclick="window.open('http://www.facebook.com/sharer.php?u=%22'+encodeURIComponent(document.location), 'newwindow', 'width=550, height=450'); return false;">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href=""
+                       onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=http://http://hudegis.github.io/&title=HUD%20Zillow%20Hackathonarticle&summary=Best%20hackathon%20in%20the%20galaxy&source=HUD', 'newwindow', 'width=550, height=450'); return false;"><i
+                            class="fa fa-linkedin"></i></a>
+
+                    <a href=""
+                       onclick="window.open('https://plusone.google.com/_/+1/confirm?hl=en&url=<?php if(is_home()){echo home_url();}else{the_permalink();} ?>', 'newwindow', 'width=550, height=450'); return false;"><i
+                            class="fa fa-google-plus"></i></a>
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <h4>PD&R HQ</h4>
+
+                <div class="hline-w"></div>
+                <p>
+                    451 7th Street S.W.<br/>
+                    Washington, DC 20410<br/>
+                    Telephone: (202) 708-1112<br/>
+                    TTY: (202) 708-1455<br/>
+                </p>
+            </div>
+
+        </div>
+        <! --/row -->
+    </div>
+    <! --/container -->
+</div>
+<! --/footerwrap -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/retina-1.1.0.js"></script>
+<script src="assets/js/jquery.hoverdir.js"></script>
+<script src="assets/js/jquery.hoverex.min.js"></script>
+<script src="assets/js/jquery.prettyPhoto.js"></script>
+<script src="assets/js/jquery.isotope.min.js"></script>
+<script src="assets/js/custom.js"></script>
+
+<script>
+    $(function () {
+        $('a[href*=#]:not([href=#])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top - 50
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+</script>
+<script>
+    function search() {
+        window.location = 'http://zillowhack.hud.opendata.arcgis.com/' + 'datasets?q=' + document.getElementById('search-input').value
+    }
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59394747-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,4404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--<link rel="shortcut icon" href="assets/ico/favicon.ico">-->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/ico/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/ico/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/ico/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/ico/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/ico/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/ico/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="assets/ico/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/ico/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="assets/ico/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="assets/ico/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="assets/ico/manifest.json">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="assets/ico/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>HUD's Zillow Hackathon</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!--<link href="assets/css/font-awesome.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]>
+    <script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+</head>
+
+<body>
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">HUD's Zillow Hackathon</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="intro.html">INTRO</a></li>
+                <li><a href="http://zillowhack.hud.opendata.arcgis.com">DATA</a></li>
+                <li class="active"><a href="docs.html">DOCS</a></li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search" action="javascript: search()">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search Data" id="search-input">
+                </div>
+            </form>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</div>
+
+<!-- *****************************************************************************************************************
+	 BLUE WRAP
+	 ***************************************************************************************************************** -->
+<div id="blue">
+    <div class="container">
+        <div class="row">
+            <h3>Documentation</h3>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /blue -->
+
+
+<!-- *****************************************************************************************************************
+	 INTRODUCTION
+	 ***************************************************************************************************************** -->
+
+<div class="container mtb" style="margin-top:-20px">
+    <div class="row">
+        <div class="col-sm-4 col-xs-12" style="z-index:99">
+            <div class="well">
+                <h4>Contents</h4>
+                <ul class="nav">
+                    <li><a href="#geoservice"><strong>Geoservice</strong></a></li>
+                    <ul class="nav" style="padding-left:10px">
+                        <li><a href="#examples">Section 8 Housing</a></li>
+                        <li><a href="#elderly">Elderly and Disabled Query</a></li>
+                        <li><a href="#allquery">Query Parameters</a></li>
+
+                    </ul>
+                    <li><a href="#ddict"><strong>Data Dictionaries</strong></a></li>
+                    <ul class="nav" style="padding-left:10px">
+                        <li><a href="#phd">Public Housing Developments</a></li>
+                        <li><a href="#pha">Public Housing Authorities</a></li>
+                        <li><a href="#phb">Public Housing Buildings</a></li>
+                        <li><a href="#mfp">Multi-Family Properties</a></li>
+                        <li><a href="#lai">Location Affordability Index</a></li>
+                        <li><a href="#lihtc">Low-Income Housing Credit</a></li>
+                        <li><a href="#hcv">HCV By Tract</a></li>
+                        <li><a href="#fmr">Fair Market Rents</a></li>
+
+                    </ul>
+                    <li><a href="#faq"><strong>FAQs</strong></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-sm-8">
+
+            <h3 id="geoservice">The Hackathon's GeoService for HUD Data</h3>
+
+            <p>
+                We have a GeoService (ArcGIS REST API) available for the hackathon.
+            </p>
+
+            <p><strong>The Base URL:</strong></p>
+
+            <p>
+                All datasets are currently hosted on ArcGIS Online's Open Data portal which provides
+                the GeoService API. All layers may be accessed at the following location:
+            </p>
+            <pre>http://services.arcgis.com/&ltthe layer's UID&gt/arcgis/rest/services/MultiFamilyProperties/FeatureServer/0/</pre>
+            <p>
+                You can find this address by navigating to the layer descritpion page at
+                <a href="http://zillowhack.hud.opendata.arcgis.com/">zillowhack.hud.opendata.arcgis.com</a>,
+                selecting 'Download Dataset' and copying the GeoService address from the API dropdown menu.
+            </p>
+
+            <p>
+                The GeoService API link will provide the REST query service which also provides links
+                to the service's metadata. To query the layer, you can either construct a query string manually or
+                use the online form provided.
+            </p>
+
+            <p>To use the GeoService, navigate to the layer in question and pull the base url from the <a
+                    href="http://zillowhack.hud.opendata.arcgis.com/">opendata page</a>
+            <pre>http://services.arcgis.com/VTyQ9soqVukalItT/ArcGIS/rest/services/FairMarketRents/FeatureServer/0/query?where=1=1&outFields=*&outSR=4326&objectids=1&f=geojson</pre>
+
+
+            <br>
+
+            <h3 id="examples">Example Queries</h3>
+            <p>A good place to begin is in collecting all the HUD subsidized Multi-Family properties.</p>
+            <p><strong>Subsidized Multifamily Properties</strong></p>
+
+            <p>The corresponding field allows you to query for all HUD subsidized MF properties:</p>
+            <pre>is_subsidized_ind='Y'</pre>
+
+            <p>
+                To construct the query, we'll take the base URL, and replace the where statement "1=1"
+                with any valid SQL where statement. So for this example, we'd construct this query:
+            </p>
+            <pre>http://services.arcgis.com/VTyQ9soqVukalItT/ArcGIS/rest/services/MultiFamilyProperties/FeatureServer/0/query?where=IS_SUBSIDIZED_IND='Y'&outFields=*&outSR=4326&objectids=1&f=geojson</pre>
+
+
+
+            <p><strong>Project-based Section 8 Properties</strong></p>
+
+            <p>A logical second step would be to query the Multi-Family Properties layer for low income, and the corresponding field for project-based Section 8 properties is: </p>
+            <pre>is_sec8_ind='Y'</pre>
+            <p>
+                so the query http string that returns the data in geojson looks like this:
+            </p>
+            <pre id="elderly">http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/MultiFamilyProperties/FeatureServer/0//query?<strong>where=is_sec8_ind='Y'</strong>&f=pgeojson</pre>
+            <p>
+                Since we're focusing on Seattle, here's how we would set our input geometry:
+            </p>
+            <pre>{"xmin":-13676570.60682338,"ymin":6018679.182711435,"xmax":-13559316.205433873,"ymax":6064541.399682558,"spatialReference":{"wkid":102100}}</pre>
+            <p>
+                We then include this directly in our query using the geometry parameter:
+            </p>
+            <pre>http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/MultiFamilyProperties/FeatureServer/0/query?where=is_sec8_ind%3D%27Y%27&<strong>geometry={"xmin":-13676570.60682338,"ymin":6018679.182711435,"xmax":-13559316.205433873,"ymax":6064541.399682558,"spatialReference":{"wkid":102100}}</strong>&f=pgeojson</pre>
+
+            <p><strong>Multifamily Elderly and Disabled Properties</strong></p>
+
+            <p>
+                For this query, we'll need to combine a few different criteria. These include:
+            </p>
+            <pre id="allquery">(1) is_sec8_202='Y'<br>(2) IS_811_CAPITAL_ADVANCE_IND='Y'<br>(3) IS_PAC_811_IND='Y'<br>(4) IS_PRAC_811_IND='Y'</pre>
+            <p>
+                To combine critera, we can use logic statments in the URL call. To include this, add the criteria
+                to the where statement with AND/OR between each criteria, as shown in the example below:
+            </p>
+            <pre>http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/MultiFamilyProperties/FeatureServer/0/query?<strong>where=IS_811_CAPITAL_ADVANCE_IND='Y'+OR+IS_PAC_811_IND='Y'+OR+IS_PRAC_811_IND='Y'</strong>&f=pgeojson</pre>
+            <p>
+                Lastly, lets trim the results down to return Seattle results only.
+            </p>
+            <pre>http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/MultiFamilyProperties/FeatureServer/0/query?<strong>where=HUB_NAME_TEXT='Seattle'+AND+(IS_811_CAPITAL_ADVANCE_IND='Y'+OR+IS_PAC_811_IND='Y'+OR+IS_PRAC_811_IND='Y')</strong>&f=pgeojson</pre>
+            <br>
+
+
+            <h3>All Query Parameters</h3>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Where</td>
+                    <td>A where clause for the query filter. Any legal SQL where clause operating on the fields
+                        in the layer is allowed.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Object IDs</td>
+                    <td>The object IDs of this layer/table to be queried.</td>
+                </tr>
+                <tr>
+                    <td>Time</td>
+                    <td>The time instant or the time extent to query.<br>
+                        <strong>Time instant</strong><br>
+                        <em>Syntax:&nbsp</em> <span class="code">time=timeInstant</span><br>
+                        <em>Example:&nbsp</em><span class="code"> time=1199145600000</span><br>
+                        <strong>Time extent</strong><br>
+                        <em>Syntax:&nbsp</em> <span class="code"> time=startTime, endTime</span><br>
+                        <em>Example:&nbsp</em><span class="code"> time=1199145600000, 1230768000000</span><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Input Geometry</td>
+                    <td>
+                        The geometry to apply as the spatial filter. The structure of the geometry
+                        is the same as the structure of the json geometry objects returned by the
+                        ArcGIS REST API. In addition to the json structures, for envelopes and points,
+                        you can specify the geometry with a simpler comma-separated syntax.<br>
+                        <em>Syntax:</em><br>
+                        <ul style="margin-left:15px">
+                            <li>json structures:&nbsp <span class="code">geometryType=&ltgeometryType&gt&geometry={geometry}</span>
+                            </li>
+                            <li>Envelope simple syntax:&nbsp <span class="code">geometryType=esriGeometryEnvelope&geometry=&ltxmin&gt,&ltymin&gt,&ltxmax&gt,&ltymax&gt}</span>
+                            </li>
+                            <li>Point simple syntax:&nbsp <span class="code">geometryType=esriGeometryPoint&geometry=&ltx&gt,&lty&gt</span>
+                            </li>
+                        </ul>
+                        <em>Examples:</em><br>
+                        <ul style="margin-left:15px">
+                            <li><span class="code">geometryType=&ltgeometryType&gt&geometry={xmin: -104, ymin: 35.6, xmax: -94.32, ymax: 41}</span>
+                            </li>
+                            <li><span class="code">geometryType=esriGeometryEnvelope&geometry=-104,35.6,-94.32,41</span>
+                            </li>
+                            <li><span class="code">geometryType=esriGeometryPoint&geometry=-104,35.6</span></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Geometry Type</td>
+                    <td>
+                        The type of geometry specified by the geometry parameter. The geometry type can be an envelope,
+                        point, line, or polygon. The default geometry type is an envelope.
+                        <br>
+                        <em>Values:</em><span class="code">&nbspesriGeometryPoint | esriGeometryMultipoint | esriGeometryPolyline | esriGeometryPolygon | esriGeometryEnvelope</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Input Spatial Reference</td>
+                    <td>
+                        The spatial relationship to be applied on the input geometry while performing the query. The
+                        supported spatial relationships include intersects, contains, envelope intersects, within, etc.
+                        The default spatial relationship is intersects (esriSpatialRelIntersects).
+                        <em>Options are:</em>&nbsp intersects, contains, crosses, envelope intersects, index intersects,
+                        overlaps,
+                        touches, and within.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Distance</td>
+                    <td>Distance to buffer input geometry.</td>
+                </tr>
+                <tr>
+                    <td>Units</td>
+                    <td>Return distance values in the specified units. Options are meters, miles, feet, kilometers,
+                        nautical miles, and US nautical miles.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Out Fields</td>
+                    <td>Attribute fields to include in response. Default is all (*).</td>
+                </tr>
+                <tr>
+                    <td>Return Geometry</td>
+                    <td>Boolean parameter. If 'true', each feature in the FeatureSet includes the geometry.</td>
+                </tr>
+                <tr>
+                    <td>Max Allowable Offset</td>
+                    <td>The maximum allowable offset used for generalizing geometries returned by the query operation.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Geometry Precision</td>
+                    <td>Specify the number of decimal places for the geometries returned by the query operation.</td>
+                </tr>
+                <tr>
+                    <td>Output Spatial Reference</td>
+                    <td>The spatial reference for the returned geometry.</td>
+                </tr>
+                <tr>
+                    <td>Return IDs Only</td>
+                    <td> If true, the response only includes an array of object IDs. Otherwise the response is a feature
+                        set. The default is false.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Return Count Only</td>
+                    <td>If true, the response only includes the count (number of features/records) that would be
+                        returned by a query. Otherwise the response is a feature set. The default is false. This option
+                        supersedes the returnIdsOnly parameter.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Return Extent Only</td>
+                    <td>Boolean parameter set to return the query features extent only.</td>
+                </tr>
+                <tr>
+                    <td>Order By Fields</td>
+                    <td>One or more field names using the features/records that need to be ordered. Use ASC or DESC for
+                        ascending or desending order respectively.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Group By Fields</td>
+                    <td>Group by fields (for statistics).</td>
+                </tr>
+                <tr>
+                    <td>Output Statistics</td>
+                    <td>The definitions for one or more field-based statistics to be calculated.</td>
+                </tr>
+                <tr>
+                    <td>Result Offset</td>
+                    <td>This option can be used for fetching query results by skipping the specified number of records
+                        and starts from the next record (i.e.resultOffset + 1th). The Default is 0.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Result Record Count</td>
+                    <td>This option can be used for fetching query results up to the resultRecordCount specified. When
+                        resultOffset is specified but this parameter is not, map service defaults it to maxRecordCount.
+                        The maximum value for this parameter is the value of the layer's maxRecordCount property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>ReturnZ</td>
+                    <td>If true, the Z values will be included in the results if the features have Z values. Otherwise Z
+                        values are not returned. The default is false.
+                    </td>
+                </tr>
+                <tr>
+                    <td>ReturnM</td>
+                    <td>If true, M values will be included in the results if the features have m values. Otherwise, M
+                        values are not returned. The default is false.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Quantization Parameters</td>
+                    <td>Used to project the geometry onto a virtual grid, likely representing pixels on the screen.</td>
+                </tr>
+                <tr>
+                    <td>Format</td>
+                    <td>The response format. Default format is html but options include html, json, and geojson</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <br>
+
+            <h3 id="ddict">Data Dictionaries</h3>
+            <h4 class="table-head" id="phd">Public Housing Developments</h4>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th title="Field #1">Column Name</th>
+                    <th title="Field #2">Column Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>OBJECTID</td>
+                    <td>In ArcGIS, a system-managed value that uniquely identifies a record or feature.</td>
+                </tr>
+                <tr>
+                    <td>PARTICIPANT_CODE</td>
+                    <td>PHA code of the PHA administering the FSS contract.</td>
+                </tr>
+                <tr>
+                    <td>FORMAL_PARTICIPANT_NAME</td>
+                    <td>Business title of the participant used in addresses and letterhead.</td>
+                </tr>
+                <tr>
+                    <td>DEVELOPMENT_CODE</td>
+                    <td>A code that uniquely identifies a project or a development.</td>
+                </tr>
+                <tr>
+                    <td>PROJECT_NAME</td>
+                    <td>The name of the physical development.</td>
+                </tr>
+                <tr>
+                    <td>SCATTERED_SITE_IND</td>
+                    <td>An indicator, which determines whether or not a physical development is made up of scattered
+                        buildings/units.
+                    </td>
+                </tr>
+                <tr>
+                    <td>PD_STATUS_TYPE_CODE</td>
+                    <td>Defines the status of the physical development. D (Development), M (Management) and
+                        T(Terminated).
+                    </td>
+                </tr>
+                <tr>
+                    <td>TOTAL_UNITS</td>
+                    <td>total_units_count The number of total units associated with the participant.</td>
+                </tr>
+                <tr>
+                    <td>TOTAL_DWELLING_UNITS</td>
+                    <td>summ_total_dwelling_unit_count The count of the entire dwelling building structures within the
+                        Physical Development.
+                    </td>
+                </tr>
+                <tr>
+                    <td>ACC_UNITS</td>
+                    <td>summ_acc_unit_count The total number of all the acc units within the HA.</td>
+                </tr>
+                <tr>
+                    <td>TOTAL_OCCUPIED</td>
+                    <td>summ_occupied_unit_count The total number of all the occupied units within the Building
+                        Entrance.
+                    </td>
+                </tr>
+                <tr>
+                    <td>REGULAR_VACANT</td>
+                    <td>summ_vacant_unit_count The total number of all the vacant units within the Building Entrance.
+                    </td>
+                </tr>
+                <tr>
+                    <td>PHA_TOTAL_UNITS</td>
+                    <td>Number of units under contract for federal subsidy and available for occupancy</td>
+                </tr>
+                <tr>
+                    <td>PCT_OCCUPIED</td>
+                    <td>Occupied units as the % of units available.</td>
+                </tr>
+                <tr>
+                    <td>NUMBER_REPORTED</td>
+                    <td>Number of households for which reports were received (These are households reported as of
+                        12/2000 with effective dates spanning the prior 18 months.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_REPORTED</td>
+                    <td>Households for which reports were received, as % of occupied units. (These are households
+                        reported as of 12/2000 with effective dates spanning the prior 18 months.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>MONTHS_SINCE_REPORT</td>
+                    <td>Average number of months since manager reported on household. (Calculations exclude zero values
+                        and missing values.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_MOVEIN</td>
+                    <td>% in program less than a year (the difference between the effective date and the date of
+                        admission: type of action = 1).
+                    </td>
+                </tr>
+                <tr>
+                    <td>PEOPLE_PER_UNIT</td>
+                    <td>Average size of household (with decimal point and place, e.g., 2.5). (Excludes zerovalues and
+                        missing values.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PEOPLE_TOTAL</td>
+                    <td>Total number of people (shown in thousands).</td>
+                </tr>
+                <tr>
+                    <td>RENT_PER_MONTH</td>
+                    <td>Average gross household contribution towards rent per month (includes payment toward rent and
+                        utilities). (Excludes zero values and missing values.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>SPENDING_PER_MONTH</td>
+                    <td>Average federal spending per unit per month (not fully comparable across programs). For public
+                        housing, sum of the operating subsidy and capital improvement cost is divided by the total
+                        number of occupied units (such spending data is available at the PHA level only). For
+                        tenant-based Section 8, Section 8 Moderate Rehabilitation, and Multifamily Assisted, the housing
+                        assistance payment (HAP) is divided by the total number of reported households. An amount is
+                        added for administrative cost in Section 8 tenant based and Section 8 Moderate Rehabilitation.
+                        (Excludes zero values and missing values.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>HH_INCOME</td>
+                    <td>Average total household income per year (shown in thousands of dollars per year with decimal
+                        point). (Numerator includes zero income but excludes missing income; denominator includes all
+                        households.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PERSON_INCOME</td>
+                    <td>Average household income per person per year (shown in thousands of dollars per year with
+                        decimal point). (Numerator includes zero income but excludes missing income; denominator
+                        includes all members of households.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_LT5K</td>
+                    <td>% below $5,000 per year.</td>
+                </tr>
+                <tr>
+                    <td>PCT_5K_LT10K</td>
+                    <td>% between $5,000-$9,999 per year.</td>
+                </tr>
+                <tr>
+                    <td>PCT_10K_LT15K</td>
+                    <td>% between $10,000-$14,999 per year.</td>
+                </tr>
+                <tr>
+                    <td>PCT_15K_LT20K</td>
+                    <td>% between $15,000-$19,999 per year.</td>
+                </tr>
+                <tr>
+                    <td>PCT_GE20K</td>
+                    <td>% $20,000 or more per year.</td>
+                </tr>
+                <tr>
+                    <td>PCT_WAGE_MAJOR</td>
+                    <td>% of households where the majority of household income is derived from wages and/or business
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_WELFARE_MAJOR</td>
+                    <td>% of households where the majority of household income is derived from welfare (TANF, General
+                        Assistance, or Public Assistance).
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_OTHER_MAJOR</td>
+                    <td>% of households where the majority of household income is derived from a source other than wage
+                        and welfare.
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_MEDIAN</td>
+                    <td>Household income as a percent of local area median family income, as defined by HUD, and
+                        adjusted for household size. (Numerator includes zero income but excludes missing income;
+                        denominator includes all households.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_LT50_MEDIAN</td>
+                    <td>% of households with income below 50% of local area median family income, as defined by HUD,
+                        adjusted for household size (refer to the downloadable file only, not in published report).
+                        (Numerator includes zero income but excludes missing income; denominator includes all
+                        households.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_LT30_MEDIAN</td>
+                    <td>% of households with income below 30% of local area median family income, as defined by HUD,
+                        adjusted for household size. (Numerator includes zero income but excludes missing income;
+                        denominator includes all households.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_2ADULTS</td>
+                    <td>% with two spouses and 1 or more children under 18 years.</td>
+                </tr>
+                <tr>
+                    <td>PCT_1ADULT</td>
+                    <td>% where spouse not present and 1 or more children under 18 years.</td>
+                </tr>
+                <tr>
+                    <td>PCT_FEMALE_HEAD</td>
+                    <td>% of households headed by a female.</td>
+                </tr>
+                <tr>
+                    <td>PCT_FEMALE_HEAD_CHILD</td>
+                    <td>% of households headed by a female with children.</td>
+                </tr>
+                <tr>
+                    <td>PCT_DISABLED_LT62</td>
+                    <td>% of households below age 62 where either household head or spouse (or cohead)has a
+                        disability.
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_DISABLED_GE62</td>
+                    <td>% of households age 62 or older where either household head or spouse (or cohead) has a
+                        disability.
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_DISABLED_ALL</td>
+                    <td>% of all persons in household with a disability.</td>
+                </tr>
+                <tr>
+                    <td>PCT_LT24_HEAD</td>
+                    <td>% 24 or less years: household head or spouse (whoever is older).</td>
+                </tr>
+                <tr>
+                    <td>PCT_AGE25_50</td>
+                    <td>% 25 to 50 years: household head or spouse (whoever is older).</td>
+                </tr>
+                <tr>
+                    <td>PCT_AGE51_61</td>
+                    <td>% 51 to 61 years: household head or spouse (whoever is older).</td>
+                </tr>
+                <tr>
+                    <td>PCT_AGE62PLUS</td>
+                    <td>% age 62 and older.</td>
+                </tr>
+                <tr>
+                    <td>PCT_AGE85PLUS</td>
+                    <td>% age 85 and older.</td>
+                </tr>
+                <tr>
+                    <td>PCT_MINORITY</td>
+                    <td>% Minority.</td>
+                </tr>
+                <tr>
+                    <td>PCT_BLACK</td>
+                    <td>% Black, non-Hispanic.</td>
+                </tr>
+                <tr>
+                    <td>PCT_NATIVE_AMERICAN</td>
+                    <td>% Native American, non-Hispanic.</td>
+                </tr>
+                <tr>
+                    <td>PCT_ASIAN</td>
+                    <td>% Asian or Pacific Islander, non-Hispanic.</td>
+                </tr>
+                <tr>
+                    <td>PCT_HISPANIC</td>
+                    <td>% Hispanic (of any race).</td>
+                </tr>
+                <tr>
+                    <td>MONTHS_WAITING</td>
+                    <td>Average months on waiting list among admissions. Excludes programs that do not report waiting
+                        list dates. (Excludes zero values and missing values.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>MONTHS_FROM_MOVEIN</td>
+                    <td>Average months since moved in. (Excludes zero values and missing values.)</td>
+                </tr>
+                <tr>
+                    <td>PCT_UTILITY_ALLOW</td>
+                    <td>% with valid utility allowance ($1 to $1000). This is an estimate of the utilities that the
+                        household pays to the utility company. It is zero if all utilities are included in the rent.
+                    </td>
+                </tr>
+                <tr>
+                    <td>AVE_UTIL_ALLOW</td>
+                    <td>Average utility allowance among households who have it (in $ per month). (Excludes zero values
+                        and missing values.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_BED1</td>
+                    <td>% of households with 0- or 1-bedroom units (efficiencies and one-bedrooms).</td>
+                </tr>
+                <tr>
+                    <td>PCT_BED2</td>
+                    <td>% of households with 2-bedroom units.</td>
+                </tr>
+                <tr>
+                    <td>PCT_BED3</td>
+                    <td>% of households with 3- or more bedroom units.</td>
+                </tr>
+                <tr>
+                    <td>PCT_OVERHOUSED</td>
+                    <td>% overhoused (households with more bedrooms than people).</td>
+                </tr>
+                <tr>
+                    <td>TMINORITY</td>
+                    <td>Minorities as % of total population in the census tract where HUD assisted families reside
+                        (Census 2000 designation)
+                    </td>
+                </tr>
+                <tr>
+                    <td>TPOVERTY</td>
+                    <td>Percent of the population below poverty level, in census tract where HUD assisted households
+                        reside (Census 2000 designation)
+                    </td>
+                </tr>
+                <tr>
+                    <td>TPCT_OWNSFD</td>
+                    <td>% of households who are owner-occupants of single-family detached homes in the census tract that
+                        surrounds the project.
+                    </td>
+                </tr>
+                <tr>
+                    <td>STATE2KX</td>
+                    <td>Census 2010 FIPS State Code</td>
+                </tr>
+                <tr>
+                    <td>CNTY_NM2KX</td>
+                    <td>Census 2010 County Name</td>
+                </tr>
+                <tr>
+                    <td>CNTY2KX</td>
+                    <td>Census 2010 FIPS County Code</td>
+                </tr>
+                <tr>
+                    <td>TRACT2KX</td>
+                    <td>Census 2010 Tract</td>
+                </tr>
+                <tr>
+                    <td>BG2KX</td>
+                    <td>Census 2010 Block Group</td>
+                </tr>
+                <tr>
+                    <td>BLOCK2KX</td>
+                    <td>Census 2010 Block ID</td>
+                </tr>
+                <tr>
+                    <td>DPVACT</td>
+                    <td>DPV Vacancy Flag</td>
+                </tr>
+                <tr>
+                    <td>DPVNOST</td>
+                    <td>DPV &quot;No Stat&quot; Flag</td>
+                </tr>
+                <tr>
+                    <td>CURCNTY_NM</td>
+                    <td>Current FIPS County Name</td>
+                </tr>
+                <tr>
+                    <td>CURCNTY</td>
+                    <td>Current FIPS County Code</td>
+                </tr>
+                <tr>
+                    <td>CURCOSUB</td>
+                    <td>Current County Subdivision Code (MCD/CC</td>
+                </tr>
+                <tr>
+                    <td>CURCOSUB_NM</td>
+                    <td>Current County Subdivision Name (MCD/CC</td>
+                </tr>
+                <tr>
+                    <td>PLACE2KX</td>
+                    <td>FIPS Place Code</td>
+                </tr>
+                <tr>
+                    <td>PLACE_NM2KX</td>
+                    <td>FIPS Place name</td>
+                </tr>
+                <tr>
+                    <td>PLACE_CC2KX</td>
+                    <td>FIPS Place Class Code</td>
+                </tr>
+                <tr>
+                    <td>PLACE_INC2KX</td>
+                    <td>FIPS Place Incorporated Flag</td>
+                </tr>
+                <tr>
+                    <td>MSA</td>
+                    <td>Metropolitan Statistical Area Code</td>
+                </tr>
+                <tr>
+                    <td>MSA_NM</td>
+                    <td>MSA/PMSA Name</td>
+                </tr>
+                <tr>
+                    <td>CBSA</td>
+                    <td>Core Based Statistical Area</td>
+                </tr>
+                <tr>
+                    <td>CBSA_NM</td>
+                    <td>Core Based Statistical Area, Lowest Level N</td>
+                </tr>
+                <tr>
+                    <td>NECTA</td>
+                    <td>New England City and Town Area, Lowest Le</td>
+                </tr>
+                <tr>
+                    <td>NECTA_NM</td>
+                    <td>NECTA Lowest Level Name</td>
+                </tr>
+                <tr>
+                    <td>METRO</td>
+                    <td>CBSA Metropolitan Area Indicator</td>
+                </tr>
+                <tr>
+                    <td>MICRO</td>
+                    <td>CBSA Micropolitan Area Indicator</td>
+                </tr>
+                <tr>
+                    <td>FCD_FIPS91</td>
+                    <td>Federal Congressional District (FIPS 9.1 std.)</td>
+                </tr>
+                <tr>
+                    <td>HLC</td>
+                    <td>HUD Locality Code</td>
+                </tr>
+                <tr>
+                    <td>DPV</td>
+                    <td>DPV Return Code</td>
+                </tr>
+                <tr>
+                    <td>DPVRC</td>
+                    <td>Delivery Point Validation(DPV) Indicator</td>
+                </tr>
+                <tr>
+                    <td>STD_ADDR</td>
+                    <td>USPS Standardized Address</td>
+                </tr>
+                <tr>
+                    <td>URB_OUT</td>
+                    <td>Puerto Rico Urbanization Name</td>
+                </tr>
+                <tr>
+                    <td>STD_CITY</td>
+                    <td>USPS Standardized City Name</td>
+                </tr>
+                <tr>
+                    <td>STD_ST</td>
+                    <td>USPS Standardized State Abbreviation</td>
+                </tr>
+                <tr>
+                    <td>STD_ZIP5</td>
+                    <td>USPS Standardized ZIP Code</td>
+                </tr>
+                <tr>
+                    <td>STD_ZIP9</td>
+                    <td>USPS Standardized ZIP+4 Code</td>
+                </tr>
+                <tr>
+                    <td>ZIP_CLASS</td>
+                    <td>Type of Zip Code</td>
+                </tr>
+                <tr>
+                    <td>ZCTA2KX</td>
+                    <td>Census 2010 Zip Code Tabulation Area</td>
+                </tr>
+                <tr>
+                    <td>DPBC</td>
+                    <td>Delivery Point Bar Code</td>
+                </tr>
+                <tr>
+                    <td>DPBC_CKSUM</td>
+                    <td>Delivery Point Bar Code, Check Digit</td>
+                </tr>
+                <tr>
+                    <td>STD_ZIP11</td>
+                    <td>Postnet Bar Code</td>
+                </tr>
+                <tr>
+                    <td>ADDR_TYPE</td>
+                    <td>USPS Address Type &quot;&quot; - no match, &quot;S&quot; - House/Street match, &quot;H&quot; -
+                        Highrise, &quot;P&quot; - PO Box, &quot;G&quot; - General Delivery, &quot;R&quot; - Rural
+                        Route/Highway Contract
+                    </td>
+                </tr>
+                <tr>
+                    <td>APT_NO</td>
+                    <td>Apartment Number</td>
+                </tr>
+                <tr>
+                    <td>APT_TYPE</td>
+                    <td>Apartment Type; Contains the secondary address type abbreviation (Apt = Apartment, Ste = Suite,
+                        # = Apartment, RM = Room, FL = Floor, etc..)
+                    </td>
+                </tr>
+                <tr>
+                    <td>C1PGRC</td>
+                    <td>General Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PPRB</td>
+                    <td>Address Match Probability</td>
+                </tr>
+                <tr>
+                    <td>C1PDRC</td>
+                    <td>Directional Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PSRC</td>
+                    <td>Suffix Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PARC</td>
+                    <td>Apartment Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PZRC</td>
+                    <td>ZIP Return Code</td>
+                </tr>
+                <tr>
+                    <td>MSGUSPS</td>
+                    <td>Postal Matcher Status Message</td>
+                </tr>
+                <tr>
+                    <td>LAT</td>
+                    <td>Latitude (decimal)</td>
+                </tr>
+                <tr>
+                    <td>LON</td>
+                    <td>Longitude (decimal)</td>
+                </tr>
+                <tr>
+                    <td>RC2KX</td>
+                    <td>Census 2010 Geocoder General Return Code</td>
+                </tr>
+                <tr>
+                    <td>STM2KX</td>
+                    <td>Census 2010 Geocoder Street Matcher Return Code</td>
+                </tr>
+                <tr>
+                    <td>LVL2KX</td>
+                    <td>Census 2010 Geocoder Lat/Long Geocoding Return Code</td>
+                </tr>
+                <tr>
+                    <td>UR</td>
+                    <td>Urban/Rural Indicator</td>
+                </tr>
+                <tr>
+                    <td>MSG2KX</td>
+                    <td>Census 2010 Geocoder Lat/Long Level Status</td>
+                </tr>
+                <tr>
+                    <td>COUNTY_LEVEL</td>
+                    <td>5 character combination of state and county FIPS codes</td>
+                </tr>
+                <tr>
+                    <td>PLACE_LEVEL</td>
+                    <td>7 characters. For CDBG Entitlement Cities, this is the CDBG ID. For Urban Counties and State
+                        Nonentitlement Areas, is a concatenation of state and place FIPS codes
+                    </td>
+                </tr>
+                <tr>
+                    <td>TRACT_LEVEL</td>
+                    <td>11 character combination of state, county, and Census Tract codes</td>
+                </tr>
+                <tr>
+                    <td>BLKGRP_LEVEL</td>
+                    <td>17 character combination of State, county, place, county subdivision, tract, Urban/Rural (UR),
+                        block group
+                    </td>
+                </tr>
+                <tr>
+                    <td>SHAPE</td>
+                    <td>The characteristic appearance or visible form of a geographic object as represented on a map
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <h4 class="table-head" id="pha">Public Housing Authorities</h4>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th title="Field #1">Column Name</th>
+                    <th title="Field #2">Column Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>OBJECTID</td>
+                    <td>In ArcGIS, a system-managed value that uniquely identifies a record or feature.</td>
+                </tr>
+                <tr>
+                    <td>PARTICIPANT_CODE</td>
+                    <td>PHA code of the PHA administering the FSS contract.</td>
+                </tr>
+                <tr>
+                    <td>FORMAL_PARTICIPANT_NAME</td>
+                    <td>Business title of the participant used in addresses and letterhead.</td>
+                </tr>
+                <tr>
+                    <td>EXEC_DIR_PHONE</td>
+                    <td>Phone Number of Executive Director</td>
+                </tr>
+                <tr>
+                    <td>EXEC_DIR_FAX</td>
+                    <td>Fax Number of Executive Director</td>
+                </tr>
+                <tr>
+                    <td>EXEC_DIR_EMAIL</td>
+                    <td>Email of Executive Director</td>
+                </tr>
+                <tr>
+                    <td>PHAS_DESIGNATION</td>
+                    <td>The overall performance of PHA derived from the phas_designation_type_code field: Advisory, High
+                        Performer, Standard Performer, Substandard Financial, Substandard Physical and Troubled
+                        Performer
+                    </td>
+                </tr>
+                <tr>
+                    <td>HA_LOW_RENT_SIZE_CATEGORY</td>
+                    <td>Extra Large (10,000+), Large (1,250 - 9,999), Medium High (500 - 1,249), Medium Low (250 - 499),
+                        Small (50 - 249), Very Small (1 - 49) and No units
+                    </td>
+                </tr>
+                <tr>
+                    <td>HA_SECTION_8_SIZE_CATEGORY</td>
+                    <td>Extra Large (10,000+), Large (1,250 - 9,999), Medium High (500 - 1,249), Medium Low (250 - 499),
+                        Small (50 - 249), Very Small (1 - 49) and No units
+                    </td>
+                </tr>
+                <tr>
+                    <td>HA_COMBINED_SIZE_CATEGORY</td>
+                    <td>Extra Large (10,000+), Large (1,250 - 9,999), Medium High (500 - 1,249), Medium Low (250 - 499),
+                        Small (50 - 249), Very Small (1 - 49) and No units
+                    </td>
+                </tr>
+                <tr>
+                    <td>HA_FYE</td>
+                    <td>ha_fy_end_month</td>
+                </tr>
+                <tr>
+                    <td>HA_PROGRAM_TYPE</td>
+                    <td>A code that uniquely identifies the participant program type and is derived from
+                        participant_program_type. Combined, Low-Rent and Section 8.
+                    </td>
+                </tr>
+                <tr>
+                    <td>TOTAL_UNITS</td>
+                    <td>total_units_count The number of total units associated with the participant.</td>
+                </tr>
+                <tr>
+                    <td>TOTAL_DWELLING_UNITS</td>
+                    <td>summ_total_dwelling_unit_count The total number of all the dwelling units within the HA.</td>
+                </tr>
+                <tr>
+                    <td>ACC_UNITS</td>
+                    <td>summ_acc_unit_count The total number of all the acc units within the HA.</td>
+                </tr>
+                <tr>
+                    <td>TOTAL_OCCUPIED</td>
+                    <td>summ_occupied_unit_count The total number of all the occupied units within the HA.</td>
+                </tr>
+                <tr>
+                    <td>REGULAR_VACANT</td>
+                    <td>summ_vacant_unit_count The total number of all the vacant units within the HA.</td>
+                </tr>
+                <tr>
+                    <td>SECTION8_UNITS_CNT</td>
+                    <td>total_section_8_unit_count Total Section 8 units for an HA.</td>
+                </tr>
+                <tr>
+                    <td>PHA_TOTAL_UNITS</td>
+                    <td>Number of units under contract for federal subsidy and available for occupancy</td>
+                </tr>
+                <tr>
+                    <td>STATE2KX</td>
+                    <td>Census 2010 FIPS State Code</td>
+                </tr>
+                <tr>
+                    <td>CNTY_NM2KX</td>
+                    <td>Census 2010 County Name</td>
+                </tr>
+                <tr>
+                    <td>CNTY2KX</td>
+                    <td>Census 2010 FIPS County Code</td>
+                </tr>
+                <tr>
+                    <td>TRACT2KX</td>
+                    <td>Census 2010 Tract</td>
+                </tr>
+                <tr>
+                    <td>BG2KX</td>
+                    <td>Census 2010 Block Group</td>
+                </tr>
+                <tr>
+                    <td>BLOCK2KX</td>
+                    <td>Census 2010 Block ID</td>
+                </tr>
+                <tr>
+                    <td>DPVACT</td>
+                    <td>DPV Vacancy Flag</td>
+                </tr>
+                <tr>
+                    <td>DPVNOST</td>
+                    <td>DPV &quot;No Stat&quot; Flag</td>
+                </tr>
+                <tr>
+                    <td>CURCNTY_NM</td>
+                    <td>Current FIPS County Name</td>
+                </tr>
+                <tr>
+                    <td>CURCNTY</td>
+                    <td>Current FIPS County Code</td>
+                </tr>
+                <tr>
+                    <td>CURCOSUB</td>
+                    <td>Current County Subdivision Code (MCD/CC</td>
+                </tr>
+                <tr>
+                    <td>CURCOSUB_NM</td>
+                    <td>Current County Subdivision Name (MCD/CC</td>
+                </tr>
+                <tr>
+                    <td>PLACE2KX</td>
+                    <td>FIPS Place Code</td>
+                </tr>
+                <tr>
+                    <td>PLACE_NM2KX</td>
+                    <td>FIPS Place name</td>
+                </tr>
+                <tr>
+                    <td>PLACE_CC2KX</td>
+                    <td>FIPS Place Class Code</td>
+                </tr>
+                <tr>
+                    <td>PLACE_INC2KX</td>
+                    <td>FIPS Place Incorporated Flag</td>
+                </tr>
+                <tr>
+                    <td>MSA</td>
+                    <td>Metropolitan Statistical Area Code</td>
+                </tr>
+                <tr>
+                    <td>MSA_NM</td>
+                    <td>MSA/PMSA Name</td>
+                </tr>
+                <tr>
+                    <td>CBSA</td>
+                    <td>Core Based Statistical Area</td>
+                </tr>
+                <tr>
+                    <td>CBSA_NM</td>
+                    <td>Core Based Statistical Area, Lowest Level N</td>
+                </tr>
+                <tr>
+                    <td>NECTA</td>
+                    <td>New England City and Town Area, Lowest Le</td>
+                </tr>
+                <tr>
+                    <td>NECTA_NM</td>
+                    <td>NECTA Lowest Level Name</td>
+                </tr>
+                <tr>
+                    <td>METRO</td>
+                    <td>CBSA Metropolitan Area Indicator</td>
+                </tr>
+                <tr>
+                    <td>MICRO</td>
+                    <td>CBSA Micropolitan Area Indicator</td>
+                </tr>
+                <tr>
+                    <td>FCD_FIPS91</td>
+                    <td>Federal Congressional District (FIPS 9.1 std.)</td>
+                </tr>
+                <tr>
+                    <td>HLC</td>
+                    <td>HUD Locality Code</td>
+                </tr>
+                <tr>
+                    <td>DPV</td>
+                    <td>DPV Return Code</td>
+                </tr>
+                <tr>
+                    <td>DPVRC</td>
+                    <td>Delivery Point Validation(DPV) Indicator</td>
+                </tr>
+                <tr>
+                    <td>STD_ADDR</td>
+                    <td>USPS Standardized Address</td>
+                </tr>
+                <tr>
+                    <td>URB_OUT</td>
+                    <td>Puerto Rico Urbanization Name</td>
+                </tr>
+                <tr>
+                    <td>STD_CITY</td>
+                    <td>USPS Standardized City Name</td>
+                </tr>
+                <tr>
+                    <td>STD_ST</td>
+                    <td>USPS Standardized State Abbreviation</td>
+                </tr>
+                <tr>
+                    <td>STD_ZIP5</td>
+                    <td>USPS Standardized ZIP Code</td>
+                </tr>
+                <tr>
+                    <td>STD_ZIP9</td>
+                    <td>USPS Standardized ZIP+4 Code</td>
+                </tr>
+                <tr>
+                    <td>ZIP_CLASS</td>
+                    <td>Type of Zip Code</td>
+                </tr>
+                <tr>
+                    <td>ZCTA2KX</td>
+                    <td>Census 2010 Zip Code Tabulation Area</td>
+                </tr>
+                <tr>
+                    <td>DPBC</td>
+                    <td>Delivery Point Bar Code</td>
+                </tr>
+                <tr>
+                    <td>DPBC_CKSUM</td>
+                    <td>Delivery Point Bar Code, Check Digit</td>
+                </tr>
+                <tr>
+                    <td>STD_ZIP11</td>
+                    <td>Postnet Bar Code</td>
+                </tr>
+                <tr>
+                    <td>ADDR_TYPE</td>
+                    <td>USPS Address Type &quot;&quot; - no match, &quot;S&quot; - House/Street match, &quot;H&quot; -
+                        Highrise, &quot;P&quot; - PO Box, &quot;G&quot; - General Delivery, &quot;R&quot; - Rural
+                        Route/Highway Contract
+                    </td>
+                </tr>
+                <tr>
+                    <td>APT_NO</td>
+                    <td>Apartment Number</td>
+                </tr>
+                <tr>
+                    <td>APT_TYPE</td>
+                    <td>Apartment Type; Contains the secondary address type abbreviation (Apt = Apartment, Ste = Suite,
+                        # = Apartment, RM = Room, FL = Floor, etc..)
+                    </td>
+                </tr>
+                <tr>
+                    <td>C1PGRC</td>
+                    <td>General Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PPRB</td>
+                    <td>Address Match Probability</td>
+                </tr>
+                <tr>
+                    <td>C1PDRC</td>
+                    <td>Directional Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PSRC</td>
+                    <td>Suffix Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PARC</td>
+                    <td>Apartment Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PZRC</td>
+                    <td>ZIP Return Code</td>
+                </tr>
+                <tr>
+                    <td>MSGUSPS</td>
+                    <td>Postal Matcher Status Message</td>
+                </tr>
+                <tr>
+                    <td>LAT</td>
+                    <td>Latitude (decimal)</td>
+                </tr>
+                <tr>
+                    <td>LON</td>
+                    <td>Longitude (decimal)</td>
+                </tr>
+                <tr>
+                    <td>RC2KX</td>
+                    <td>Census 2010 Geocoder General Return Code</td>
+                </tr>
+                <tr>
+                    <td>STM2KX</td>
+                    <td>Census 2010 Geocoder Street Matcher Return Code</td>
+                </tr>
+                <tr>
+                    <td>LVL2KX</td>
+                    <td>Census 2010 Geocoder Lat/Long Geocoding Return Code</td>
+                </tr>
+                <tr>
+                    <td>UR</td>
+                    <td>Urban/Rural Indicator</td>
+                </tr>
+                <tr>
+                    <td>MSG2KX</td>
+                    <td>Census 2010 Geocoder Lat/Long Level Status</td>
+                </tr>
+                <tr>
+                    <td>COUNTY_LEVEL</td>
+                    <td>5 character combination of state and county FIPS codes</td>
+                </tr>
+                <tr>
+                    <td>PLACE_LEVEL</td>
+                    <td>7 characters. For CDBG Entitlement Cities, this is the CDBG ID. For Urban Counties and State
+                        Nonentitlement Areas, is a concatenation of state and place FIPS codes
+                    </td>
+                </tr>
+                <tr>
+                    <td>TRACT_LEVEL</td>
+                    <td>11 character combination of state, county, and Census Tract codes</td>
+                </tr>
+                <tr>
+                    <td>BLKGRP_LEVEL</td>
+                    <td>17 character combination of State, county, place, county subdivision, tract, Urban/Rural (UR),
+                        block group
+                    </td>
+                </tr>
+                <tr>
+                    <td>SHAPE</td>
+                    <td>The characteristic appearance or visible form of a geographic object as represented on a map
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <h4 class="table-head" id="phb">Public Housing Buildings</h4>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th title="Field #1">Column Name</th>
+                    <th title="Field #2">Column Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>OBJECTID</td>
+                    <td>In ArcGIS, a system-managed value that uniquely identifies a record or feature.</td>
+                </tr>
+                <tr>
+                    <td>PARTICIPANT_CODE</td>
+                    <td>PHA code of the PHA administering the FSS contract.</td>
+                </tr>
+                <tr>
+                    <td>FORMAL_PARTICIPANT_NAME</td>
+                    <td>Business title of the participant used in addresses and letterhead.</td>
+                </tr>
+                <tr>
+                    <td>DEVELOPMENT_CODE</td>
+                    <td>A code that uniquely identifies a project or a development.</td>
+                </tr>
+                <tr>
+                    <td>PROJECT_NAME</td>
+                    <td>The name of the physical development.</td>
+                </tr>
+                <tr>
+                    <td>BUILDING_NAME</td>
+                    <td>The name of the building.</td>
+                </tr>
+                <tr>
+                    <td>BUILDING_NUMBER</td>
+                    <td>A number, which uniquely identifies the building.</td>
+                </tr>
+                <tr>
+                    <td>BUILDING_TYPE_CODE</td>
+                    <td>A code uniquely identifying the type of building structure and includes ES (Elevator Structure),
+                        NDS (Non Dwelling Structure), RW, SD, SF, WU and MX (Mixed Type).
+                    </td>
+                </tr>
+                <tr>
+                    <td>BUILDING_STATUS_TYPE_CODE</td>
+                    <td>A code, which uniquely identifies the status of a building entrance. The different
+                        building_status_type_codes include DDAPRD (DemoDispo -Approved), DDDRFT (DemoDispo - TBD)
+                    </td>
+                </tr>
+                <tr>
+                    <td>CONSTRUCT_DATE</td>
+                    <td>The date on which the building construction was completed.</td>
+                </tr>
+                <tr>
+                    <td>DOFA_ACTUAL_DT</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>NATIONAL_BUILDING_ID</td>
+                    <td>A unique ID assigned to each building.</td>
+                </tr>
+                <tr>
+                    <td>TOTAL_UNITS</td>
+                    <td>total_units_count The number of total units associated with the participant.</td>
+                </tr>
+                <tr>
+                    <td>TOTAL_DWELLING_UNITS</td>
+                    <td>summ_total_dwelling_unit_count The count of the entire dwelling building structures within the
+                        Physical Development.
+                    </td>
+                </tr>
+                <tr>
+                    <td>ACC_UNITS</td>
+                    <td>summ_acc_unit_count The total number of all the acc units within the HA.</td>
+                </tr>
+                <tr>
+                    <td>TOTAL_OCCUPIED</td>
+                    <td>summ_occupied_unit_count The total number of all the occupied units within the Building
+                        Entrance.
+                    </td>
+                </tr>
+                <tr>
+                    <td>REGULAR_VACANT</td>
+                    <td>summ_vacant_unit_count The total number of all the vacant units within the Building Entrance.
+                    </td>
+                </tr>
+                <tr>
+                    <td>PHA_TOTAL_UNITS</td>
+                    <td>Number of units under contract for federal subsidy and available for occupancy</td>
+                </tr>
+                <tr>
+                    <td>PCT_OCCUPIED</td>
+                    <td>Occupied units as the % of units available.</td>
+                </tr>
+                <tr>
+                    <td>NUMBER_REPORTED</td>
+                    <td>Number of households for which reports were received (These are households reported as of
+                        12/2000 with effective dates spanning the prior 18 months.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_REPORTED</td>
+                    <td>Households for which reports were received, as % of occupied units. (These are households
+                        reported as of 12/2000 with effective dates spanning the prior 18 months.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>MONTHS_SINCE_REPORT</td>
+                    <td>Average number of months since manager reported on household. (Calculations exclude zero values
+                        and missing values.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_MOVEIN</td>
+                    <td>% in program less than a year (the difference between the effective date and the date of
+                        admission: type of action = 1).
+                    </td>
+                </tr>
+                <tr>
+                    <td>PEOPLE_PER_UNIT</td>
+                    <td>Average size of household (with decimal point and place, e.g., 2.5). (Excludes zerovalues and
+                        missing values.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PEOPLE_TOTAL</td>
+                    <td>Total number of people (shown in thousands).</td>
+                </tr>
+                <tr>
+                    <td>RENT_PER_MONTH</td>
+                    <td>Average gross household contribution towards rent per month (includes payment toward rent and
+                        utilities). (Excludes zero values and missing values.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>SPENDING_PER_MONTH</td>
+                    <td>Average federal spending per unit per month (not fully comparable across programs). For public
+                        housing, sum of the operating subsidy and capital improvement cost is divided by the total
+                        number of occupied units (such spending data is available at the PHA level only). For
+                        tenant-based Section 8, Section 8 Moderate Rehabilitation, and Multifamily Assisted, the housing
+                        assistance payment (HAP) is divided by the total number of reported households. An amount is
+                        added for administrative cost in Section 8 tenant based and Section 8 Moderate Rehabilitation.
+                        (Excludes zero values and missing values.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>HH_INCOME</td>
+                    <td>Average total household income per year (shown in thousands of dollars per year with decimal
+                        point). (Numerator includes zero income but excludes missing income; denominator includes all
+                        households.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PERSON_INCOME</td>
+                    <td>Average household income per person per year (shown in thousands of dollars per year with
+                        decimal point). (Numerator includes zero income but excludes missing income; denominator
+                        includes all members of households.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_LT5K</td>
+                    <td>% below $5,000 per year.</td>
+                </tr>
+                <tr>
+                    <td>PCT_5K_LT10K</td>
+                    <td>% between $5,000-$9,999 per year.</td>
+                </tr>
+                <tr>
+                    <td>PCT_10K_LT15K</td>
+                    <td>% between $10,000-$14,999 per year.</td>
+                </tr>
+                <tr>
+                    <td>PCT_15K_LT20K</td>
+                    <td>% between $15,000-$19,999 per year.</td>
+                </tr>
+                <tr>
+                    <td>PCT_GE20K</td>
+                    <td>% $20,000 or more per year.</td>
+                </tr>
+                <tr>
+                    <td>PCT_WAGE_MAJOR</td>
+                    <td>% of households where the majority of household income is derived from wages and/or business
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_WELFARE_MAJOR</td>
+                    <td>% of households where the majority of household income is derived from welfare (TANF, General
+                        Assistance, or Public Assistance).
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_OTHER_MAJOR</td>
+                    <td>% of households where the majority of household income is derived from a source other than wage
+                        and welfare.
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_MEDIAN</td>
+                    <td>Household income as a percent of local area median family income, as defined by HUD, and
+                        adjusted for household size. (Numerator includes zero income but excludes missing income;
+                        denominator includes all households.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_LT50_MEDIAN</td>
+                    <td>% of households with income below 50% of local area median family income, as defined by HUD,
+                        adjusted for household size (refer to the downloadable file only, not in published report).
+                        (Numerator includes zero income but excludes missing income; denominator includes all
+                        households.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_LT30_MEDIAN</td>
+                    <td>% of households with income below 30% of local area median family income, as defined by HUD,
+                        adjusted for household size. (Numerator includes zero income but excludes missing income;
+                        denominator includes all households.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_2ADULTS</td>
+                    <td>% with two spouses and 1 or more children under 18 years.</td>
+                </tr>
+                <tr>
+                    <td>PCT_1ADULT</td>
+                    <td>% where spouse not present and 1 or more children under 18 years.</td>
+                </tr>
+                <tr>
+                    <td>PCT_FEMALE_HEAD</td>
+                    <td>% of households headed by a female.</td>
+                </tr>
+                <tr>
+                    <td>PCT_FEMALE_HEAD_CHILD</td>
+                    <td>% of households headed by a female with children.</td>
+                </tr>
+                <tr>
+                    <td>PCT_DISABLED_LT62</td>
+                    <td>% of households below age 62 where either household head or spouse (or cohead)has a
+                        disability.
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_DISABLED_GE62</td>
+                    <td>% of households age 62 or older where either household head or spouse (or cohead) has a
+                        disability.
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_DISABLED_ALL</td>
+                    <td>% of all persons in household with a disability.</td>
+                </tr>
+                <tr>
+                    <td>PCT_LT24_HEAD</td>
+                    <td>% 24 or less years: household head or spouse (whoever is older).</td>
+                </tr>
+                <tr>
+                    <td>PCT_AGE25_50</td>
+                    <td>% 25 to 50 years: household head or spouse (whoever is older).</td>
+                </tr>
+                <tr>
+                    <td>PCT_AGE51_61</td>
+                    <td>% 51 to 61 years: household head or spouse (whoever is older).</td>
+                </tr>
+                <tr>
+                    <td>PCT_AGE62PLUS</td>
+                    <td>% age 62 and older.</td>
+                </tr>
+                <tr>
+                    <td>PCT_AGE85PLUS</td>
+                    <td>% age 85 and older.</td>
+                </tr>
+                <tr>
+                    <td>PCT_MINORITY</td>
+                    <td>% Minority.</td>
+                </tr>
+                <tr>
+                    <td>PCT_BLACK</td>
+                    <td>% Black, non-Hispanic.</td>
+                </tr>
+                <tr>
+                    <td>PCT_NATIVE_AMERICAN</td>
+                    <td>% Native American, non-Hispanic.</td>
+                </tr>
+                <tr>
+                    <td>PCT_ASIAN</td>
+                    <td>% Asian or Pacific Islander, non-Hispanic.</td>
+                </tr>
+                <tr>
+                    <td>PCT_HISPANIC</td>
+                    <td>% Hispanic (of any race).</td>
+                </tr>
+                <tr>
+                    <td>MONTHS_WAITING</td>
+                    <td>Average months on waiting list among admissions. Excludes programs that do not report waiting
+                        list dates. (Excludes zero values and missing values.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>MONTHS_FROM_MOVEIN</td>
+                    <td>Average months since moved in. (Excludes zero values and missing values.)</td>
+                </tr>
+                <tr>
+                    <td>PCT_UTILITY_ALLOW</td>
+                    <td>% with valid utility allowance ($1 to $1000). This is an estimate of the utilities that the
+                        household pays to the utility company. It is zero if all utilities are included in the rent.
+                    </td>
+                </tr>
+                <tr>
+                    <td>AVE_UTIL_ALLOW</td>
+                    <td>Average utility allowance among households who have it (in $ per month). (Excludes zero values
+                        and missing values.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCT_BED1</td>
+                    <td>% of households with 0- or 1-bedroom units (efficiencies and one-bedrooms).</td>
+                </tr>
+                <tr>
+                    <td>PCT_BED2</td>
+                    <td>% of households with 2-bedroom units.</td>
+                </tr>
+                <tr>
+                    <td>PCT_BED3</td>
+                    <td>% of households with 3- or more bedroom units.</td>
+                </tr>
+                <tr>
+                    <td>PCT_OVERHOUSED</td>
+                    <td>% overhoused (households with more bedrooms than people).</td>
+                </tr>
+                <tr>
+                    <td>TMINORITY</td>
+                    <td>Minorities as % of total population in the census tract where HUD assisted families reside
+                        (Census 2000 designation)
+                    </td>
+                </tr>
+                <tr>
+                    <td>TPOVERTY</td>
+                    <td>Percent of the population below poverty level, in census tract where HUD assisted households
+                        reside (Census 2000 designation)
+                    </td>
+                </tr>
+                <tr>
+                    <td>TPCT_OWNSFD</td>
+                    <td>% of households who are owner-occupants of single-family detached homes in the census tract that
+                        surrounds the project.
+                    </td>
+                </tr>
+                <tr>
+                    <td>STATE2KX</td>
+                    <td>Census 2010 FIPS State Code</td>
+                </tr>
+                <tr>
+                    <td>CNTY_NM2KX</td>
+                    <td>Census 2010 County Name</td>
+                </tr>
+                <tr>
+                    <td>CNTY2KX</td>
+                    <td>Census 2010 FIPS County Code</td>
+                </tr>
+                <tr>
+                    <td>TRACT2KX</td>
+                    <td>Census 2010 Tract</td>
+                </tr>
+                <tr>
+                    <td>BG2KX</td>
+                    <td>Census 2010 Block Group</td>
+                </tr>
+                <tr>
+                    <td>BLOCK2KX</td>
+                    <td>Census 2010 Block ID</td>
+                </tr>
+                <tr>
+                    <td>DPVACT</td>
+                    <td>DPV Vacancy Flag</td>
+                </tr>
+                <tr>
+                    <td>DPVNOST</td>
+                    <td>DPV &quot;No Stat&quot; Flag</td>
+                </tr>
+                <tr>
+                    <td>CURCNTY_NM</td>
+                    <td>Current FIPS County Name</td>
+                </tr>
+                <tr>
+                    <td>CURCNTY</td>
+                    <td>Current FIPS County Code</td>
+                </tr>
+                <tr>
+                    <td>CURCOSUB</td>
+                    <td>Current County Subdivision Code (MCD/CC</td>
+                </tr>
+                <tr>
+                    <td>CURCOSUB_NM</td>
+                    <td>Current County Subdivision Name (MCD/CC</td>
+                </tr>
+                <tr>
+                    <td>PLACE2KX</td>
+                    <td>FIPS Place Code</td>
+                </tr>
+                <tr>
+                    <td>PLACE_NM2KX</td>
+                    <td>FIPS Place name</td>
+                </tr>
+                <tr>
+                    <td>PLACE_CC2KX</td>
+                    <td>FIPS Place Class Code</td>
+                </tr>
+                <tr>
+                    <td>PLACE_INC2KX</td>
+                    <td>FIPS Place Incorporated Flag</td>
+                </tr>
+                <tr>
+                    <td>MSA</td>
+                    <td>Metropolitan Statistical Area Code</td>
+                </tr>
+                <tr>
+                    <td>MSA_NM</td>
+                    <td>MSA/PMSA Name</td>
+                </tr>
+                <tr>
+                    <td>CBSA</td>
+                    <td>Core Based Statistical Area</td>
+                </tr>
+                <tr>
+                    <td>CBSA_NM</td>
+                    <td>Core Based Statistical Area, Lowest Level N</td>
+                </tr>
+                <tr>
+                    <td>NECTA</td>
+                    <td>New England City and Town Area, Lowest Le</td>
+                </tr>
+                <tr>
+                    <td>NECTA_NM</td>
+                    <td>NECTA Lowest Level Name</td>
+                </tr>
+                <tr>
+                    <td>METRO</td>
+                    <td>CBSA Metropolitan Area Indicator</td>
+                </tr>
+                <tr>
+                    <td>MICRO</td>
+                    <td>CBSA Micropolitan Area Indicator</td>
+                </tr>
+                <tr>
+                    <td>FCD_FIPS91</td>
+                    <td>Federal Congressional District (FIPS 9.1 std.)</td>
+                </tr>
+                <tr>
+                    <td>HLC</td>
+                    <td>HUD Locality Code</td>
+                </tr>
+                <tr>
+                    <td>DPV</td>
+                    <td>DPV Return Code</td>
+                </tr>
+                <tr>
+                    <td>DPVRC</td>
+                    <td>Delivery Point Validation(DPV) Indicator</td>
+                </tr>
+                <tr>
+                    <td>STD_ADDR</td>
+                    <td>USPS Standardized Address</td>
+                </tr>
+                <tr>
+                    <td>URB_OUT</td>
+                    <td>Puerto Rico Urbanization Name</td>
+                </tr>
+                <tr>
+                    <td>STD_CITY</td>
+                    <td>USPS Standardized City Name</td>
+                </tr>
+                <tr>
+                    <td>STD_ST</td>
+                    <td>USPS Standardized State Abbreviation</td>
+                </tr>
+                <tr>
+                    <td>STD_ZIP5</td>
+                    <td>USPS Standardized ZIP Code</td>
+                </tr>
+                <tr>
+                    <td>STD_ZIP9</td>
+                    <td>USPS Standardized ZIP+4 Code</td>
+                </tr>
+                <tr>
+                    <td>ZIP_CLASS</td>
+                    <td>Type of Zip Code</td>
+                </tr>
+                <tr>
+                    <td>ZCTA2KX</td>
+                    <td>Census 2010 Zip Code Tabulation Area</td>
+                </tr>
+                <tr>
+                    <td>DPBC</td>
+                    <td>Delivery Point Bar Code</td>
+                </tr>
+                <tr>
+                    <td>DPBC_CKSUM</td>
+                    <td>Delivery Point Bar Code, Check Digit</td>
+                </tr>
+                <tr>
+                    <td>STD_ZIP11</td>
+                    <td>Postnet Bar Code</td>
+                </tr>
+                <tr>
+                    <td>ADDR_TYPE</td>
+                    <td>USPS Address Type &quot;&quot; - no match, &quot;S&quot; - House/Street match, &quot;H&quot; -
+                        Highrise, &quot;P&quot; - PO Box, &quot;G&quot; - General Delivery, &quot;R&quot; - Rural
+                        Route/Highway Contract
+                    </td>
+                </tr>
+                <tr>
+                    <td>APT_NO</td>
+                    <td>Apartment Number</td>
+                </tr>
+                <tr>
+                    <td>APT_TYPE</td>
+                    <td>Apartment Type; Contains the secondary address type abbreviation (Apt = Apartment, Ste = Suite,
+                        # = Apartment, RM = Room, FL = Floor, etc..)
+                    </td>
+                </tr>
+                <tr>
+                    <td>C1PGRC</td>
+                    <td>General Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PPRB</td>
+                    <td>Address Match Probability</td>
+                </tr>
+                <tr>
+                    <td>C1PDRC</td>
+                    <td>Directional Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PSRC</td>
+                    <td>Suffix Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PARC</td>
+                    <td>Apartment Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PZRC</td>
+                    <td>ZIP Return Code</td>
+                </tr>
+                <tr>
+                    <td>MSGUSPS</td>
+                    <td>Postal Matcher Status Message</td>
+                </tr>
+                <tr>
+                    <td>LAT</td>
+                    <td>Latitude (decimal)</td>
+                </tr>
+                <tr>
+                    <td>LON</td>
+                    <td>Longitude (decimal)</td>
+                </tr>
+                <tr>
+                    <td>RC2KX</td>
+                    <td>Census 2010 Geocoder General Return Code</td>
+                </tr>
+                <tr>
+                    <td>STM2KX</td>
+                    <td>Census 2010 Geocoder Street Matcher Return Code</td>
+                </tr>
+                <tr>
+                    <td>LVL2KX</td>
+                    <td>Census 2010 Geocoder Lat/Long Geocoding Return Code</td>
+                </tr>
+                <tr>
+                    <td>UR</td>
+                    <td>Urban/Rural Indicator</td>
+                </tr>
+                <tr>
+                    <td>MSG2KX</td>
+                    <td>Census 2010 Geocoder Lat/Long Level Status</td>
+                </tr>
+                <tr>
+                    <td>COUNTY_LEVEL</td>
+                    <td>5 character combination of state and county FIPS codes</td>
+                </tr>
+                <tr>
+                    <td>PLACE_LEVEL</td>
+                    <td>7 characters. For CDBG Entitlement Cities, this is the CDBG ID. For Urban Counties and State
+                        Nonentitlement Areas, is a concatenation of state and place FIPS codes
+                    </td>
+                </tr>
+                <tr>
+                    <td>TRACT_LEVEL</td>
+                    <td>11 character combination of state, county, and Census Tract codes</td>
+                </tr>
+                <tr>
+                    <td>BLKGRP_LEVEL</td>
+                    <td>17 character combination of State, county, place, county subdivision, tract, Urban/Rural (UR),
+                        block group
+                    </td>
+                </tr>
+                <tr>
+                    <td>SHAPE</td>
+                    <td>The characteristic appearance or visible form of a geographic object as represented on a map
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <h4 class="table-head" id="mfp">Multi-Family Properties</h4>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th title="Field #1">Column Name</th>
+                    <th title="Field #2">Column Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>OBJECTID</td>
+                    <td>In ArcGIS, a system-managed value that uniquely identifies a record or feature.</td>
+                </tr>
+                <tr>
+                    <td>PROPERTY_ID</td>
+                    <td>The identifier assigned by the HEREMS database that identifies the active property.</td>
+                </tr>
+                <tr>
+                    <td>HUB_NAME_TEXT</td>
+                    <td>The name of the HUD hub responsiblefor the active property's HUD servicing site.</td>
+                </tr>
+                <tr>
+                    <td>SERVICING_SITE_NAME_TEXT</td>
+                    <td>The name of the HUD servicing site responsible for the management/servicing functions for the
+                        active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>PROJECT_MANAGER_NAME_TEXT</td>
+                    <td>The name of the active property's project manager.</td>
+                </tr>
+                <tr>
+                    <td>PROPERTY_NAME_TEXT</td>
+                    <td>The recorded name of the active property.</td>
+                </tr>
+                <tr>
+                    <td>ADDRESS_LINE1_TEXT</td>
+                    <td>The primary street address or the first line of the mailing address for the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>ADDRESS_LINE2_TEXT</td>
+                    <td>The primary suite number, PO box or other information for the second line of the mailing address
+                        for the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>AUTOMATIC_GEOCODE_IND</td>
+                    <td>A yes/no indicator signifying whether the Geocode information in the primary address for the
+                        active property has been automatically set or manually set by the user (N indicates the address
+                        has been set by the user).
+                    </td>
+                </tr>
+                <tr>
+                    <td>CONGRESSIONAL_DISTRICT_CODE</td>
+                    <td>The congressional district code for the active property.</td>
+                </tr>
+                <tr>
+                    <td>PLACED_BASE_CITY_NAME_TEXT</td>
+                    <td>The name of the standard place based<br/>city for the active property.</td>
+                </tr>
+                <tr>
+                    <td>TOTAL_ASSISTED_UNIT_COUNT</td>
+                    <td>The total number of assisted units for<br/>the active property.</td>
+                </tr>
+                <tr>
+                    <td>TOTAL_UNIT_COUNT</td>
+                    <td>The total number of units for the active property.</td>
+                </tr>
+                <tr>
+                    <td>PROPERTY_ON_SITE_PHONE_NUMBER</td>
+                    <td>The phone number for the active property's on site property manager.</td>
+                </tr>
+                <tr>
+                    <td>PROPERTY_CATEGORY_NAME</td>
+                    <td>The category name for the active property in terms of the following:<br/>202/811,
+                        Insured-Subsidized, Insured - Previously Subsidized, Insured-Unsubsidized, HUD Owned, HUD Held,
+                        Subsidized - Previously 202/811, Subsidized - Previously Insured Subsidized, No HUD Financing,
+                        Flexible Subsidy<br/>Use Restriction, Other Subsidy Servicing Required (Only)
+                    </td>
+                </tr>
+                <tr>
+                    <td>CLIENT_GROUP_CODE</td>
+                    <td>The code that identifies the primary population or need served by the active property.</td>
+                </tr>
+                <tr>
+                    <td>CLIENT_GROUP_NAME</td>
+                    <td>The name that describes the primary population or need served by the active property.</td>
+                </tr>
+                <tr>
+                    <td>CLIENT_GROUP_TYPE</td>
+                    <td>The broad category for the primary population or need served by the active property i.e.,
+                        Disabled, Elderly, Family, or Health Care.
+                    </td>
+                </tr>
+                <tr>
+                    <td>REAC_LAST_INSPECTION_ID</td>
+                    <td>The identifier assigned to the latest REAC physical inspection associated with the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>REAC_LAST_INSPECTION_SCORE</td>
+                    <td>The score of the latest REAC physical inspection associated with the active property.</td>
+                </tr>
+                <tr>
+                    <td>FASS_LAST_PERFORMANCE_VALUE</td>
+                    <td>The performance value of the latest AFS submission for the latest reporting period associated
+                        with the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>FASS_LST_TOT_MGMT_COND_CNT</td>
+                    <td>The total number of management conditions in the latest AFS submission for the latest reporting
+                        period associated with the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>FASS_LAST_REFERRED_TO_CODE</td>
+                    <td>The organization to which the compliance review was referred for the latest AFS submission for
+                        the latest reporting period associated with the active property
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_AFS_REQUIRED_IND</td>
+                    <td>A yes/no indicator signifying whether an AFS is required for the active property.</td>
+                </tr>
+                <tr>
+                    <td>AFS_FISCAL_YR_END_DATE</td>
+                    <td>The AFS fiscal year end for the active property, in the format of month and year.</td>
+                </tr>
+                <tr>
+                    <td>HAS_ACTIVE_FINANCING_IND</td>
+                    <td>A yes/no indicator signifying whether there is active financing for the active property.</td>
+                </tr>
+                <tr>
+                    <td>PRIMARY_FINANCING_TYPE</td>
+                    <td>The primary type of financing for the<br/>active property in terms of the following: Insured,
+                        202/811, HUD Owned, HUD Held, Non-Insured, Flexible Subsidy
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_ALL_FINANCING_PIPELINE_IND</td>
+                    <td>A yes/no indicator signifying whether all of the active financing for the active property is in
+                        the pipeline.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_ALL_CONTRACT_PIPELINE_IND</td>
+                    <td>A yes/no indicator signifying whether all of the active contracts for the active property are in
+                        the pipeline.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_UNDER_MANAGEMENT_IND</td>
+                    <td>A yes/no indicator signifying whether the active property is under management.</td>
+                </tr>
+                <tr>
+                    <td>HAS_SERVICE_AGREEMENT_IND</td>
+                    <td>A yes/no indicator signifying whether an active Service Agreement exists for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>HAS_USE_RESTRICTION_IND</td>
+                    <td>A yes/no indicator signifying whether an active Use Restriction exists for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>HAS_ACTIVE_IRP_IND</td>
+                    <td>A yes/no indicator signifying whether or not an active interest reduction payment agreement is
+                        associated with the property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_SERVICE_COORDINATOR_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active service coordinator contractsor
+                        grants for the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>PRIMARY_FHA_NUMBER</td>
+                    <td>The Federal Housing Authority (FHA) number assigned to the primary loan for the active property
+                        when it has active insurance.
+                    </td>
+                </tr>
+                <tr>
+                    <td>ASSOCIATED_FHA_NUMBER</td>
+                    <td>The FHA number associated with the active property.</td>
+                </tr>
+                <tr>
+                    <td>ASSOCIATED_CONTRACT_NUMBER</td>
+                    <td>The contract number associated with the active property.</td>
+                </tr>
+                <tr>
+                    <td>TROUBLED_CODE</td>
+                    <td>A code that identifies if the active property is considered troubled by the field office.</td>
+                </tr>
+                <tr>
+                    <td>OPIIS_RISK_CATEGORY</td>
+                    <td>Per the OPIIS documentation, the property risk category classifies a property based on its
+                        calculated risk score (opiis_int_risk_score.) Higher scores indicate higher risk profile. A
+                        property is considered to have a 'Low' level of risk if the score is 0-29. Properties with a
+                        score of 30-39 are assigned a 'Moderate' category, and properties with a score of 40 and over
+                        are assigned a 'High' category.
+                    </td>
+                </tr>
+                <tr>
+                    <td>OPIIS_SIZE_CATEGORY</td>
+                    <td>Per the OPIIS documentation, the property size category classifies a property based on loan
+                        size.<br/>Properties with higher Unpaid Principal Balances (UPB) are expected to have a higher
+                        impact to FHA in the event of<br/>failure. 'Very Low' = &amp;lt 300K, 'Low' = &amp;lt 300K and
+                        &amp;lt 800K, 'Low Medium' = &amp;gt 800K and &amp;lt 2MM, 'High Medium' = &amp;gt 2MM and &amp;lt
+                        5MM, 'Large' = &amp;gt 5MM and &amp;lt 10MM, 'Very Large' = &amp;gt 10MM
+                    </td>
+                </tr>
+                <tr>
+                    <td>OPIIS_INT_RISK_SCORE</td>
+                    <td>This is the discrete numeric value calculated by OPIIS in order to determine a property's level
+                        of risk.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_ACTIVE_DEC_CASE_IND</td>
+                    <td>A Y/N flag that indicates whether or not a property is currently in the DEC.</td>
+                </tr>
+                <tr>
+                    <td>WAS_EVER_DEC_CASE_IND</td>
+                    <td>A Y/N flag that indicates whether or not a currently active property is currently or was ever in
+                        the DEC.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_INSURED_IND</td>
+                    <td>A yes/no indicator signifying whether there is any active insured financing for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>WAS_EVER_INSURED_IND</td>
+                    <td>A yes/no indicator signifying whether the currently active property was ever (i.e., is currently
+                        or was previously)<br/>insured.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_202_811_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active 202/811 grants/loans for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>WAS_EVER_202_811_IND</td>
+                    <td>A yes/no indicator signifying whether the currently active property ever had (i.e., is currently
+                        or was previously) any<br/>202/811 loans/grants.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_HUD_HELD_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active HUD-held loans for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_HUD_OWNED_IND</td>
+                    <td>A yes/no indicator signifying whether the active property is HUD-owned.</td>
+                </tr>
+                <tr>
+                    <td>IS_FLEXIBLE_SUBSIDY_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active flexible subsidy loans for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_HOSPITAL_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active hospital loans for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_NURSING_HOME_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active nursing home loans for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_BOARD_AND_CARE_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active board and care facility loans for the
+                        active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_ASSISTED_LIVING_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active assisted living facility loans for
+                        the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_REFINANCED_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active refinanced loans for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_221D3_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active 221/d3 loans for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_221D4_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active 221/d4 loans for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_236_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active 236 loans for the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_IN_DEFAULT_DELINQUENT_IND</td>
+                    <td>A yes/no indicator signifying whether or not a loan is delinquent or in default per MDDR.</td>
+                </tr>
+                <tr>
+                    <td>IS_NON_INSURED_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active non-insured loans for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_BMIR_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active Below Market Interest Rate (BMIR)
+                        loans for the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_RISK_SHARING_IND</td>
+                    <td>A yes/no indicator signifying whether there is any active risk sharing loans for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_MIP_IND</td>
+                    <td>A yes/no indicator signifying whether there is any active Mortgagee in Possession (MIP) loans
+                        for the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_CO_INSURED_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active co-insured loans for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_SUBSIDIZED_IND</td>
+                    <td>A yes/no indicator signifying whether the active property is subsidized.</td>
+                </tr>
+                <tr>
+                    <td>WAS_EVER_SUBSIDIZED_IND</td>
+                    <td>A yes/no indicator signifying whether the currently active property was ever (i.e., is currently
+                        or was previously)<br/>subsidized.
+                    </td>
+                </tr>
+                <tr>
+                    <td>HAS_ACTIVE_ASSISTANCE_IND</td>
+                    <td>A yes/no indicator signifying whether there is any active assistance for the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>WAS_EVER_ASSISTED_IND</td>
+                    <td>A yes/no indicator signifying whether the currently active property was ever (i.e., is currently
+                        or was previously)<br/>assisted.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_ACC_OLD_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active old Annual Contributions Contracts
+                        (ACCs) for the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_ACC_PERFORMANCE_BASED_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active performancebased ACC contracts for
+                        the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_SEC8_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active Section 8 contracts for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_PAC_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active Project Assistance Contracts (PACs)
+                        for the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_PRAC_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active Project Rental Assistance Contracts
+                        (PRACs) for the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_RENT_SUPPLEMENT_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active rental supplement contracts for the
+                        active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_SECTION_236_RAP_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active Section 236 Rental Assistance
+                        Payments (RAP) contracts for the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_SEC8_202_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active Section 8 202 contracts for the
+                        active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_SEC8_FMHA_515_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active Section 8 Farmers Home Administration
+                        (FMHA) 515 contracts for the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_SEC8_STATE_AGENCY_HFA_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active Section 8 state agency Housing
+                        Federal Authority (HFA) contracts for the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_SEC8_LMSA_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active Section 8 Loan Management Set-Aside
+                        (LMSA) contracts for the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_SEC8_PRPRTY_DISPOSITION_IND</td>
+                    <td>A yes/no indicator signifying whether there is any active property disposition contracts for the
+                        active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_SEC8_PRESERVATION_IND</td>
+                    <td>A yes/no indicator signifying whether there are any active Section 8 preservation contracts for
+                        the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_SEC8_OTHR_NW_CNSTRCTION_IND</td>
+                    <td>A yes/no indicator signifying whether there is any active Section 8 other new construction
+                        contracts for the active<br/>property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_SEC8_OTHER_SUB_REHAB_IND</td>
+                    <td>A yes/no indicator signifying whether there is any active Section 8 other sub rehab contracts
+                        for the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_PENSION_FUND_IND</td>
+                    <td>A yes/no indicator signifying whether there is any active pension fund contracts for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_PAC_202_IND</td>
+                    <td>A yes/no indicator signifying whether there is any active PAC 202 contracts for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_PAC_811_IND</td>
+                    <td>A yes/no indicator signifying whether there is any active PAC 811 contracts for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_PRAC_202_IND</td>
+                    <td>A yes/no indicator signifying whether there is any active PRAC 202 contracts for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IS_PRAC_811_IND</td>
+                    <td>A yes/no indicator signifying whether there is any active PRAC 811 contracts for the active
+                        property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>HAS_FULL_DEBT_RESTRUCTURE_IND</td>
+                    <td>Identifies if the property has a restructured loan associated with it, as defined from MDDR.
+                    </td>
+                </tr>
+                <tr>
+                    <td>LAST_CRITICAL_DATE_DESC</td>
+                    <td>This is the description of the latest critical item tracked in MDDR for this property</td>
+                </tr>
+                <tr>
+                    <td>OAHP_PROJECT_RECOMMENDATION_TX</td>
+                    <td>The comments or recommentdations from OAHP for the project</td>
+                </tr>
+                <tr>
+                    <td>OAHP_PROCESSING_TYPE</td>
+                    <td>This is the translated description of the type of restructuring for the property.</td>
+                </tr>
+                <tr>
+                    <td>IS_ON_WATCH_LIST_IND</td>
+                    <td>This indicates whether the property is on the Watch List.</td>
+                </tr>
+                <tr>
+                    <td>IS_GREEN_RETROFIT_IND</td>
+                    <td>This indicates whether the property has a green retrofit loan associated to it</td>
+                </tr>
+                <tr>
+                    <td>IS_202_DIRECT_LOAN_IND</td>
+                    <td>This indicates whether the property has a 202 direct loan associated to it</td>
+                </tr>
+                <tr>
+                    <td>IS_202_CAPITAL_ADVANCE_IND</td>
+                    <td>This indicates whether the property has a 202 capital advance loan associated to it</td>
+                </tr>
+                <tr>
+                    <td>IS_811_CAPITAL_ADVANCE_IND</td>
+                    <td>This indicates whether the property has a 811 capital advance loan associated to it</td>
+                </tr>
+                <tr>
+                    <td>ENERGY_PERFORMANCE_CONTRCT_IND</td>
+                    <td>Indicates if the property has a energy performance contract</td>
+                </tr>
+                <tr>
+                    <td>IS_SEC8_RAD_DEMO_CONV_IND</td>
+                    <td>This indicates wheter the property has a RAD contract associated to it.</td>
+                </tr>
+                <tr>
+                    <td>FINANCIAL_STMNT_REQ_IND</td>
+                    <td>A yes/no indicator signifying whether an AFS is required for the active property</td>
+                </tr>
+                <tr>
+                    <td>IS_811_PRA_DEMO_IND</td>
+                    <td>Indicates if there is a active_contract.is_811_pra_demo_ind contract set to Y or N</td>
+                </tr>
+                <tr>
+                    <td>CONTRACT1</td>
+                    <td>Active contract # 1 associated with the property</td>
+                </tr>
+                <tr>
+                    <td>CONTRACT2</td>
+                    <td>Active contract # 2 associated with the property</td>
+                </tr>
+                <tr>
+                    <td>CONTRACT_COUNT</td>
+                    <td>Total number of active contracts associated with the property</td>
+                </tr>
+                <tr>
+                    <td>UNITS1</td>
+                    <td>The maximum number of units available on the active contract # 1</td>
+                </tr>
+                <tr>
+                    <td>UNITS2</td>
+                    <td>The maximum number of units available on the active contract # 2</td>
+                </tr>
+                <tr>
+                    <td>MAXIMUM_CONTRACT_UNIT_COUNT</td>
+                    <td>Total number of units across all the active contracts associated with the property</td>
+                </tr>
+                <tr>
+                    <td>PROGRAM_TYPE1</td>
+                    <td>The name of the program type for the active contract # 1</td>
+                </tr>
+                <tr>
+                    <td>PROGRAM_TYPE2</td>
+                    <td>The name of the program type for the active contract # 2</td>
+                </tr>
+                <tr>
+                    <td>EXPIRATION_DATE1</td>
+                    <td>The fiscal year quarter in which the overall active contract expires, for active contract # 1
+                    </td>
+                </tr>
+                <tr>
+                    <td>EXPIRATION_DATE2</td>
+                    <td>The fiscal year quarter in which the overall active contract expires, for active contract # 2
+                    </td>
+                </tr>
+                <tr>
+                    <td>BD0_CNT1</td>
+                    <td>The total number of efficiencies for active contract #1</td>
+                </tr>
+                <tr>
+                    <td>BD0_CNT2</td>
+                    <td>The total number of efficiencies for active contract #2</td>
+                </tr>
+                <tr>
+                    <td>BD1_CNT1</td>
+                    <td>The total number of units with one bedroom for active contract #1</td>
+                </tr>
+                <tr>
+                    <td>BD1_CNT2</td>
+                    <td>The total number of units with one bedroom for active contract #2</td>
+                </tr>
+                <tr>
+                    <td>BD2_CNT1</td>
+                    <td>The total number of units with two bedrooms for active contract #1</td>
+                </tr>
+                <tr>
+                    <td>BD2_CNT2</td>
+                    <td>The total number of units with two bedrooms for active contract #2</td>
+                </tr>
+                <tr>
+                    <td>BD3_CNT1</td>
+                    <td>The total number of units with three bedrooms for active contract #1</td>
+                </tr>
+                <tr>
+                    <td>BD3_CNT2</td>
+                    <td>The total number of units with three bedrooms for active contract #2</td>
+                </tr>
+                <tr>
+                    <td>BD4_CNT1</td>
+                    <td>The total number of units with four bedrooms for active contract #1</td>
+                </tr>
+                <tr>
+                    <td>BD4_CNT2</td>
+                    <td>The total number of units with four bedrooms for active contract #2</td>
+                </tr>
+                <tr>
+                    <td>BD5_CNT1</td>
+                    <td>The total number of units with five or more bedrooms for active contract #1</td>
+                </tr>
+                <tr>
+                    <td>BD5_CNT2</td>
+                    <td>The total number of units with five or more bedrooms foractive contract #2</td>
+                </tr>
+                <tr>
+                    <td>FHA_NUM1</td>
+                    <td>The number assigned to identify the active financing # 1 associated with the property</td>
+                </tr>
+                <tr>
+                    <td>FHA_NUM2</td>
+                    <td>The number assigned to identify the active financing # 2 associated with the property</td>
+                </tr>
+                <tr>
+                    <td>SOACODE1</td>
+                    <td>Section of the Act Code (SoA) for active financing # 1</td>
+                </tr>
+                <tr>
+                    <td>SOACODE2</td>
+                    <td>Section of the Act Code (SoA) for active financing # 2</td>
+                </tr>
+                <tr>
+                    <td>SOA_NAME1</td>
+                    <td>Section of the Act Name (SoA) for active financing # 1</td>
+                </tr>
+                <tr>
+                    <td>SOA_NAME2</td>
+                    <td>Section of the Act Name (SoA) for active financing # 2</td>
+                </tr>
+                <tr>
+                    <td>TAXCREDIT1</td>
+                    <td>A yes/no indicator signifying whether the associated active financing # 1 in the DAP system has
+                        a tax credit
+                    </td>
+                </tr>
+                <tr>
+                    <td>TAXCREDIT2</td>
+                    <td>A yes/no indicator signifying whether the associated active financing # 2 in the DAP system has
+                        a tax credit
+                    </td>
+                </tr>
+                <tr>
+                    <td>FHA_COUNT</td>
+                    <td>Total number of active financing associated with the property</td>
+                </tr>
+                <tr>
+                    <td>STATE2KX</td>
+                    <td>Census 2010 FIPS State Code</td>
+                </tr>
+                <tr>
+                    <td>CNTY_NM2KX</td>
+                    <td>Census 2010 County Name</td>
+                </tr>
+                <tr>
+                    <td>CNTY2KX</td>
+                    <td>Census 2010 FIPS County Code</td>
+                </tr>
+                <tr>
+                    <td>TRACT2KX</td>
+                    <td>Census 2010 Tract</td>
+                </tr>
+                <tr>
+                    <td>BG2KX</td>
+                    <td>Census 2010 Block Group</td>
+                </tr>
+                <tr>
+                    <td>BLOCK2KX</td>
+                    <td>Census 2010 Block ID</td>
+                </tr>
+                <tr>
+                    <td>CURCNTY_NM</td>
+                    <td>Current FIPS County Name</td>
+                </tr>
+                <tr>
+                    <td>CURCNTY</td>
+                    <td>Current FIPS County Code</td>
+                </tr>
+                <tr>
+                    <td>CURCOSUB</td>
+                    <td>Current County Subdivision Code (MCD/CC</td>
+                </tr>
+                <tr>
+                    <td>CURCOSUB_NM</td>
+                    <td>Current County Subdivision Name (MCD/CC</td>
+                </tr>
+                <tr>
+                    <td>PLACE2KX</td>
+                    <td>FIPS Place Code</td>
+                </tr>
+                <tr>
+                    <td>PLACE_NM2KX</td>
+                    <td>FIPS Place name</td>
+                </tr>
+                <tr>
+                    <td>PLACE_CC2KX</td>
+                    <td>FIPS Place Class Code</td>
+                </tr>
+                <tr>
+                    <td>PLACE_INC2KX</td>
+                    <td>FIPS Place Incorporated Flag</td>
+                </tr>
+                <tr>
+                    <td>MSA</td>
+                    <td>Metropolitan Statistical Area Code</td>
+                </tr>
+                <tr>
+                    <td>MSA_NM</td>
+                    <td>MSA/PMSA Name</td>
+                </tr>
+                <tr>
+                    <td>CBSA</td>
+                    <td>Core Based Statistical Area</td>
+                </tr>
+                <tr>
+                    <td>CBSA_NM</td>
+                    <td>Core Based Statistical Area, Lowest Level N</td>
+                </tr>
+                <tr>
+                    <td>NECTA</td>
+                    <td>New England City and Town Area, Lowest Le</td>
+                </tr>
+                <tr>
+                    <td>NECTA_NM</td>
+                    <td>NECTA Lowest Level Name</td>
+                </tr>
+                <tr>
+                    <td>METRO</td>
+                    <td>CBSA Metropolitan Area Indicator</td>
+                </tr>
+                <tr>
+                    <td>MICRO</td>
+                    <td>CBSA Micropolitan Area Indicator</td>
+                </tr>
+                <tr>
+                    <td>FCD_FIPS91</td>
+                    <td>Federal Congressional District (FIPS 9.1 std.)</td>
+                </tr>
+                <tr>
+                    <td>HLC</td>
+                    <td>HUD Locality Code</td>
+                </tr>
+                <tr>
+                    <td>DPV</td>
+                    <td>Delivery Point Validation(DPV) Indicator</td>
+                </tr>
+                <tr>
+                    <td>DPVRC</td>
+                    <td>DPV Return Code</td>
+                </tr>
+                <tr>
+                    <td>DPVACT</td>
+                    <td>DPV Vacancy Flag</td>
+                </tr>
+                <tr>
+                    <td>DPVNOST</td>
+                    <td>DPV &quot;No Stat&quot; Flag</td>
+                </tr>
+                <tr>
+                    <td>STD_ADDR</td>
+                    <td>USPS Standardized Address</td>
+                </tr>
+                <tr>
+                    <td>URB_OUT</td>
+                    <td>Puerto Rico Urbanization Name</td>
+                </tr>
+                <tr>
+                    <td>STD_CITY</td>
+                    <td>USPS Standardized City Name</td>
+                </tr>
+                <tr>
+                    <td>STD_ST</td>
+                    <td>USPS Standardized State Abbreviation</td>
+                </tr>
+                <tr>
+                    <td>STD_ZIP5</td>
+                    <td>USPS Standardized ZIP Code</td>
+                </tr>
+                <tr>
+                    <td>STD_ZIP9</td>
+                    <td>USPS Standardized ZIP+4 Code</td>
+                </tr>
+                <tr>
+                    <td>ZIP_CLASS</td>
+                    <td>Type of Zip Code</td>
+                </tr>
+                <tr>
+                    <td>ZCTA2KX</td>
+                    <td>Census 2010 Zip Code Tabulation Area</td>
+                </tr>
+                <tr>
+                    <td>DPBC</td>
+                    <td>Delivery Point Bar Code</td>
+                </tr>
+                <tr>
+                    <td>DPBC_CKSUM</td>
+                    <td>Delivery Point Bar Code, Check Digit</td>
+                </tr>
+                <tr>
+                    <td>STD_ZIP11</td>
+                    <td>Postnet Bar Code</td>
+                </tr>
+                <tr>
+                    <td>ADDR_TYPE</td>
+                    <td>USPS Address Type &quot;&quot; - no match, &quot;S&quot; - House/Street match, &quot;H&quot; -
+                        Highrise, &quot;P&quot; - PO Box, &quot;G&quot; - General Delivery, &quot;R&quot; - Rural
+                        Route/Highway Contract
+                    </td>
+                </tr>
+                <tr>
+                    <td>APT_NO</td>
+                    <td>Apartment Number</td>
+                </tr>
+                <tr>
+                    <td>APT_TYPE</td>
+                    <td>Apartment Type; Contains the secondary address type abbreviation (Apt = Apartment, Ste = Suite,
+                        # = Apartment, RM = Room, FL = Floor, etc..)
+                    </td>
+                </tr>
+                <tr>
+                    <td>C1PGRC</td>
+                    <td>General Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PPRB</td>
+                    <td>Address Match Probability</td>
+                </tr>
+                <tr>
+                    <td>C1PDRC</td>
+                    <td>Directional Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PSRC</td>
+                    <td>Suffix Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PARC</td>
+                    <td>Apartment Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PRC9</td>
+                    <td>ZIP Return Code</td>
+                </tr>
+                <tr>
+                    <td>MSGUSPS</td>
+                    <td>Postal Matcher Status Message</td>
+                </tr>
+                <tr>
+                    <td>LAT</td>
+                    <td>Latitude (decimal)</td>
+                </tr>
+                <tr>
+                    <td>LON</td>
+                    <td>Longitude (decimal)</td>
+                </tr>
+                <tr>
+                    <td>RC2KX</td>
+                    <td>Census 2010 Geocoder General Return Code</td>
+                </tr>
+                <tr>
+                    <td>STM2KX</td>
+                    <td>Census 2010 Geocoder Street Matcher Return</td>
+                </tr>
+                <tr>
+                    <td>LVL2KX</td>
+                    <td>Census 2010 Geocoder Lat/Long Geocoding L</td>
+                </tr>
+                <tr>
+                    <td>UR</td>
+                    <td>Urban/Rural Indicator</td>
+                </tr>
+                <tr>
+                    <td>MSG2KX</td>
+                    <td>Census 2010 Geocoder Lat/Long Level Status</td>
+                </tr>
+                <tr>
+                    <td>COUNTY_LEVEL</td>
+                    <td>5 character combination of state and county FIPS codes</td>
+                </tr>
+                <tr>
+                    <td>PLACE_LEVEL</td>
+                    <td>10 characters. For CDBG Entitlement Cities, this is the CDBG ID. For Urban Counties and State
+                        Nonentitlement Areas, is a concatenation of state, county, and place FIPS codes
+                    </td>
+                </tr>
+                <tr>
+                    <td>TRACT_LEVEL</td>
+                    <td>11 character combination of state, county, and Census Tract codes</td>
+                </tr>
+                <tr>
+                    <td>BLKGRP_LEVEL</td>
+                    <td>17 character combination of State, county, place, county subdivision, tract, Urban/Rural (UR),
+                        block group
+                    </td>
+                </tr>
+                <tr>
+                    <td>CAT_LATEST_MROC_SCORE_COLOR</td>
+                    <td>Most recent MROC risk category</td>
+                </tr>
+                <tr>
+                    <td>CAT_LTST_INTGRTD_RSK_SCORE_CAT</td>
+                    <td>Most recent IRA risk category</td>
+                </tr>
+                <tr>
+                    <td>MTR_LATEST_DSCR</td>
+                    <td>Most recent Debt Service Coverage Ratio</td>
+                </tr>
+                <tr>
+                    <td>MGMT_AGENT_ORG_NAME</td>
+                    <td>The registered organization name of the active property's current management agent.</td>
+                </tr>
+                <tr>
+                    <td>MGMT_CONTACT_FULL_NAME</td>
+                    <td>The full name of the active property's management agent contact.</td>
+                </tr>
+                <tr>
+                    <td>MGMT_CONTACT_INDV_TITLE_TEXT</td>
+                    <td>The official title of the active property's management agent contact.</td>
+                </tr>
+                <tr>
+                    <td>MGMT_CONTACT_ADDRESS_LINE1</td>
+                    <td>The street address or the first line of the mailing address for the active property's management
+                        agent contact.
+                    </td>
+                </tr>
+                <tr>
+                    <td>MGMT_CONTACT_ADDRESS_LINE2</td>
+                    <td>The suite number, PO box or other information for the second line of the mailing address for the
+                        active property's management agent contact.
+                    </td>
+                </tr>
+                <tr>
+                    <td>MGMT_CONTACT_CITY_NAME</td>
+                    <td>The name of the city in the mailing address for the active property's management agent
+                        contact.
+                    </td>
+                </tr>
+                <tr>
+                    <td>MGMT_CONTACT_STATE_CODE</td>
+                    <td>The state code in the mailing address for the active property's management<br/>agent contact.
+                    </td>
+                </tr>
+                <tr>
+                    <td>MGMT_CONTACT_ZIP4_CODE</td>
+                    <td>The four-digit zip code extension in the mailing address for the active property's management
+                        agent contact.
+                    </td>
+                </tr>
+                <tr>
+                    <td>MGMT_CONTACT_MAIN_PHN_NBR</td>
+                    <td>The main phone number for the active property's management agent contact.</td>
+                </tr>
+                <tr>
+                    <td>MGMT_CONTACT_EMAIL_TEXT</td>
+                    <td>The Internet email address for the active property's management agent contact.</td>
+                </tr>
+                <tr>
+                    <td>LOAN_MATURITY_DATE</td>
+                    <td>The date the active financing matures.</td>
+                </tr>
+                <tr>
+                    <td>DEMO_RESTRUCTURE_CLOSING_DATE</td>
+                    <td>The demo restructure closing date</td>
+                </tr>
+                <tr>
+                    <td>REAC_LAST_INSPCT_RELEASE_DATE</td>
+                    <td>The date for release of the latest REAC Physical inspection data associated with the active
+                        property
+                    </td>
+                </tr>
+                <tr>
+                    <td>MARK_TO_MARKET_RESTRUCTURE_DT</td>
+                    <td>The markup to market restructure date</td>
+                </tr>
+                <tr>
+                    <td>REAC_LAST_INSPECTION_DATE</td>
+                    <td>The date of the latest REAC physical inspection associated with the active property.</td>
+                </tr>
+                <tr>
+                    <td>FASS_LAST_AFS_CLOSED_DATE</td>
+                    <td>The close date of the AFS review of the latest AFS submission for the latest reporting period
+                        associated with the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>FASS_LAST_REPORTING_END_DT</td>
+                    <td>The end of the period covered by the latest Annual Financial Statement (AFS) submission for the
+                        latest reporting period associated with the active property.
+                    </td>
+                </tr>
+                <tr>
+                    <td>FULL_DEBT_RESTRUCTURE_DATE</td>
+                    <td>The date when the debt restructure occurred</td>
+                </tr>
+                <tr>
+                    <td>LAST_CRITICAL_DATE</td>
+                    <td>This is the date of the latest critical item tracked in MDDR for this property</td>
+                </tr>
+                <tr>
+                    <td>NGHBRHD_NTWRK_EST_DATE</td>
+                    <td>The date the network neighborhood associated with the active property was established.</td>
+                </tr>
+                <tr>
+                    <td>OCCUPANCY_DATE</td>
+                    <td>The initial date that tenants occupied the active property.</td>
+                </tr>
+                <tr>
+                    <td>OPIIS_RISK_CATEGORY_CHANGE_DT</td>
+                    <td>This is the date that the OPIIS risk category last changed.</td>
+                </tr>
+                <tr>
+                    <td>TROUBLED_STATUS_UPDATE_DATE</td>
+                    <td>This is the date that the troubled code was last changed in REMS</td>
+                </tr>
+                <tr>
+                    <td>WATCH_LIST_DATE</td>
+                    <td>This is the date the propery was put on the Watch List.</td>
+                </tr>
+                <tr>
+                    <td>SHAPE</td>
+                    <td>The characteristic appearance or visible form of a geographic object as represented on a map
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <h4 class="table-head" id="lai">Location Affordability Index</h4>
+            <table class="table">
+                <thead><tr><th title="Field #1">Column Name</th>
+                    <th title="Field #2">Column Description</th>
+                </tr></thead>
+                <tbody>
+                <tr><td><a href="http://lai.locationaffordability.info//lai_data_dictionary.pdf">Link to source documentation</a></td>
+                    <td></td>
+                </tr>
+                <tr><td>OBJECTID</td>
+                    <td>OBJECTID</td>
+                </tr>
+                <tr><td>blkgrp</td>
+                    <td>block group</td>
+                </tr>
+                <tr><td>households</td>
+                    <td>number of households</td>
+                </tr>
+                <tr><td>area_median_income</td>
+                    <td>area median income</td>
+                </tr>
+                <tr><td>blkgrp_median_income_owners</td>
+                    <td>block group median income (homeowners)</td>
+                </tr>
+                <tr><td>blkgrp_median_income_renters</td>
+                    <td>block group median income (renters)</td>
+                </tr>
+                <tr><td>avg_hh_size_owners</td>
+                    <td>average homeowner household size</td>
+                </tr>
+                <tr><td>avg_hh_size_renters</td>
+                    <td>average renter household size</td>
+                </tr>
+                <tr><td>commuters_per_hh_owners</td>
+                    <td>average commuters per homeowner household</td>
+                </tr>
+                <tr><td>commuters_per_hh_renters</td>
+                    <td>average commuters per renter household</td>
+                </tr>
+                <tr><td>pct_renters</td>
+                    <td>percent of units occupied by renter</td>
+                </tr>
+                <tr><td>gross_hh_density</td>
+                    <td>households per acre</td>
+                </tr>
+                <tr><td>median_rooms_per_owner_unit</td>
+                    <td>median rooms per unit for homeowners</td>
+                </tr>
+                <tr><td>median_rooms_per_renter_unit</td>
+                    <td>median rooms per unit for renters</td>
+                </tr>
+                <tr><td>pct_detatched_single_family_uni</td>
+                    <td>percent of units that are single-family detached</td>
+                </tr>
+                <tr><td>median_commute_distance</td>
+                    <td>median commute distance</td>
+                </tr>
+                <tr><td>block_denstiy</td>
+                    <td>blocks per acre</td>
+                </tr>
+                <tr><td>employment_access_index</td>
+                    <td>Employment Access Index</td>
+                </tr>
+                <tr><td>local_job_density</td>
+                    <td>Local Job Density (overall)</td>
+                </tr>
+                <tr><td>local_retail_job_density</td>
+                    <td>Local Job Density (retail)</td>
+                </tr>
+                <tr><td>retail_access_index</td>
+                    <td>Retail Access Index</td>
+                </tr>
+                <tr><td>hh_type1_income</td>
+                    <td>HH profile 1 income</td>
+                </tr>
+                <tr><td>hh_type1_size</td>
+                    <td>HH profile 1 size</td>
+                </tr>
+                <tr><td>hh_type1_workers</td>
+                    <td>HH profile 1 number of commuters</td>
+                </tr>
+                <tr><td>hh_type1_ht</td>
+                    <td>HH profile 1 estimated housing+transportation costs % of income</td>
+                </tr>
+                <tr><td>hh_type1_h</td>
+                    <td>HH profile 1 estimated housing costs % of income</td>
+                </tr>
+                <tr><td>hh_type1_t</td>
+                    <td>HH profile 1 estimated transportation costs % of income</td>
+                </tr>
+                <tr><td>hh_type1_autos</td>
+                    <td>HH profile 1 estimated autos owned</td>
+                </tr>
+                <tr><td>hh_type1_vmt</td>
+                    <td>HH profile 1 estimated annual VMT</td>
+                </tr>
+                <tr><td>hh_type1_transit_trips</td>
+                    <td>HH profile 1 estimated annual transit trips</td>
+                </tr>
+                <tr><td>hh_type1_ht_own</td>
+                    <td>HH profile 1 estimated housing+transportation costs % of income (owners)</td>
+                </tr>
+                <tr><td>hh_type1_h_own</td>
+                    <td>HH profile 1 estimated housing costs % of income (owners)</td>
+                </tr>
+                <tr><td>hh_type1_t_own</td>
+                    <td>HH profile 1 estimated transportation costs % income (owners)</td>
+                </tr>
+                <tr><td>hh_type1_autos_own</td>
+                    <td>HH profile 1 estimated autos owned (owners)</td>
+                </tr>
+                <tr><td>hh_type1_vmt_own</td>
+                    <td>HH profile 1 estimated annual VMT (owners)</td>
+                </tr>
+                <tr><td>hh_type1_transit_trips_own</td>
+                    <td>HH profile 1 estimated annual transit trips (owners)</td>
+                </tr>
+                <tr><td>hh_type1_ht_rent</td>
+                    <td>HH profile 1 estimated housing+transportation costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type1_h_rent</td>
+                    <td>HH profile 1 estimated housing costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type1_t_rent</td>
+                    <td>HH profile 1 estimated transportation costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type1_autos_rent</td>
+                    <td>HH profile 1 estimated autos owned (renters)</td>
+                </tr>
+                <tr><td>hh_type1_vmt_rent</td>
+                    <td>HH profile 1 estimated annual VMT (renters)</td>
+                </tr>
+                <tr><td>hh_type1_transit_trips_rent</td>
+                    <td>HH profile 1 estimated annual transit trips (renters)</td>
+                </tr>
+                <tr><td>hh_type2_income</td>
+                    <td>HH profile 2 income</td>
+                </tr>
+                <tr><td>hh_type2_size</td>
+                    <td>HH profile 2 size</td>
+                </tr>
+                <tr><td>hh_type2_workers</td>
+                    <td>HH profile 2 number of commuters</td>
+                </tr>
+                <tr><td>hh_type2_ht</td>
+                    <td>HH profile 2 estimated housing+transportation costs % of income</td>
+                </tr>
+                <tr><td>hh_type2_h</td>
+                    <td>HH profile 2 estimated housing costs % of income</td>
+                </tr>
+                <tr><td>hh_type2_t</td>
+                    <td>HH profile 2 estimated transportation costs % of income</td>
+                </tr>
+                <tr><td>hh_type2_autos</td>
+                    <td>HH profile 2 estimated autos owned</td>
+                </tr>
+                <tr><td>hh_type2_vmt</td>
+                    <td>HH profile 2 estimated annual VMT</td>
+                </tr>
+                <tr><td>hh_type2_transit_trips</td>
+                    <td>HH profile 2 estimated annual transit trips</td>
+                </tr>
+                <tr><td>hh_type2_ht_own</td>
+                    <td>HH profile 2 estimated housing+transportation costs % of income (owners)</td>
+                </tr>
+                <tr><td>hh_type2_h_own</td>
+                    <td>HH profile 2 estimated housing costs % of income (owners)</td>
+                </tr>
+                <tr><td>hh_type2_t_own</td>
+                    <td>HH profile 2 estimated transportation costs % income (owners)</td>
+                </tr>
+                <tr><td>hh_type2_autos_own</td>
+                    <td>HH profile 2 estimated autos owned (owners)</td>
+                </tr>
+                <tr><td>hh_type2_vmt_own</td>
+                    <td>HH profile 2 estimated annual VMT (owners)</td>
+                </tr>
+                <tr><td>hh_type2_transit_trips_own</td>
+                    <td>HH profile 2 estimated annual transit trips (owners)</td>
+                </tr>
+                <tr><td>hh_type2_ht_rent</td>
+                    <td>HH profile 2 estimated housing+transportation costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type2_h_rent</td>
+                    <td>HH profile 2 estimated housing costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type2_t_rent</td>
+                    <td>HH profile 2 estimated transportation costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type2_autos_rent</td>
+                    <td>HH profile 2 estimated autos owned (renters)</td>
+                </tr>
+                <tr><td>hh_type2_vmt_rent</td>
+                    <td>HH profile 2 estimated annual VMT (renters)</td>
+                </tr>
+                <tr><td>hh_type2_transit_trips_rent</td>
+                    <td>HH profile 2 estimated annual transit trips (renters)</td>
+                </tr>
+                <tr><td>hh_type3_income</td>
+                    <td>HH profile 3 income</td>
+                </tr>
+                <tr><td>hh_type3_size</td>
+                    <td>HH profile 3 size</td>
+                </tr>
+                <tr><td>hh_type3_workers</td>
+                    <td>HH profile 3 number of commuters</td>
+                </tr>
+                <tr><td>hh_type3_ht</td>
+                    <td>HH profile 3 estimated housing+transportation costs % of income</td>
+                </tr>
+                <tr><td>hh_type3_h</td>
+                    <td>HH profile 3 estimated housing costs % of income</td>
+                </tr>
+                <tr><td>hh_type3_t</td>
+                    <td>HH profile 3 estimated transportation costs % of income</td>
+                </tr>
+                <tr><td>hh_type3_autos</td>
+                    <td>HH profile 3 estimated autos owned</td>
+                </tr>
+                <tr><td>hh_type3_vmt</td>
+                    <td>HH profile 3 estimated annual VMT</td>
+                </tr>
+                <tr><td>hh_type3_transit_trips</td>
+                    <td>HH profile 3 estimated annual transit trips</td>
+                </tr>
+                <tr><td>hh_type3_ht_own</td>
+                    <td>HH profile 3 estimated housing+transportation costs % of income (owners)</td>
+                </tr>
+                <tr><td>hh_type3_h_own</td>
+                    <td>HH profile 3 estimated housing costs % of income (owners)</td>
+                </tr>
+                <tr><td>hh_type3_t_own</td>
+                    <td>HH profile 3 estimated transportation costs % income (owners)</td>
+                </tr>
+                <tr><td>hh_type3_autos_own</td>
+                    <td>HH profile 3 estimated autos owned (owners)</td>
+                </tr>
+                <tr><td>hh_type3_vmt_own</td>
+                    <td>HH profile 3 estimated annual VMT (owners)</td>
+                </tr>
+                <tr><td>hh_type3_transit_trips_own</td>
+                    <td>HH profile 3 estimated annual transit trips (owners)</td>
+                </tr>
+                <tr><td>hh_type3_ht_rent</td>
+                    <td>HH profile 3 estimated housing+transportation costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type3_h_rent</td>
+                    <td>HH profile 3 estimated housing costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type3_t_rent</td>
+                    <td>HH profile 3 estimated transportation costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type3_autos_rent</td>
+                    <td>HH profile 3 estimated autos owned (renters)</td>
+                </tr>
+                <tr><td>hh_type3_vmt_rent</td>
+                    <td>HH profile 3 estimated annual VMT (renters)</td>
+                </tr>
+                <tr><td>hh_type3_transit_trips_rent</td>
+                    <td>HH profile 3 estimated annual transit trips (renters)</td>
+                </tr>
+                <tr><td>hh_type4_income</td>
+                    <td>HH profile 4 income</td>
+                </tr>
+                <tr><td>hh_type4_size</td>
+                    <td>HH profile 4 size</td>
+                </tr>
+                <tr><td>hh_type4_workers</td>
+                    <td>HH profile 4 number of commuters</td>
+                </tr>
+                <tr><td>hh_type4_ht</td>
+                    <td>HH profile 4 estimated housing+transportation costs % of income</td>
+                </tr>
+                <tr><td>hh_type4_h</td>
+                    <td>HH profile 4 estimated housing costs % of income</td>
+                </tr>
+                <tr><td>hh_type4_t</td>
+                    <td>HH profile 4 estimated transportation costs % of income</td>
+                </tr>
+                <tr><td>hh_type4_autos</td>
+                    <td>HH profile 4 estimated autos owned</td>
+                </tr>
+                <tr><td>hh_type4_vmt</td>
+                    <td>HH profile 4 estimated annual VMT</td>
+                </tr>
+                <tr><td>hh_type4_transit_trips</td>
+                    <td>HH profile 4 estimated annual transit trips</td>
+                </tr>
+                <tr><td>hh_type4_ht_own</td>
+                    <td>HH profile 4 estimated housing+transportation costs % of income (owners)</td>
+                </tr>
+                <tr><td>hh_type4_h_own</td>
+                    <td>HH profile 4 estimated housing costs % of income (owners)</td>
+                </tr>
+                <tr><td>hh_type4_t_own</td>
+                    <td>HH profile 4 estimated transportation costs % income (owners)</td>
+                </tr>
+                <tr><td>hh_type4_autos_own</td>
+                    <td>HH profile 4 estimated autos owned (owners)</td>
+                </tr>
+                <tr><td>hh_type4_vmt_own</td>
+                    <td>HH profile 4 estimated annual VMT (owners)</td>
+                </tr>
+                <tr><td>hh_type4_transit_trips_own</td>
+                    <td>HH profile 4 estimated annual transit trips (owners)</td>
+                </tr>
+                <tr><td>hh_type4_ht_rent</td>
+                    <td>HH profile 4 estimated housing+transportation costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type4_h_rent</td>
+                    <td>HH profile 4 estimated housing costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type4_t_rent</td>
+                    <td>HH profile 4 estimated transportation costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type4_autos_rent</td>
+                    <td>HH profile 4 estimated autos owned (renters)</td>
+                </tr>
+                <tr><td>hh_type4_vmt_rent</td>
+                    <td>HH profile 4 estimated annual VMT (renters)</td>
+                </tr>
+                <tr><td>hh_type4_transit_trips_rent</td>
+                    <td>HH profile 4 estimated annual transit trips (renters)</td>
+                </tr>
+                <tr><td>hh_type5_income</td>
+                    <td>HH profile 5 income</td>
+                </tr>
+                <tr><td>hh_type5_size</td>
+                    <td>HH profile 5 size</td>
+                </tr>
+                <tr><td>hh_type5_workers</td>
+                    <td>HH profile 5 number of commuters</td>
+                </tr>
+                <tr><td>hh_type5_ht</td>
+                    <td>HH profile 5 estimated housing+transportation costs % of income</td>
+                </tr>
+                <tr><td>hh_type5_h</td>
+                    <td>HH profile 5 estimated housing costs % of income</td>
+                </tr>
+                <tr><td>hh_type5_t</td>
+                    <td>HH profile 5 estimated transportation costs % of income</td>
+                </tr>
+                <tr><td>hh_type5_autos</td>
+                    <td>HH profile 5 estimated autos owned</td>
+                </tr>
+                <tr><td>hh_type5_vmt</td>
+                    <td>HH profile 5 estimated annual VMT</td>
+                </tr>
+                <tr><td>hh_type5_transit_trips</td>
+                    <td>HH profile 5 estimated annual transit trips</td>
+                </tr>
+                <tr><td>hh_type5_ht_own</td>
+                    <td>HH profile 5 estimated housing+transportation costs % of income (owners)</td>
+                </tr>
+                <tr><td>hh_type5_h_own</td>
+                    <td>HH profile 5 estimated housing costs % of income (owners)</td>
+                </tr>
+                <tr><td>hh_type5_t_own</td>
+                    <td>HH profile 5 estimated transportation costs % income (owners)</td>
+                </tr>
+                <tr><td>hh_type5_autos_own</td>
+                    <td>HH profile 5 estimated autos owned (owners)</td>
+                </tr>
+                <tr><td>hh_type5_vmt_own</td>
+                    <td>HH profile 5 estimated annual VMT (owners)</td>
+                </tr>
+                <tr><td>hh_type5_transit_trips_own</td>
+                    <td>HH profile 5 estimated annual transit trips (owners)</td>
+                </tr>
+                <tr><td>hh_type5_ht_rent</td>
+                    <td>HH profile 5 estimated housing+transportation costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type5_h_rent</td>
+                    <td>HH profile 5 estimated housing costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type5_t_rent</td>
+                    <td>HH profile 5 estimated transportation costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type5_autos_rent</td>
+                    <td>HH profile 5 estimated autos owned (renters)</td>
+                </tr>
+                <tr><td>hh_type5_vmt_rent</td>
+                    <td>HH profile 5 estimated annual VMT (renters)</td>
+                </tr>
+                <tr><td>hh_type5_transit_trips_rent</td>
+                    <td>HH profile 5 estimated annual transit trips (renters)</td>
+                </tr>
+                <tr><td>hh_type6_income</td>
+                    <td>HH profile 6 income</td>
+                </tr>
+                <tr><td>hh_type6_size</td>
+                    <td>HH profile 6 size</td>
+                </tr>
+                <tr><td>hh_type6_workers</td>
+                    <td>HH profile 6 number of commuters</td>
+                </tr>
+                <tr><td>hh_type6_ht</td>
+                    <td>HH profile 6 estimated housing+transportation costs % of income</td>
+                </tr>
+                <tr><td>hh_type6_h</td>
+                    <td>HH profile 6 estimated housing costs % of income</td>
+                </tr>
+                <tr><td>hh_type6_t</td>
+                    <td>HH profile 6 estimated transportation costs % of income</td>
+                </tr>
+                <tr><td>hh_type6_autos</td>
+                    <td>HH profile 6 estimated autos owned</td>
+                </tr>
+                <tr><td>hh_type6_vmt</td>
+                    <td>HH profile 6 estimated annual VMT</td>
+                </tr>
+                <tr><td>hh_type6_transit_trips</td>
+                    <td>HH profile 6 estimated annual transit trips</td>
+                </tr>
+                <tr><td>hh_type6_ht_own</td>
+                    <td>HH profile 6 estimated housing+transportation costs % of income (owners)</td>
+                </tr>
+                <tr><td>hh_type6_h_own</td>
+                    <td>HH profile 6 estimated housing costs % of income (owners)</td>
+                </tr>
+                <tr><td>hh_type6_t_own</td>
+                    <td>HH profile 6 estimated transportation costs % income (owners)</td>
+                </tr>
+                <tr><td>hh_type6_autos_own</td>
+                    <td>HH profile 6 estimated autos owned (owners)</td>
+                </tr>
+                <tr><td>hh_type6_vmt_own</td>
+                    <td>HH profile 6 estimated annual VMT (owners)</td>
+                </tr>
+                <tr><td>hh_type6_transit_trips_own</td>
+                    <td>HH profile 6 estimated annual transit trips (owners)</td>
+                </tr>
+                <tr><td>hh_type6_ht_rent</td>
+                    <td>HH profile 6 estimated housing+transportation costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type6_h_rent</td>
+                    <td>HH profile 6 estimated housing costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type6_t_rent</td>
+                    <td>HH profile 6 estimated transportation costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type6_autos_rent</td>
+                    <td>HH profile 6 estimated autos owned (renters)</td>
+                </tr>
+                <tr><td>hh_type6_vmt_rent</td>
+                    <td>HH profile 6 estimated annual VMT (renters)</td>
+                </tr>
+                <tr><td>hh_type6_transit_trips_rent</td>
+                    <td>HH profile 6 estimated annual transit trips (renters)</td>
+                </tr>
+                <tr><td>hh_type7_income</td>
+                    <td>HH profile 7 income</td>
+                </tr>
+                <tr><td>hh_type7_size</td>
+                    <td>HH profile 7 size</td>
+                </tr>
+                <tr><td>hh_type7_workers</td>
+                    <td>HH profile 7 number of commuters</td>
+                </tr>
+                <tr><td>hh_type7_ht</td>
+                    <td>HH profile 7 estimated housing+transportation costs % of income</td>
+                </tr>
+                <tr><td>hh_type7_h</td>
+                    <td>HH profile 7 estimated housing costs % of income</td>
+                </tr>
+                <tr><td>hh_type7_t</td>
+                    <td>HH profile 7 estimated transportation costs % of income</td>
+                </tr>
+                <tr><td>hh_type7_autos</td>
+                    <td>HH profile 7 estimated autos owned</td>
+                </tr>
+                <tr><td>hh_type7_vmt</td>
+                    <td>HH profile 7 estimated annual VMT</td>
+                </tr>
+                <tr><td>hh_type7_transit_trips</td>
+                    <td>HH profile 7 estimated annual transit trips</td>
+                </tr>
+                <tr><td>hh_type7_ht_own</td>
+                    <td>HH profile 7 estimated housing+transportation costs % of income (owners)</td>
+                </tr>
+                <tr><td>hh_type7_h_own</td>
+                    <td>HH profile 7 estimated housing costs % of income (owners)</td>
+                </tr>
+                <tr><td>hh_type7_t_own</td>
+                    <td>HH profile 7 estimated transportation costs % income (owners)</td>
+                </tr>
+                <tr><td>hh_type7_autos_own</td>
+                    <td>HH profile 7 estimated autos owned (owners)</td>
+                </tr>
+                <tr><td>hh_type7_vmt_own</td>
+                    <td>HH profile 7 estimated annual VMT (owners)</td>
+                </tr>
+                <tr><td>hh_type7_transit_trips_own</td>
+                    <td>HH profile 7 estimated annual transit trips (owners)</td>
+                </tr>
+                <tr><td>hh_type7_ht_rent</td>
+                    <td>HH profile 7 estimated housing+transportation costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type7_h_rent</td>
+                    <td>HH profile 7 estimated housing costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type7_t_rent</td>
+                    <td>HH profile 7 estimated transportation costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type7_autos_rent</td>
+                    <td>HH profile 7 estimated autos owned (renters)</td>
+                </tr>
+                <tr><td>hh_type7_vmt_rent</td>
+                    <td>HH profile 7 estimated annual VMT (renters)</td>
+                </tr>
+                <tr><td>hh_type7_transit_trips_rent</td>
+                    <td>HH profile 7 estimated annual transit trips (renters)</td>
+                </tr>
+                <tr><td>hh_type8_income</td>
+                    <td>HH profile 8 income</td>
+                </tr>
+                <tr><td>hh_type8_size</td>
+                    <td>HH profile 8 size</td>
+                </tr>
+                <tr><td>hh_type8_workers</td>
+                    <td>HH profile 8 number of commuters</td>
+                </tr>
+                <tr><td>hh_type8_ht</td>
+                    <td>HH profile 8 estimated housing+transportation costs % of income</td>
+                </tr>
+                <tr><td>hh_type8_h</td>
+                    <td>HH profile 8 estimated housing costs % of income</td>
+                </tr>
+                <tr><td>hh_type8_t</td>
+                    <td>HH profile 8 estimated transportation costs % of income</td>
+                </tr>
+                <tr><td>hh_type8_autos</td>
+                    <td>HH profile 8 estimated autos owned</td>
+                </tr>
+                <tr><td>hh_type8_vmt</td>
+                    <td>HH profile 8 estimated annual VMT</td>
+                </tr>
+                <tr><td>hh_type8_transit_trips</td>
+                    <td>HH profile 8 estimated annual transit trips</td>
+                </tr>
+                <tr><td>hh_type8_ht_own</td>
+                    <td>HH profile 8 estimated housing+transportation costs % of income (owners)</td>
+                </tr>
+                <tr><td>hh_type8_h_own</td>
+                    <td>HH profile 8 estimated housing costs % of income (owners)</td>
+                </tr>
+                <tr><td>hh_type8_t_own</td>
+                    <td>HH profile 8 estimated transportation costs % income (owners)</td>
+                </tr>
+                <tr><td>hh_type8_autos_own</td>
+                    <td>HH profile 8 estimated autos owned (owners)</td>
+                </tr>
+                <tr><td>hh_type8_vmt_own</td>
+                    <td>HH profile 8 estimated annual VMT (owners)</td>
+                </tr>
+                <tr><td>hh_type8_transit_trips_own</td>
+                    <td>HH profile 8 estimated annual transit trips (owners)</td>
+                </tr>
+                <tr><td>hh_type8_ht_rent</td>
+                    <td>HH profile 8 estimated housing+transportation costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type8_h_rent</td>
+                    <td>HH profile 8 estimated housing costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type8_t_rent</td>
+                    <td>HH profile 8 estimated transportation costs % of income (renters)</td>
+                </tr>
+                <tr><td>hh_type8_autos_rent</td>
+                    <td>HH profile 8 estimated autos owned (renters)</td>
+                </tr>
+                <tr><td>hh_type8_vmt_rent</td>
+                    <td>HH profile 8 estimated annual VMT (renters)</td>
+                </tr>
+                <tr><td>hh_type8_transit_trips_rent</td>
+                    <td>HH profile 8 estimated annual transit trips (renters)</td>
+                </tr>
+                </tbody></table>
+
+
+            <h4 class="table-head" id="lihtc">Low-Income Housing Credit (LIHTC)</h4>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th title="Field #1">Column Name</th>
+                    <th title="Field #2">Column Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>OBJECTID</td>
+                    <td>In ArcGIS, a system-managed value that uniquely identifies a record or feature.</td>
+                </tr>
+                <tr>
+                    <td>HUD_ID</td>
+                    <td>Unique Project Identifier for the Database characters 1-3: Allocating agency code (see table
+                        below)<br/>digits 4-7: Year placed in service (0000 or 0001 if unknown or missing)<br/>digits
+                        8-10: Record number within allocating agency and year placed in service
+                    </td>
+                </tr>
+                <tr>
+                    <td>PROJECT</td>
+                    <td>Project name</td>
+                </tr>
+                <tr>
+                    <td>PROJ_ADD</td>
+                    <td>Project street address</td>
+                </tr>
+                <tr>
+                    <td>PROJ_CTY</td>
+                    <td>Project city</td>
+                </tr>
+                <tr>
+                    <td>PROJ_ST</td>
+                    <td>Project state</td>
+                </tr>
+                <tr>
+                    <td>PROJ_ZIP</td>
+                    <td>Project zip</td>
+                </tr>
+                <tr>
+                    <td>STATE_ID</td>
+                    <td>State-defined Project ID</td>
+                </tr>
+                <tr>
+                    <td>CONTACT</td>
+                    <td>Owner or owner&#39;s contact</td>
+                </tr>
+                <tr>
+                    <td>COMPANY</td>
+                    <td>Name of contact company</td>
+                </tr>
+                <tr>
+                    <td>CO_ADD</td>
+                    <td>Contact&#39;s business address</td>
+                </tr>
+                <tr>
+                    <td>CO_CTY</td>
+                    <td>Contact&#39;s city</td>
+                </tr>
+                <tr>
+                    <td>CO_ST</td>
+                    <td>Contact&#39;s state</td>
+                </tr>
+                <tr>
+                    <td>CO_ZIP</td>
+                    <td>Contact&#39;s zip</td>
+                </tr>
+                <tr>
+                    <td>CO_TEL</td>
+                    <td>Contact&#39;s telephone</td>
+                </tr>
+                <tr>
+                    <td>ALLOCAMT</td>
+                    <td>Annual dollar amount of tax credits allocated</td>
+                </tr>
+                <tr>
+                    <td>N_UNITS</td>
+                    <td>Total number of units</td>
+                </tr>
+                <tr>
+                    <td>LI_UNITS</td>
+                    <td>Total number of low income units</td>
+                </tr>
+                <tr>
+                    <td>N_0BR</td>
+                    <td>Number of efficiencies</td>
+                </tr>
+                <tr>
+                    <td>N_1BR</td>
+                    <td>Number of 1 bedroom units</td>
+                </tr>
+                <tr>
+                    <td>N_2BR</td>
+                    <td>Number of 2 bedroom units</td>
+                </tr>
+                <tr>
+                    <td>N_3BR</td>
+                    <td>Number of 3 bedroom units</td>
+                </tr>
+                <tr>
+                    <td>N_4BR</td>
+                    <td>Number of 4 bedroom units</td>
+                </tr>
+                <tr>
+                    <td>INC_CEIL</td>
+                    <td>Elected rent/income ceiling for low income units</td>
+                </tr>
+                <tr>
+                    <td>LOW_CEIL</td>
+                    <td>Units set aside with rents lower than elected rent/income ceiling</td>
+                </tr>
+                <tr>
+                    <td>CEILUNIT</td>
+                    <td>Number of units set aside with rents lower than elected rent/income ceiling</td>
+                </tr>
+                <tr>
+                    <td>YR_PIS</td>
+                    <td>Year placed in service</td>
+                </tr>
+                <tr>
+                    <td>YR_ALLOC</td>
+                    <td>Allocation year</td>
+                </tr>
+                <tr>
+                    <td>NON_PROF</td>
+                    <td>Non-profit sponsor</td>
+                </tr>
+                <tr>
+                    <td>BASIS</td>
+                    <td>Increase in eligible basis</td>
+                </tr>
+                <tr>
+                    <td>BOND</td>
+                    <td>Tax-exempt bond received</td>
+                </tr>
+                <tr>
+                    <td>FMHA_514</td>
+                    <td>FmHA (RHS) Section 514 loan</td>
+                </tr>
+                <tr>
+                    <td>FMHA_515</td>
+                    <td>FmHA (RHS) Section 515 loan</td>
+                </tr>
+                <tr>
+                    <td>FMHA_538</td>
+                    <td>FmHA (RHS) Section 538 loan</td>
+                </tr>
+                <tr>
+                    <td>HOME</td>
+                    <td>HOME Investment Partnership Program funds</td>
+                </tr>
+                <tr>
+                    <td>HOME_AMT</td>
+                    <td>HOME Investment Partnership Program funds</td>
+                </tr>
+                <tr>
+                    <td>CDBG</td>
+                    <td>Community Development Block Grant funds</td>
+                </tr>
+                <tr>
+                    <td>CDBG_AMT</td>
+                    <td>Dollar amount of CDBG funds</td>
+                </tr>
+                <tr>
+                    <td>FHA</td>
+                    <td>FHA-insured loan</td>
+                </tr>
+                <tr>
+                    <td>HOPEVI</td>
+                    <td>Forms part of a HOPEVI development</td>
+                </tr>
+                <tr>
+                    <td>HPVI_AMT</td>
+                    <td>Dollar amount of HOPEVI funds for development or building costs</td>
+                </tr>
+                <tr>
+                    <td>RENTASST</td>
+                    <td>Federal or state project-based rental assistance contract</td>
+                </tr>
+                <tr>
+                    <td>TRGT_POP</td>
+                    <td>Targets a specific population with specialized services or facilities</td>
+                </tr>
+                <tr>
+                    <td>TRGT_FAM</td>
+                    <td>Targets a specific population - families</td>
+                </tr>
+                <tr>
+                    <td>TRGT_ELD</td>
+                    <td>Targets a specific population - elderly</td>
+                </tr>
+                <tr>
+                    <td>TRGT_DIS</td>
+                    <td>Targets a specific population - disabled</td>
+                </tr>
+                <tr>
+                    <td>TRGT_HML</td>
+                    <td>Targets a specific population - homeless</td>
+                </tr>
+                <tr>
+                    <td>TRGT_OTH</td>
+                    <td>Targets a specific population - other</td>
+                </tr>
+                <tr>
+                    <td>TRGT_SPC</td>
+                    <td>Targets a specific population - other as specified</td>
+                </tr>
+                <tr>
+                    <td>TYPE_</td>
+                    <td>Type of construction</td>
+                </tr>
+                <tr>
+                    <td>CREDIT</td>
+                    <td>Type of credit percentage</td>
+                </tr>
+                <tr>
+                    <td>N_UNITSR</td>
+                    <td>Total number of units or if total units missing or inconsistent, total low income units</td>
+                </tr>
+                <tr>
+                    <td>LI_UNITR</td>
+                    <td>Total number of low income units or if total low income units missing, total units</td>
+                </tr>
+                <tr>
+                    <td>DDA</td>
+                    <td>Is the census tract in a difficult development area?(DDA status is based on placed in service
+                        year.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>QCT</td>
+                    <td>Is the census tract a qualified census tract? (For projects placed in service prior to 2003, QCT
+                        is based on 1990 Census tract. For projects placed in service since 2003, QCT is based on 2000
+                        Census tract.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>NONPROG</td>
+                    <td>No longer monitored for LIHTC program due to expired use or other reason (Status of no longer
+                        being monitored for the LIHTC Program is indicated for projects as specified by the allocating
+                        agency. This does not indicate whether or not a project remains affordable to low income
+                        populations.)
+                    </td>
+                </tr>
+                <tr>
+                    <td>DATANOTE</td>
+                    <td>Notes about data record changes processed for database update.</td>
+                </tr>
+                <tr>
+                    <td>YRMISFLG</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>STATE2KX</td>
+                    <td>Census 2010 FIPS State Code</td>
+                </tr>
+                <tr>
+                    <td>CNTY_NM2KX</td>
+                    <td>Census 2010 County Name</td>
+                </tr>
+                <tr>
+                    <td>CNTY2KX</td>
+                    <td>Census 2010 FIPS County Code</td>
+                </tr>
+                <tr>
+                    <td>TRACT2KX</td>
+                    <td>Census 2010 Tract</td>
+                </tr>
+                <tr>
+                    <td>BG2KX</td>
+                    <td>Census 2010 Block Group</td>
+                </tr>
+                <tr>
+                    <td>BLOCK2KX</td>
+                    <td>Census 2010 Block ID</td>
+                </tr>
+                <tr>
+                    <td>CURCNTY_NM</td>
+                    <td>Current FIPS County Name</td>
+                </tr>
+                <tr>
+                    <td>CURCNTY</td>
+                    <td>Current FIPS County Code</td>
+                </tr>
+                <tr>
+                    <td>CURCOSUB</td>
+                    <td>Current County Subdivision Code (MCD/CC</td>
+                </tr>
+                <tr>
+                    <td>CURCOSUB_NM</td>
+                    <td>Current County Subdivision Name (MCD/CC</td>
+                </tr>
+                <tr>
+                    <td>PLACE2KX</td>
+                    <td>FIPS Place Code</td>
+                </tr>
+                <tr>
+                    <td>PLACE_NM2KX</td>
+                    <td>FIPS Place name</td>
+                </tr>
+                <tr>
+                    <td>PLACE_CC2KX</td>
+                    <td>FIPS Place Class Code</td>
+                </tr>
+                <tr>
+                    <td>PLACE_INC2KX</td>
+                    <td>FIPS Place Incorporated Flag</td>
+                </tr>
+                <tr>
+                    <td>MSA</td>
+                    <td>Metropolitan Statistical Area Code</td>
+                </tr>
+                <tr>
+                    <td>MSA_NM</td>
+                    <td>MSA/PMSA Name</td>
+                </tr>
+                <tr>
+                    <td>CBSA</td>
+                    <td>Core Based Statistical Area</td>
+                </tr>
+                <tr>
+                    <td>CBSA_NM</td>
+                    <td>Core Based Statistical Area, Lowest Level N</td>
+                </tr>
+                <tr>
+                    <td>NECTA</td>
+                    <td>New England City and Town Area, Lowest Le</td>
+                </tr>
+                <tr>
+                    <td>NECTA_NM</td>
+                    <td>NECTA Lowest Level Name</td>
+                </tr>
+                <tr>
+                    <td>METRO</td>
+                    <td>CBSA Metropolitan Area Indicator</td>
+                </tr>
+                <tr>
+                    <td>MICRO</td>
+                    <td>CBSA Micropolitan Area Indicator</td>
+                </tr>
+                <tr>
+                    <td>FCD_FIPS91</td>
+                    <td>Federal Congressional District (FIPS 9.1 std.)</td>
+                </tr>
+                <tr>
+                    <td>HLC</td>
+                    <td>HUD Locality Code</td>
+                </tr>
+                <tr>
+                    <td>DPVRC</td>
+                    <td>DPV Return Code</td>
+                </tr>
+                <tr>
+                    <td>DPV</td>
+                    <td>Delivery Point Validation(DPV) Indicator</td>
+                </tr>
+                <tr>
+                    <td>STD_ADDR</td>
+                    <td>USPS Standardized Address</td>
+                </tr>
+                <tr>
+                    <td>URB_OUT</td>
+                    <td>Puerto Rico Urbanization Name</td>
+                </tr>
+                <tr>
+                    <td>STD_CITY</td>
+                    <td>USPS Standardized City Name</td>
+                </tr>
+                <tr>
+                    <td>STD_ST</td>
+                    <td>USPS Standardized State Abbreviation</td>
+                </tr>
+                <tr>
+                    <td>STD_ZIP5</td>
+                    <td>USPS Standardized ZIP Code</td>
+                </tr>
+                <tr>
+                    <td>STD_ZIP9</td>
+                    <td>USPS Standardized ZIP+4 Code</td>
+                </tr>
+                <tr>
+                    <td>ZIP_CLASS</td>
+                    <td>Type of Zip Code</td>
+                </tr>
+                <tr>
+                    <td>ZCTA2KX</td>
+                    <td>Census 2010 Zip Code Tabulation Area</td>
+                </tr>
+                <tr>
+                    <td>DPBC</td>
+                    <td>Delivery Point Bar Code</td>
+                </tr>
+                <tr>
+                    <td>DPBC_CKSUM</td>
+                    <td>Delivery Point Bar Code, Check Digit</td>
+                </tr>
+                <tr>
+                    <td>STD_ZIP11</td>
+                    <td>Postnet Bar Code</td>
+                </tr>
+                <tr>
+                    <td>ADDR_TYPE</td>
+                    <td>USPS Address Type &quot;&quot; - no match, &quot;S&quot; - House/Street match, &quot;H&quot; -
+                        Highrise, &quot;P&quot; - PO Box, &quot;G&quot; - General Delivery, &quot;R&quot; - Rural
+                        Route/Highway Contract
+                    </td>
+                </tr>
+                <tr>
+                    <td>APT_NO</td>
+                    <td>Apartment Number</td>
+                </tr>
+                <tr>
+                    <td>APT_TYPE</td>
+                    <td>Apartment Type; Contains the secondary address type abbreviation (Apt = Apartment, Ste = Suite,
+                        # = Apartment, RM = Room, FL = Floor, etc..)
+                    </td>
+                </tr>
+                <tr>
+                    <td>C1PGRC</td>
+                    <td>General Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PPRB</td>
+                    <td>Address Match Probability</td>
+                </tr>
+                <tr>
+                    <td>C1PDRC</td>
+                    <td>Directional Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PSRC</td>
+                    <td>Suffix Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PARC</td>
+                    <td>Apartment Return Code</td>
+                </tr>
+                <tr>
+                    <td>C1PRC9</td>
+                    <td>ZIP Return Code</td>
+                </tr>
+                <tr>
+                    <td>MSGUSPS</td>
+                    <td>Postal Matcher Status Message</td>
+                </tr>
+                <tr>
+                    <td>LAT</td>
+                    <td>Latitude (decimal)</td>
+                </tr>
+                <tr>
+                    <td>LON</td>
+                    <td>Longitude (decimal)</td>
+                </tr>
+                <tr>
+                    <td>RC2KX</td>
+                    <td>Census 2010 Geocoder General Return Code</td>
+                </tr>
+                <tr>
+                    <td>STM2KX</td>
+                    <td>Census 2010 Geocoder Street Matcher Return Code</td>
+                </tr>
+                <tr>
+                    <td>LVL2KX</td>
+                    <td>Census 2010 Geocoder Lat/Long Geocoding Return Code</td>
+                </tr>
+                <tr>
+                    <td>UR</td>
+                    <td>Urban/Rural Indicator</td>
+                </tr>
+                <tr>
+                    <td>MSG2KX</td>
+                    <td>Census 2010 Geocoder Lat/Long Level Status</td>
+                </tr>
+                <tr>
+                    <td>COUNTY_LEVEL</td>
+                    <td>5 character combination of state and county FIPS codes</td>
+                </tr>
+                <tr>
+                    <td>PLACE_LEVEL</td>
+                    <td>7 characters. For CDBG Entitlement Cities, this is the CDBG ID. For Urban Counties and State
+                        Nonentitlement Areas, is a concatenation of state and place FIPS codes
+                    </td>
+                </tr>
+                <tr>
+                    <td>TRACT_LEVEL</td>
+                    <td>11 character combination of state, county, and Census Tract codes</td>
+                </tr>
+                <tr>
+                    <td>BLKGRP_LEVEL</td>
+                    <td>17 character combination of State, county, place, county subdivision, tract, Urban/Rural (UR),
+                        block group
+                    </td>
+                </tr>
+                <tr>
+                    <td>SHAPE</td>
+                    <td>The characteristic appearance or visible form of a geographic object as represented on a map
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <h4 class="table-head" id="hcv">HCV By Tract</h4>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th title="Field #1">Column Name</th>
+                    <th title="Field #2">Column Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>OBJECTID</td>
+                    <td>In ArcGIS, a system-managed value that uniquely identifies a record or feature.</td>
+                </tr>
+                <tr>
+                    <td>GEOID</td>
+                    <td>Geographic Identifier - fully concatenated geographic code (State FIPS and district number)
+                    </td>
+                </tr>
+                <tr>
+                    <td>STATE</td>
+                    <td>State</td>
+                </tr>
+                <tr>
+                    <td>COUNTY</td>
+                    <td>County</td>
+                </tr>
+                <tr>
+                    <td>TRACT</td>
+                    <td>Tract</td>
+                </tr>
+                <tr>
+                    <td>EACODE</td>
+                    <td>Bureau of Economic Analysis region code.</td>
+                </tr>
+                <tr>
+                    <td>EANAME</td>
+                    <td>Bureau of Economic Analysis region code name.</td>
+                </tr>
+                <tr>
+                    <td>HCV_PUBLIC</td>
+                    <td>Count of Housing Choice Vouchers in the Census Tracts (Tracts with counts of 11 vouchers or
+                        fewer are suppressed.
+                    </td>
+                </tr>
+                <tr>
+                    <td>HCV_PCT_RENTER_OCC_UNITS</td>
+                    <td>Housing Choice Vouchers as percent of Total Renter Occupied units in a tract.</td>
+                </tr>
+                <tr>
+                    <td>SHAPE</td>
+                    <td>The characteristic appearance or visible form of a geographic object as represented on a map
+                    </td>
+                </tr>
+                <tr>
+                    <td>SHAPE.AREA</td>
+                    <td>Area of the shape in</td>
+                </tr>
+                <tr>
+                    <td>SHAPE.LEN</td>
+                    <td>Length of the shape&#39;s outer line</td>
+                </tr>
+                </tbody>
+            </table>
+            <h4 class="table-head" id="fmr">Fair Market Rents</h4>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th title="Field #1">Column Name</th>
+                    <th title="Field #2">Column Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>OBJECTID</td>
+                    <td>ID</td>
+                </tr>
+                <tr>
+                    <td>FMR_0BDR</td>
+                    <td>Fair market rent for efficiency apartments</td>
+                </tr>
+                <tr>
+                    <td>FMR_1BDR</td>
+                    <td>Fair market rent for one bedroom apartments</td>
+                </tr>
+                <tr>
+                    <td>FMR_2BDR</td>
+                    <td>Fair market rent for two bedroom apartments</td>
+                </tr>
+                <tr>
+                    <td>FMR_3BDR</td>
+                    <td>Fair market rent for three bedroom apartments</td>
+                </tr>
+                <tr>
+                    <td>FMR_4PLUSBDR</td>
+                    <td>Fair market rent for four bedroom apartments</td>
+                </tr>
+                <tr>
+                    <td>FMR_AREANAME</td>
+                    <td>Fair market name</td>
+                </tr>
+                <tr>
+                    <td>FMR_CODE</td>
+                    <td>Fair market code</td>
+                </tr>
+                <tr>
+                    <td>SHAPE</td>
+                    <td>The characteristic appearance or visible form of a geographic object as represented on a map
+                    </td>
+                </tr>
+                <tr>
+                    <td>SHAPE.AREA</td>
+                    <td>Area of the shape in</td>
+                </tr>
+                <tr>
+                    <td>SHAPE.LEN</td>
+                    <td>Length of the shape&#39;s outer line</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-8 col-sm-offset-4">
+            <h3 id="faq">FAQs</h3>
+            <h4 class="table-head">Q: What are the income limits for Washington?</h4>
+            <h4>A: Here they are:</h4>
+            <table class="table">
+                <thead><tr><th title="Field #1">Seattle-Tacoma-Bellevue, WA MSA</th>
+                    <th title="Field #2">PROGRAM</th>
+                    <th title="Field #3">1 PER</th>
+                    <th title="Field #4">2 PER</th>
+                    <th title="Field #5">3 PER</th>
+                    <th title="Field #6">4 PER</th>
+                    <th title="Field #7">5 PER</th>
+                    <th title="Field #8">6 PER</th>
+                    <th title="Field #9">7 PER</th>
+                    <th title="Field #10">8 PER</th>
+                </tr></thead>
+                <tbody><tr><td>Seattle-Bellevue, WA HMFA FY 2014 MFI: 88200</td>
+                    <td>EXTR LOW INCOME</td>
+                    <td align="right">18550</td>
+                    <td align="right">21200</td>
+                    <td align="right">23850</td>
+                    <td align="right">26450</td>
+                    <td align="right">28600</td>
+                    <td align="right">31970</td>
+                    <td align="right">36030</td>
+                    <td align="right">40090</td>
+                </tr>
+                <tr><td> </td>
+                    <td>VERY LOW INCOME</td>
+                    <td align="right">30900</td>
+                    <td align="right">35300</td>
+                    <td align="right">39700</td>
+                    <td align="right">44100</td>
+                    <td align="right">47650</td>
+                    <td align="right">51200</td>
+                    <td align="right">54700</td>
+                    <td align="right">58250</td>
+                </tr>
+                <tr><td> </td>
+                    <td>LOW-INCOME</td>
+                    <td align="right">44750</td>
+                    <td align="right">51150</td>
+                    <td align="right">57550</td>
+                    <td align="right">63900</td>
+                    <td align="right">69050</td>
+                    <td align="right">74150</td>
+                    <td align="right">79250</td>
+                    <td align="right">84350</td>
+                </tr>
+                <tr><td>Tacoma, WA HMFA FY 2014 MFI: 67000</td>
+                    <td>EXTR LOW INCOME</td>
+                    <td align="right">14100</td>
+                    <td align="right">16100</td>
+                    <td align="right">19790</td>
+                    <td align="right">23850</td>
+                    <td align="right">27910</td>
+                    <td align="right">31970</td>
+                    <td align="right">36030</td>
+                    <td align="right">40090</td>
+                </tr>
+                <tr><td> </td>
+                    <td>VERY LOW INCOME</td>
+                    <td align="right">23450</td>
+                    <td align="right">26800</td>
+                    <td align="right">30150</td>
+                    <td align="right">33500</td>
+                    <td align="right">36200</td>
+                    <td align="right">38900</td>
+                    <td align="right">41550</td>
+                    <td align="right">44250</td>
+                </tr>
+                <tr><td> </td>
+                    <td>LOW-INCOME</td>
+                    <td align="right">37550</td>
+                    <td align="right">42900</td>
+                    <td align="right">48250</td>
+                    <td align="right">53600</td>
+                    <td align="right">57900</td>
+                    <td align="right">62200</td>
+                    <td align="right">66500</td>
+                    <td align="right">70800</td>
+                </tr>
+                </tbody></table>
+            <h4 class="table-head">Q: What's up with the coordinate format?</h4>
+            <h4>
+                A: The default projection for queries is EPSG:3857. If you want lat/longs, you'll need to
+                add the output spatial reference parameter to the query string.
+                <pre>{"wkid" : 4326}</pre>
+                Here's an example query that returns coordinates in GCS WGS 1984 which should work for most purposes.
+                <pre>http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/FairMarketRents/FeatureServer/0/query?where=1=1&outSR={"wkid":4326}&f=pgeojson</pre>
+            </h4>
+
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+<!-- *****************************************************************************************************************
+ FOOTER
+ ***************************************************************************************************************** -->
+<div id="footerwrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h4>About PD&R</h4>
+
+                <div class="hline-w"></div>
+                <p>The U.S. Department of Housing and Urban Development's (HUD's) Office of Policy Development and
+                    Research (PD&R) supports the Department's efforts to help create cohesive, economically healthy
+                    communities.</p>
+            </div>
+            <div class="col-lg-4">
+                <h4>Social Links</h4>
+
+                <div class="hline-w"></div>
+                <p>
+                    <a href=""
+                       onclick="window.open('https://twitter.com/share', 'newwindow', 'width=550, height=450'); return false;"><i
+                            class="fa fa-twitter"></i></a>
+                    <a href="//www.reddit.com/submit"
+                       onclick="window.open('//www.reddit.com/submit?url=' + encodeURIComponent(window.location), 'newwindow', 'width=550, height=450'); return false;"><i
+                            class="fa fa-reddit"></i></a>
+                    <a href="https://news.ycombinator.com/submit"
+                       onclick="window.open('http://news.ycombinator.com/submitlink?u='+encodeURIComponent(document.location), 'newwindow', 'width=550, height=450'); return false;">
+                        <i class="fa fa-hacker-news"></i>
+                    </a>
+                    <a href=""
+                       onclick="window.open('http://www.facebook.com/sharer.php?u=%22'+encodeURIComponent(document.location), 'newwindow', 'width=550, height=450'); return false;">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href=""
+                       onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=http://http://hudegis.github.io/&title=HUD%20Zillow%20Hackathonarticle&summary=Best%20hackathon%20in%20the%20galaxy&source=HUD', 'newwindow', 'width=550, height=450'); return false;"><i
+                            class="fa fa-linkedin"></i></a>
+
+                    <a href=""
+                       onclick="window.open('https://plusone.google.com/_/+1/confirm?hl=en&url=<?php if(is_home()){echo home_url();}else{the_permalink();} ?>', 'newwindow', 'width=550, height=450'); return false;"><i
+                            class="fa fa-google-plus"></i></a>
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <h4>PD&R HQ</h4>
+
+                <div class="hline-w"></div>
+                <p>
+                    451 7th Street S.W.<br/>
+                    Washington, DC 20410<br/>
+                    Telephone: (202) 708-1112<br/>
+                    TTY: (202) 708-1455<br/>
+                </p>
+            </div>
+
+        </div>
+        <! --/row -->
+    </div>
+    <! --/container -->
+</div>
+<! --/footerwrap -->
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/retina-1.1.0.js"></script>
+<script src="assets/js/jquery.hoverdir.js"></script>
+<script src="assets/js/jquery.hoverex.min.js"></script>
+<script src="assets/js/jquery.prettyPhoto.js"></script>
+<script src="assets/js/jquery.isotope.min.js"></script>
+<script src="assets/js/custom.js"></script>
+
+<script>
+    $(function () {
+        $('a[href*=#]:not([href=#])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top - 80
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+</script>
+<!-- Table Toggle -->
+<script>
+    $('.table-head').click(function () {
+        $(this).nextUntil('.table-head').slideToggle(0);
+    });
+
+    $(window).bind('load', function () {
+        $('.table-head').nextUntil('.table-head').slideToggle(0);
+    });
+
+
+</script>
+<script>
+    function search() {
+        window.location = 'http://zillowhack.hud.opendata.arcgis.com/' + 'datasets?q=' + document.getElementById('search-input').value
+    }
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59394747-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
