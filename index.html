@@ -54,9 +54,9 @@
 
 <!-- Fixed navbar -->
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+    <div class="container" >
         <!--<img src="http://www.huduser.org/portal/images/usaflag.gif" alt="USA Flag" width="21" height="13" style="position:absolute;">-->
-        <div class="prepend-1 span-14 white hidden-xs"><h7 style="color:white;font-size:.6em"><img src="http://www.huduser.org/portal/images/usaflag.gif" alt="USA Flag" width="21" height="13" hspace="0" vspace="0" style="padding-bottom:2px">&nbsp;&nbsp;
+        <div class="hidden-xs"><h7 style="color:white;font-size:.6em"><img src="http://www.huduser.org/portal/images/usaflag.gif" alt="USA Flag" width="21" height="13" hspace="0" vspace="0" style="padding-bottom:2px;padding-right:5px">
             <script language="JavaScript">
 
                 var now = new Date();
@@ -75,18 +75,19 @@
             </script></h7>
         </div>
         <div class="navbar-header">
-            <button class="navbar-toggle btn btn-default" onclick="usersearch()" type="button" style="border:none;"><i class="fa fa-search"></i></button>
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="border:none">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+            <button class="navbar-toggle" style="margin-top:auto; margin-bottom:auto;font-size:1.3em; border:none" onclick="usersearch()" type="button" ><i class="fa fa-search"></i></button>
+            <button id="ham-bx" class="navbar-toggle" style="margin-top:auto; margin-bottom:auto;font-size:1.3em; border:none" data-toggle="collapse" data-target=".navbar-collapse"  type="button" style="border:none;"><i id="ham-x" class="fa fa-bars"></i></button>
+            <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="border:none">-->
+                <!--<span class="sr-only">Toggle navigation</span>-->
+                <!--<span style="background-color:white" class="icon-bar"></span>-->
+                <!--<span style="background-color:white" class="icon-bar"></span>-->
+                <!--<span style="background-color:white" class="icon-bar"></span>-->
+            <!--</button>-->
             <a class="navbar-brand hidden-xs" href="index.html" title="eGIS HUD">
             <img style="margin:10px 0 0 -3px" src="http://www.huduser.org/portal/images/HUDUSER_logo2.png">
                 </a>
             <a class="navbar-brand hidden-sm hidden-md hidden-lg" href="index.html" title="eGIS HUD">
-                <img style="margin:-10px 0 0 -3px" src="http://www.huduser.org/portal/images/HU_logo_reversed_v3.png">
+                <img style="margin:-10px 0 0 -3px" src="./assets/img/HU_logo_reversed_v5.png">
             </a>
             <a class="navbar-brand hidden-xs"><span>HUD.GOV</span><br>
             U.S. Department of Housing and Urban Development<br>
@@ -94,18 +95,23 @@
             <a class="navbar-brand hidden-md hidden-sm hidden-xs"  href="http://portal.hud.gov/hudportal/HUD"><img style="margin-top:-13px" src="http://www.huduser.org/portal/css/images/HUD_logo2.png"></a>
         </div>
         <div class="navbar-collapse collapse navbar-right">
-            <ul class="nav navbar-nav" style="width:100%">
+            <ul class="nav navbar-nav">
                 <!--<li class="active"><a href="index.html">HOME</a></li>-->
                 <!--<li><a href="intro.html">APPS</a></li>-->
                 <!--<li><a href="http://zillowhack.hud.opendata.arcgis.com">DATA</a></li>-->
                 <!--<li><a href="docs.html">DOCS</a></li>-->
                 <li>
-                    <form class="navbar-form navbar-right" role="search" action="javascript: search()">
+                    <form class="navbar-form navbar-right hidden-xs" role="search" action="javascript: hudsearch2()">
                         <div class="form-group navbar-right col-sm-4 hidden-xs" style="margin-top:-50px">
+                            <div class="text-right" style="margin-top:-25px;margin-bottom:15px">
+                                <a id="facebook" href="http://www.facebook.com/pages/Washington-DC/HUD-USER/183685747712" style=""><i class="fa fa-facebook-square fa-2x"></i></a>
+                                <a id="twitter-icon" href="http://twitter.com/HUDUSERNEWS"><i class="fa fa-twitter fa-2x"></i></a>
+                                <a id="rss" href="http://www.huduser.org/portal/rss.html"><i class="fa fa-rss-square fa-2x"></i></a>
+                            </div>
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search HUDUser" id="">
+                                <input type="text" class="form-control" placeholder="Search HUDUser" id="hudusersearch2">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" onclick="search()" type="button"><i class="fa fa-search"></i></button>
+                                    <button class="btn btn-default" onclick="hudsearch2()" type="button"><i class="fa fa-search"></i></button>
                                 </span>
                             </div><!-- /input-group -->
 
@@ -117,14 +123,41 @@
 
                 </li>
             </ul>
-            <div class="container hidden-lg hidden-md hidden-sm" style="background:rgb(29,68,140);width:100%;margin:0;padding:0">
-                <ul align="center" class="nav navbar-nav">
+            <div class="container hidden-lg hidden-md hidden-sm" style="background:rgb(29,68,140);margin:0;padding:0">
+                <ul align="center" class="nav navbar-nav" style="width:100%">
                     <li class="active"><a href="index.html">HOME</a></li>
                     <li class="dropdown">
                         <a href="intro.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ABOUT PD&R<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="intro.html">ABOUT PD&R</a></li>
-                            <li><a href="intro.html">ABOUT PD&R</a></li>
+                            <li><a href="http://www.huduser.org/portal/about/pdrabout.html">About PD&R</a></li>
+                            <li><a href="http://www.huduser.org/portal/publications/other/biennial_2013_2014.html">Binennial Report FY2013-2014</a></li>
+                            <li><a href="http://www.huduser.org/portal/about/careers.html">Careers</a></li>
+                            <li><a href="http://www.huduser.org/portal/about/events.html">Events</a></li>
+                            <li><a href="http://www.huduser.org/portal/about/secaward.html">HUD Secretary's Award</a></li>
+                            <li><a href="http://www.huduser.org/portal/publications/affhsg/strategic_plan_2014.html">HUD Strategic Plan 2014-2018</a></li>
+                            <li><a href="http://www.huduser.org/hud_timeline/">HUD Historical Timeline</a></li>
+                            <li><a href="http://www.huduser.org/portal/about/mission_and_background.html">Mission and Background</a></li>
+
+                            <li class="dropdown dropdown-submenu dropdown-toggle" role="menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Organizational Charts</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="http://www.huduser.org/portal/about/org_charts.html">PD&R Organizational Chart</a></li>
+                                    <li><a href="http://www.huduser.org/portal/about/org_charts.html">PD&R Field Economist Organizational Chart</a></li>
+                                    <li><a href="http://www.huduser.org/portal/about/pdrdvsn_desc.html">Office/Division Descriptions</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown dropdown-submenu dropdown-toggle" role="menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Research</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="http://www.huduser.org/portal/about/research.html">Research</a></li>
+                                    <li><a href="http://www.huduser.org/portal/about/current_research.html">Current Research</a></li>
+                                    <li><a href="http://www.huduser.org/portal/oup/research_partnerships.html">Research Partnerships</a></li>
+                                    <li><a href="http://www.huduser.org/portal/about/pdr_roadmap.html">Research Roadmap</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="http://www.huduser.org/portal/oup/home.html">The Office of University Partnerships (OUP)</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -161,12 +194,12 @@
         </div>
         <!--/.nav-collapse -->
         <div id="searchtoggle" style="background-color:rgba(0,0,0,0)">
-            <form class="navbar-form navbar-right" role="search" action="javascript: search()">
+            <form class="navbar-form navbar-right" role="search" action="javascript: hudsearch()">
                 <div class="form-group navbar-right col-sm-4">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search HUDUser" id="hudusersearch">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" onclick="search()" type="button"><i class="fa fa-search"></i></button>
+                                    <button class="btn btn-default" onclick="hudsearch()" type="button"><i class="fa fa-search"></i></button>
                                 </span>
                     </div><!-- /input-group -->
 
@@ -180,13 +213,40 @@
 </div>
 <div class="hidden-xs" style="background:white;width:100%">
     <div class="container" style="margin-top:140px;background:white">
-        <ul align="center" class="nav navbar-nav">
+        <ul id="link-bar" align="center" class="nav navbar-nav" style="font-size:.9em">
             <li class="active"><a href="index.html">HOME</a></li>
             <li class="dropdown">
                 <a href="intro.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ABOUT PD&R<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="intro.html">ABOUT PD&R</a></li>
-                    <li><a href="intro.html">ABOUT PD&R</a></li>
+                    <li><a href="http://www.huduser.org/portal/about/pdrabout.html">About PD&R</a></li>
+                    <li><a href="http://www.huduser.org/portal/publications/other/biennial_2013_2014.html">Binennial Report FY2013-2014</a></li>
+                    <li><a href="http://www.huduser.org/portal/about/careers.html">Careers</a></li>
+                    <li><a href="http://www.huduser.org/portal/about/events.html">Events</a></li>
+                    <li><a href="http://www.huduser.org/portal/about/secaward.html">HUD Secretary's Award</a></li>
+                    <li><a href="http://www.huduser.org/portal/publications/affhsg/strategic_plan_2014.html">HUD Strategic Plan 2014-2018</a></li>
+                    <li><a href="http://www.huduser.org/hud_timeline/">HUD Historical Timeline</a></li>
+                    <li><a href="http://www.huduser.org/portal/about/mission_and_background.html">Mission and Background</a></li>
+
+                    <li class="dropdown dropdown-submenu dropdown-toggle" role="menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Organizational Charts</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://www.huduser.org/portal/about/org_charts.html">PD&R Organizational Chart</a></li>
+                            <li><a href="http://www.huduser.org/portal/about/org_charts.html">PD&R Field Economist Organizational Chart</a></li>
+                            <li><a href="http://www.huduser.org/portal/about/pdrdvsn_desc.html">Office/Division Descriptions</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown dropdown-submenu dropdown-toggle" role="menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Research</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://www.huduser.org/portal/about/research.html">Research</a></li>
+                            <li><a href="http://www.huduser.org/portal/about/current_research.html">Current Research</a></li>
+                            <li><a href="http://www.huduser.org/portal/oup/research_partnerships.html">Research Partnerships</a></li>
+                            <li><a href="http://www.huduser.org/portal/about/pdr_roadmap.html">Research Roadmap</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="http://www.huduser.org/portal/oup/home.html">The Office of University Partnerships (OUP)</a></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -218,14 +278,51 @@
                 </ul>
             </li>
             <li><a href="docs.html">EVENTS</a></li>
+            <!--<li class="active"><a href="index.html">HOME</a></li>-->
+            <!--<li class="dropdown">-->
+                <!--<a href="intro.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ABOUT PD&R<span class="caret"></span></a>-->
+                <!--<ul class="dropdown-menu" role="menu">-->
+                    <!--<li><a href="intro.html">ABOUT PD&R</a></li>-->
+                    <!--<li><a href="intro.html">ABOUT PD&R</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li class="dropdown">-->
+                <!--<a href="intro.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">RESEARCH & PUBLICATIONS<span class="caret"></span></a>-->
+                <!--<ul class="dropdown-menu" role="menu">-->
+                    <!--<li><a href="intro.html">ABOUT PD&R</a></li>-->
+                    <!--<li><a href="intro.html">ABOUT PD&R</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li class="dropdown">-->
+                <!--<a href="intro.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">DATASETS<span class="caret"></span></a>-->
+                <!--<ul class="dropdown-menu" role="menu">-->
+                    <!--<li><a href="intro.html">ABOUT PD&R</a></li>-->
+                    <!--<li><a href="intro.html">ABOUT PD&R</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li class="dropdown">-->
+                <!--<a href="intro.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">INITIATIVES<span class="caret"></span></a>-->
+                <!--<ul class="dropdown-menu" role="menu">-->
+                    <!--<li><a href="intro.html">ABOUT PD&R</a></li>-->
+                    <!--<li><a href="intro.html">ABOUT PD&R</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li class="dropdown">-->
+                <!--<a href="intro.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">QUICK LINKS<span class="caret"></span></a>-->
+                <!--<ul class="dropdown-menu" role="menu">-->
+                    <!--<li><a href="intro.html">ABOUT PD&R</a></li>-->
+                    <!--<li><a href="intro.html">ABOUT PD&R</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li><a href="docs.html">EVENTS</a></li>-->
         </ul>
     </div>
 </div>
 
-<div id="map-par" style="">
-    <div class="container" style="">
+<div id="map-par">
+    <div class="container">
         <h1 class="hud-title">HUD GEO</h1>
-        <div id="search-par" class="" style="">
+        <div id="search-par" class="col-xs-12" style="padding-left:0">
             <form class="" role="search" action="javascript: search()">
                 <div class="form-group col-sm-4" style="padding-left:0;margin-left:0">
                     <div class="input-group">
@@ -238,11 +335,11 @@
             </form>
             <!--<img src="assets/img/egis_1.gif" style="height:30px;">-->
         </div>
-        <div class="" style=";margin-top:60px">
+        <div class="col-xs-12" style="padding-left:0">
             <p>Check out the HUD EGIS developed applications</p>
             <button onclick="window.location = './docs.html'" class="btn">EGIS Applications</button>
         </div>
-        <div class="">
+        <div class="col-xs-12" style="padding-left:0">
             <p>Try out HUD's ArcGIS Online instance</p>
             <button onclick="window.open('http://hud.maps.arcgis.com/')" class="btn">ArcGIS Online</button>
         </div>
@@ -258,7 +355,7 @@
     <!-- *****************************************************************************************************************
      QUICK LINKS
      ***************************************************************************************************************** -->
-    <div id="service" style="padding-top:10px">
+    <div id="service" style="margin-top:50px">
         <div class="container">
             <div class="row centered">
                 <div class="col-md-4">
@@ -909,6 +1006,12 @@
     })(jQuery);
 </script>
 <script>
+    $('#ham-bx').click(function(){
+        $( this ).find('i').toggleClass('fa-bars fa-close')
+    })
+
+</script>
+<script>
     $(window).bind('scroll', function (e) {
         parallaxScroll();
     });
@@ -917,19 +1020,31 @@
         var scrolled = $(window).scrollTop();
         var mq = window.innerWidth;
         if(mq <= 767) {
-            $('#map-par').css('top', (65 - (scrolled * .31)) + 'px');
-            $('#search-par').css('top', (175 - (scrolled * .31)) + 'px');
-            $('#contain-par').css('top', (540 - (scrolled * .75)) + 'px');
+//            $('#map-par').css('top', (65 - (scrolled * .31)) + 'px');
+//            $('#search-par').css('top', (175 - (scrolled * .31)) + 'px');
+//            $('#contain-par').css('top', (540 - (scrolled * .75)) + 'px');
 
         } else {
-            $('#map-par').css('top', (65 - (scrolled * .31)) + 'px');
-            $('#search-par').css('top', (260 - (scrolled * .31)) + 'px');
-            $('#contain-par').css('top', (540 - (scrolled * .75)) + 'px');
+//            $('#map-par').css('top', (65 - (scrolled * .31)) + 'px');
+//            $('#search-par').css('top', (260 - (scrolled * .31)) + 'px');
+//            $('#contain-par').css('top', (540 - (scrolled * .75)) + 'px');
 
         }
 
 
     }
+</script>
+<script>
+    (function($){
+        $(document).ready(function(){
+            $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                $(this).parent().siblings().removeClass('open');
+                $(this).parent().toggleClass('open');
+            });
+        });
+    })(jQuery);
 </script>
 <script>
     $(document).ready(function(){
@@ -938,6 +1053,12 @@
 
     function search() {
         window.location = 'http://egis.hud.opendata.arcgis.com/' + 'datasets?q=' + document.getElementById('search-input').value
+    }
+    function hudsearch() {
+        window.location ='http://www.huduser.org/portal/index.php?qgoogle='+document.getElementById('hudusersearch').value+'&btnG.x=0&btnG.y=0&btnG=Go&q=search&entqr=0&sort=date%3AD%3AL%3Ad1&output=xml_no_dtd&lr=lang_en%7Clang_es&client=CMS&ud=1&site=DrupalHUDUSER&oe=UTF-8&ie=UTF-8&proxystylesheet=CMS&proxyreload=1&filter=0'
+    }
+    function hudsearch2() {
+        window.location ='http://www.huduser.org/portal/index.php?qgoogle='+document.getElementById('hudusersearch2').value+'&btnG.x=0&btnG.y=0&btnG=Go&q=search&entqr=0&sort=date%3AD%3AL%3Ad1&output=xml_no_dtd&lr=lang_en%7Clang_es&client=CMS&ud=1&site=DrupalHUDUSER&oe=UTF-8&ie=UTF-8&proxystylesheet=CMS&proxyreload=1&filter=0'
     }
     function usersearch() {
         $(document).ready(function() {
