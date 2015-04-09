@@ -141,19 +141,19 @@ a:focus {
 }
 
 .dropdown-menu {
-    background: #384452;
+    background: white;
 }
 
 .dropdown-menu > li > a {
-    color: white;
+    color: #1481BA;
     font-weight: 700;
     font-size: 12px;
 }
 
 .btn-theme {
-    color: #fff;
-    background-color: #384452;
-    border-color: #384452;
+    color: #1481BA;
+    background-color: #fff;
+    border-color: #fff;
     margin: 4px;
 }
 
@@ -308,6 +308,11 @@ a:focus {
     text-transform: uppercase;
 }
 
+.portfolio-item img {
+    max-height:250px;
+    padding:10px;
+}
+
 .tpl6 h3 {
     color: #fff;
     margin: 0;
@@ -333,7 +338,7 @@ a:focus {
 /* Testimonials Wrap */
 #twrap {
     /*background: url(../img/t-back.jpg) no-repeat center top;*/
-    background: url(../img/portfolio/hud_hq.jpg) no-repeat center top;
+    background: url(../img/ago_frame.jpg) no-repeat center top;
     margin-top: 0px;
     padding-top: 60px;
     text-align: center;
