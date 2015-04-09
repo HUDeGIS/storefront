@@ -326,9 +326,10 @@
                 the GeoService API. All layers may be accessed at the following location:
             </p>
             <pre>http://services.arcgis.com/&ltthe layer's UID&gt/arcgis/rest/services/MultiFamilyProperties/FeatureServer/0/</pre>
+            <!--TODO replace example datasets with stable endpoints -->
             <p>
                 You can find this address by navigating to the layer descritpion page at
-                <a href="http://zillowhack.hud.opendata.arcgis.com/">zillowhack.hud.opendata.arcgis.com</a>,
+                <a href="http://egis.hud.opendata.arcgis.com/">egis.hud.opendata.arcgis.com</a>,
                 selecting 'Download Dataset' and copying the GeoService address from the API dropdown menu.
             </p>
 
@@ -339,7 +340,7 @@
             </p>
 
             <p>To use the GeoService, navigate to the layer in question and pull the base url from the <a
-                    href="http://zillowhack.hud.opendata.arcgis.com/">opendata page</a>
+                    href="http://egis.hud.opendata.arcgis.com/">opendata page</a>
             <pre>http://services.arcgis.com/VTyQ9soqVukalItT/ArcGIS/rest/services/FairMarketRents/FeatureServer/0/query?where=1=1&outFields=*&outSR=4326&objectids=1&f=geojson</pre>
 
 
@@ -574,6 +575,7 @@
 
             <h3 id="ddict">Data Dictionaries</h3>
             <h4 class="table-head" id="phd">Public Housing Developments</h4>
+            <h5><a href="#">Public Housing Developments Metadata</a></h5>
             <table class="table">
                 <thead>
                 <tr>
@@ -4534,7 +4536,7 @@
 </script>
 <script>
     function search() {
-        window.location = 'http://zillowhack.hud.opendata.arcgis.com/' + 'datasets?q=' + document.getElementById('search-input').value
+        window.location = 'http://egis.hud.opendata.arcgis.com/' + 'datasets?q=' + document.getElementById('search-input').value
     }
 </script>
 <script>
