@@ -788,6 +788,7 @@ span > .icon-bar {
     position:fixed;
     top: 46px;
     width:350px;
+    max-width:350px;
 }
 
 .wellfixedbottom {
