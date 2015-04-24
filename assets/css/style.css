@@ -777,6 +777,7 @@ span > .icon-bar {
 
 .well {
     min-width:262px;
+    max-width:350px;
     background: none;
     border: none;
     box-shadow: none;
@@ -787,6 +788,7 @@ span > .icon-bar {
     position:fixed;
     top: 46px;
     width:350px;
+    max-width:350px;
 }
 
 .wellfixedbottom {
