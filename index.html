@@ -217,7 +217,15 @@
                     <li><a href="http://egis.hud.opendata.arcgis.com">View All</a></li>
                 </ul>
             </li>
-            <li><a href="docs.html">EGIS Documentation</a></li>
+            <li><a href="docs.html">eGIS API and Data Documentation</a></li>
+            <!--<li><a href="docs.html">FAQs</a></li>-->
+            <!--<li class="dropdown">-->
+                <!--<a href="http://applications.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About Us<span class="caret"></span></a>-->
+                <!--<ul class="dropdown-menu" role="menu">-->
+                    <!--<li><a href="">What is eGIS?</a></li>-->
+                    <!--<li><a href="">Contact Us</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
         </ul>
     </div>
 </div>
@@ -225,10 +233,12 @@
 <div id="map-par">
     <div class="container">
         <!--<h1 class="hud-title">HUD GEO</h1>-->
-        <img src="assets/img/egis_1.gif" style="height:40px;margin-bottom:20px">
+        <div class="col-sm-8" style="padding:0 15px 0 0">
+            <img src="assets/img/egis_2.gif" style="height:120px;margin-bottom:20px">
+        </div>
         <div id="search-par" class="col-xs-12" style="padding-left:0">
             <form class="" role="search" action="javascript: search()">
-                <div class="form-group col-sm-4" style="padding-left:0;margin-left:0">
+                <div class="form-group col-sm-5" style="padding-left:0;margin-left:0">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search HUD Data" id="search-input">
                                 <span class="input-group-btn">
@@ -238,13 +248,18 @@
                 </div>
             </form>
         </div>
-        <div class="col-xs-12" style="padding-left:0">
-            <p>Check out the HUD EGIS developed applications</p>
-            <button onclick="window.location = './applications.html'" class="btn">EGIS Applications</button>
+        <!--<div class="col-sm-7" style="padding-left:0">-->
+            <!--<p style="color:white">Making HUD's geospatial data more open and accessible to housing and community researchers, practitioners, and the general public.</p>-->
+        <!--</div>-->
+        <div class="col-sm-7 col-xs-12" style="padding-left:0;">
+            <p style="color:white; font-size:1.3em">Welcome to the HUD eGIS Storefront: an easy-to-use site where users can search
+            for and discover HUD's geospatial datasets, application programming interfaces (APIs), web-based mapping
+            tools, and other eGIS initiatives.</p>
+            <!--<button onclick="window.location = './applications.html'" class="btn">EGIS Applications</button>-->
         </div>
         <div class="col-xs-12" style="padding-left:0">
-            <p>For data usage examples and tutorials, check out EGIS Documentation</p>
-            <button onclick="window.location = './docs.html'" class="btn">EGIS Documentation</button>
+            <!--<p>For data usage examples and tutorials, check out EGIS Documentation</p>-->
+            <!--<button onclick="window.location = './docs.html'" class="btn">EGIS Documentation</button>-->
         </div>
 
     </div>
@@ -253,7 +268,7 @@
 <!-- *****************************************************************************************************************
  CONTAINER DIV
  ***************************************************************************************************************** -->
-<div id="contain-par" style="position: absolute; width:100%; top: 540px; background-color:white; z-index: 2;">
+<div id="contain-par" style="position: absolute; width:100%; top: 560px; background-color:white; z-index: 2;">
 
     <!-- *****************************************************************************************************************
      QUICK LINKS
@@ -296,308 +311,328 @@
     <!-- *****************************************************************************************************************
      DATASET SECTION
      ***************************************************************************************************************** -->
-    <div id="portfoliowrap">
-        <h2>HUD DATASETS</h2>
-        <hr>
+    <!--<div id="portfoliowrap">-->
+        <!--<h2>HUD DATASETS</h2>-->
+        <!--<hr>-->
 
-        <div class="portfolio-centered">
-            <div class="recentitems portfolio">
-                <div class="portfolio-item graphic-design">
-                    <div class="he-wrap tpl6">
-                        <h4>Continuum of Care Grantee Areas</h4>
-                        <img src="assets/img/dataset_icons/coc.png" alt="">
+        <!--<div id="portContainer" class="container">-->
+        <!--<div class="portfolio-centered">-->
+            <!--<div id="recentItems" class="recentitems portfolio">-->
+                <!--<div class="portfolio-item graphic-design">-->
+                    <!--<div class="he-wrap tpl6">-->
+                        <!--<div class="spacer">-->
+                            <!--<h4>Continuum of Care Grantee Areas</h4>-->
+                        <!--</div>-->
+                        <!--<img src="assets/img/dataset_icons/coc.png" alt="">-->
 
-                        <div class="he-view">
-                            <div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">Continuum of Care Grantee Areas</h3>
-                                <a href="http://zillowhack.hud.opendata.arcgis.com/datasets/e29dca94b6924766a124d7c767e03b75_0"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/FairMarketRents/FeatureServer/0/query?outFields=*&where=1%3D1"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                            </div>
-                            <!-- he bg -->
-                        </div>
-                        <!-- he view -->
-                    </div>
-                    <!-- he wrap -->
-                </div>
-                <!-- end col-12 -->
+                        <!--<div class="he-view">-->
+                            <!--<div class="bg a0" data-animate="fadeIn">-->
+                                <!--<h3 class="a1" data-animate="fadeInDown">Continuum of Care Grantee Areas</h3>-->
+                                <!--<a href="http://zillowhack.hud.opendata.arcgis.com/datasets/e29dca94b6924766a124d7c767e03b75_0"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>-->
+                                <!--<a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/FairMarketRents/FeatureServer/0/query?outFields=*&where=1%3D1"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; he bg &ndash;&gt;-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; he view &ndash;&gt;-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; he wrap &ndash;&gt;-->
+                <!--</div>-->
+                <!--&lt;!&ndash; end col-12 &ndash;&gt;-->
 
-                <div class="portfolio-item web-design">
-                    <div class="he-wrap tpl6">
-                        <h4>Field Offices</h4>
-                        <img src="assets/img/dataset_icons/Field%20Offices.png" alt="">
+                <!--<div class="portfolio-item web-design">-->
+                    <!--<div class="he-wrap tpl6">-->
+                        <!--<div class="spacer">-->
+                            <!--<h4>Field Offices</h4>-->
+                        <!--</div>-->
+                        <!--<img src="assets/img/dataset_icons/Field%20Offices.png" alt="">-->
 
-                        <div class="he-view">
-                            <div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">Field Offices</h3>
-                                <a href="http://zillowhack.hud.opendata.arcgis.com/datasets/42c4d3d6648c4d5196fa0002af457383_0"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/HCVByTract/FeatureServer/0/query?outFields=*&where=1%3D1"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                            </div>
-                            <!-- he bg -->
-                        </div>
-                        <!-- he view -->
-                    </div>
-                    <!-- he wrap -->
-                </div>
-                <!-- end col-12 -->
+                        <!--<div class="he-view">-->
+                            <!--<div class="bg a0" data-animate="fadeIn">-->
+                                <!--<h3 class="a1" data-animate="fadeInDown">Field Offices</h3>-->
+                                <!--<a href="http://zillowhack.hud.opendata.arcgis.com/datasets/42c4d3d6648c4d5196fa0002af457383_0"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>-->
+                                <!--<a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/HCVByTract/FeatureServer/0/query?outFields=*&where=1%3D1"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; he bg &ndash;&gt;-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; he view &ndash;&gt;-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; he wrap &ndash;&gt;-->
+                <!--</div>-->
+                <!--&lt;!&ndash; end col-12 &ndash;&gt;-->
 
-                <div class="portfolio-item graphic-design">
-                    <div class="he-wrap tpl6">
-                        <h4>Low Income Housing Tax Credit Properties</h4>
+                <!--<div class="portfolio-item graphic-design">-->
+                    <!--<div class="he-wrap tpl6">-->
+                        <!--<div class="spacer">-->
+                            <!--<h4>Low Income Housing Tax Credit Properties</h4>-->
+                        <!--</div>-->
                         <!--<img src="assets/img/dataset_icons/lihtc.png" alt="">-->
-                        <img src="http://fc07.deviantart.net/fs71/i/2012/316/f/3/monopoly_man_by_vectorius1-d5ksb2n.jpg" alt="">
 
-                        <div class="he-view">
-                            <div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">Low Income Housing Tax Credit Properties</h3>
-                                <a href="http://zillowhack.hud.opendata.arcgis.com/datasets/c0d79831f95c46018349657dc768ddc4_0"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/LIHTC/FeatureServer/0/query?outFields=*&where=1%3D1"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                            </div>
-                            <!-- he bg -->
-                        </div>
-                        <!-- he view -->
-                    </div>
-                    <!-- he wrap -->
-                </div>
-                <!-- end col-12 -->
+                        <!--<div class="he-view">-->
+                            <!--<div class="bg a0" data-animate="fadeIn">-->
+                                <!--<h3 class="a1" data-animate="fadeInDown">Low Income Housing Tax Credit Properties</h3>-->
+                                <!--<a href="http://zillowhack.hud.opendata.arcgis.com/datasets/c0d79831f95c46018349657dc768ddc4_0"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>-->
+                                <!--<a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/LIHTC/FeatureServer/0/query?outFields=*&where=1%3D1"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; he bg &ndash;&gt;-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; he view &ndash;&gt;-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; he wrap &ndash;&gt;-->
+                <!--</div>-->
+                <!--&lt;!&ndash; end col-12 &ndash;&gt;-->
 
-                <div class="portfolio-item graphic-design">
-                    <div class="he-wrap tpl6">
-                        <h4>Public Housing Authorities</h4>
-                        <img src="assets/img/dataset_icons/pha.png" alt="">
+                <!--<div class="portfolio-item graphic-design">-->
+                    <!--<div class="he-wrap tpl6">-->
+                        <!--<div class="spacer">-->
+                            <!--<h4>Public Housing Authorities</h4>-->
+                        <!--</div>-->
+                        <!--<img src="assets/img/dataset_icons/pha.png" alt="">-->
 
-                        <div class="he-view">
-                            <div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">Public Housing Authorities</h3>
-                                <a href="http://zillowhack.hud.opendata.arcgis.com/datasets/c55eb46fbc3b472cabd0c2a41f805261_0"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/MultiFamilyProperties/FeatureServer/0/query?outFields=*&where=1%3D1"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                            </div>
-                            <!-- he bg -->
-                        </div>
-                        <!-- he view -->
-                    </div>
-                    <!-- he wrap -->
-                </div>
-                <!-- end col-12 -->
+                        <!--<div class="he-view">-->
+                            <!--<div class="bg a0" data-animate="fadeIn">-->
+                                <!--<h3 class="a1" data-animate="fadeInDown">Public Housing Authorities</h3>-->
+                                <!--<a href="http://zillowhack.hud.opendata.arcgis.com/datasets/c55eb46fbc3b472cabd0c2a41f805261_0"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>-->
+                                <!--<a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/MultiFamilyProperties/FeatureServer/0/query?outFields=*&where=1%3D1"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; he bg &ndash;&gt;-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; he view &ndash;&gt;-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; he wrap &ndash;&gt;-->
+                <!--</div>-->
+                <!--&lt;!&ndash; end col-12 &ndash;&gt;-->
 
-                <div class="portfolio-item books">
-                    <div class="he-wrap tpl6">
-                        <h4>Regional Offices</h4>
-                        <img src="assets/img/dataset_icons/Regional%20Offices.png" alt="">
+                <!--<div class="portfolio-item books">-->
+                    <!--<div class="he-wrap tpl6">-->
+                        <!--<div class="spacer">-->
+                            <!--<h4>Regional Offices</h4>-->
+                        <!--</div>-->
+                        <!--<img src="assets/img/dataset_icons/Regional%20Offices.png" alt="">-->
 
-                        <div class="he-view">
-                            <div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">Regional Offices</h3>
-                                <a href="http://zillowhack.hud.opendata.arcgis.com/datasets/0e99651ec61242648f3128e8fd36be4d_0"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/PublicHousingAuthorities/FeatureServer/0/query?outFields=*&where=1%3D1"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                            </div>
-                            <!-- he bg -->
-                        </div>
-                        <!-- he view -->
-                    </div>
-                    <!-- he wrap -->
-                </div>
-                <!-- end col-12 -->
+                        <!--<div class="he-view">-->
+                            <!--<div class="bg a0" data-animate="fadeIn">-->
+                                <!--<h3 class="a1" data-animate="fadeInDown">Regional Offices</h3>-->
+                                <!--<a href="http://zillowhack.hud.opendata.arcgis.com/datasets/0e99651ec61242648f3128e8fd36be4d_0"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>-->
+                                <!--<a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/PublicHousingAuthorities/FeatureServer/0/query?outFields=*&where=1%3D1"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; he bg &ndash;&gt;-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; he view &ndash;&gt;-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; he wrap &ndash;&gt;-->
+                <!--</div>-->
+                <!--&lt;!&ndash; end col-12 &ndash;&gt;-->
 
-                <div class="portfolio-item graphic-design">
-                    <div class="he-wrap tpl6">
-                        <h4>USDA Rural Housing</h4>
-                        <img src="assets/img/dataset_icons/USDA%20Rural%20Housing.png" alt="">
+                <!--<div class="portfolio-item graphic-design">-->
+                    <!--<div class="he-wrap tpl6">-->
+                        <!--<div class="spacer">-->
+                            <!--<h4>USDA Rural Housing</h4>-->
+                        <!--</div>-->
+                        <!--<img src="assets/img/dataset_icons/USDA%20Rural%20Housing.png" alt="">-->
 
-                        <div class="he-view">
-                            <div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">USDA Rural Housing</h3>
-                                <a href="http://zillowhack.hud.opendata.arcgis.com/datasets/2a462f6b548e4ab8bfd9b2523a3db4e2_0"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/PublicHousingBuildings/FeatureServer/0/query?outFields=*&where=1%3D1"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                            </div>
-                            <!-- he bg -->
-                        </div>
-                        <!-- he view -->
-                    </div>
-                    <!-- he wrap -->
-                </div>
-                <!-- end col-12 -->
+                        <!--<div class="he-view">-->
+                            <!--<div class="bg a0" data-animate="fadeIn">-->
+                                <!--<h3 class="a1" data-animate="fadeInDown">USDA Rural Housing</h3>-->
+                                <!--<a href="http://zillowhack.hud.opendata.arcgis.com/datasets/2a462f6b548e4ab8bfd9b2523a3db4e2_0"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>-->
+                                <!--<a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/PublicHousingBuildings/FeatureServer/0/query?outFields=*&where=1%3D1"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; he bg &ndash;&gt;-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; he view &ndash;&gt;-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; he wrap &ndash;&gt;-->
+                <!--</div>-->
+                <!--&lt;!&ndash; end col-12 &ndash;&gt;-->
 
-                <div class="portfolio-item books">
-                    <div class="he-wrap tpl6">
-                        <h4>Public Housing Developments</h4>
-                        <img src="assets/img/dataset_icons/phd.png" alt="">
+                <!--<div class="portfolio-item books">-->
+                    <!--<div class="he-wrap tpl6">-->
+                        <!--<div class="spacer">-->
+                            <!--<h4>Public Housing Developments</h4>-->
+                        <!--</div>-->
+                        <!--<img src="assets/img/dataset_icons/phd.png" alt="">-->
 
-                        <div class="he-view">
-                            <div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">Public Housing Developments</h3>
-                                <a href="http://zillowhack.hud.opendata.arcgis.com/datasets/1cef73e2612f4cf7a46f8e40108d72bc_0"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/PublicHousingDevelopments/FeatureServer/0/query?outFields=*&where=1%3D1"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                            </div>
-                            <!-- he bg -->
-                        </div>
-                        <!-- he view -->
-                    </div>
-                    <!-- he wrap -->
-                </div>
-                <!-- end col-12 -->
+                        <!--<div class="he-view">-->
+                            <!--<div class="bg a0" data-animate="fadeIn">-->
+                                <!--<h3 class="a1" data-animate="fadeInDown">Public Housing Developments</h3>-->
+                                <!--<a href="http://zillowhack.hud.opendata.arcgis.com/datasets/1cef73e2612f4cf7a46f8e40108d72bc_0"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>-->
+                                <!--<a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/PublicHousingDevelopments/FeatureServer/0/query?outFields=*&where=1%3D1"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; he bg &ndash;&gt;-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; he view &ndash;&gt;-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; he wrap &ndash;&gt;-->
+                <!--</div>-->
+                <!--&lt;!&ndash; end col-12 &ndash;&gt;-->
 
-                <div class="portfolio-item graphic-design">
-                    <div class="he-wrap tpl6">
-                        <h4>Many More...</h4>
-                        <img src="assets/img/dataset_icons/hq.png" alt="">
+                <!--<div class="portfolio-item graphic-design">-->
+                    <!--<div class="he-wrap tpl6">-->
+                        <!--<div class="spacer">-->
+                            <!--<h4>Many More...</h4>-->
+                        <!--</div>-->
+                        <!--<img src="assets/img/dataset_icons/hq.png" alt="">-->
 
-                        <div class="he-view">
-                            <div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">Many More...</h3>
-                                <a href="http://zillowhack.hud.opendata.arcgis.com/datasets/27b53ea69f98474eb002ac3b9c6b51eb_0"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/LocationAffordabilityIndexData/FeatureServer/0/query?outFields=*&where=1%3D1"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                            </div>
-                            <!-- he bg -->
-                        </div>
-                        <!-- he view -->
-                    </div>
-                    <!-- he wrap -->
-                </div>
-                <!-- end col-12 -->
-
-
-            <!-- where to add additional datasets-->
-
-            </div>
-            <!-- portfolio -->
-        </div>
-        <!-- portfolio container -->
-    </div>
-    <!--/Portfoliowrap -->
+                        <!--<div class="he-view">-->
+                            <!--<div class="bg a0" data-animate="fadeIn">-->
+                                <!--<h3 class="a1" data-animate="fadeInDown">Many More...</h3>-->
+                                <!--<a href="http://zillowhack.hud.opendata.arcgis.com/datasets/27b53ea69f98474eb002ac3b9c6b51eb_0"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>-->
+                                <!--<a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/LocationAffordabilityIndexData/FeatureServer/0/query?outFields=*&where=1%3D1"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; he bg &ndash;&gt;-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; he view &ndash;&gt;-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; he wrap &ndash;&gt;-->
+                <!--</div>-->
+                <!--&lt;!&ndash; end col-12 &ndash;&gt;-->
 
 
-    <!-- *****************************************************************************************************************
-     MIDDLE CONTENT
-     ***************************************************************************************************************** -->
+            <!--&lt;!&ndash; where to add additional datasets&ndash;&gt;-->
 
-    <!-- *****************************************************************************************************************
-     TESTIMONIALS
-     ***************************************************************************************************************** -->
-    <div id="twrap">
-        <div class="container centered">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Start Mapping Now with HUD ArcGIS Online</h2>
-                    <br>
-                    <a href="http://hud.maps.arcgis.com/"
-                       class="dmbutton a2" data-animate="fadeInUp"><h4>Go to ArcGIS Online</h4></i></a>
-                </div>
-            </div>
-            <! --/row -->
-        </div>
-        <! --/container -->
-    </div>
-    <! --/twrap -->
+            <!--</div>-->
+            <!--&lt;!&ndash; portfolio &ndash;&gt;-->
+        <!--</div>-->
+        <!--&lt;!&ndash; portfolio container &ndash;&gt;-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;/Portfoliowrap &ndash;&gt;-->
 
-    <!-- *****************************************************************************************************************
-     APPLICATIONS SECTION
-     ***************************************************************************************************************** -->
-    <div id="appwrap">
-        <h2>HUD APPLICATIONS</h2>
-        <hr>
 
-        <div class="portfolio-centered">
-            <div class="recentitems portfolio">
-                <div class="portfolio-item graphic-design">
-                    <div class="he-wrap tpl6">
-                        <h4>CPD Maps</h4>
-                        <img src="assets/img/app_icons/cpd_maps.PNG" alt="">
+    <!--&lt;!&ndash; *****************************************************************************************************************-->
+     <!--MIDDLE CONTENT-->
+     <!--***************************************************************************************************************** &ndash;&gt;-->
 
-                        <div class="he-view">
-                            <div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">CPD Maps</h3>
-                                <a href="cpd-maps.html"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                            </div>
-                            <!-- he bg -->
-                        </div>
-                        <!-- he view -->
-                    </div>
-                    <!-- he wrap -->
-                </div>
-                <!-- end col-12 -->
+    <!--&lt;!&ndash; *****************************************************************************************************************-->
+     <!--TESTIMONIALS-->
+     <!--***************************************************************************************************************** &ndash;&gt;-->
+    <!--<div id="twrap">-->
+        <!--<div class="container centered">-->
+            <!--<div class="row">-->
+                <!--<div class="col-lg-8 col-lg-offset-2">-->
+                    <!--<h2>Start Mapping Now with HUD ArcGIS Online</h2>-->
+                    <!--<br>-->
+                    <!--<a href="http://hud.maps.arcgis.com/"-->
+                       <!--class="dmbutton a2" data-animate="fadeInUp"><h4>Go to ArcGIS Online</h4></i></a>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<! --/row &ndash;&gt;-->
+        <!--</div>-->
+        <!--<! --/container &ndash;&gt;-->
+    <!--</div>-->
+    <!--<! --/twrap &ndash;&gt;-->
 
-                <div class="portfolio-item web-design">
-                    <div class="he-wrap tpl6">
-                        <h4>EZ/RC Locator</h4>
-                        <img src="assets/img/app_icons/ez_rc.PNG" alt="">
+    <!--&lt;!&ndash; *****************************************************************************************************************-->
+     <!--APPLICATIONS SECTION-->
+     <!--***************************************************************************************************************** &ndash;&gt;-->
+    <!--<div id="appwrap">-->
+        <!--<h2>HUD APPLICATIONS</h2>-->
+        <!--<hr>-->
 
-                        <div class="he-view">
-                            <div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">EZ/RC Locator</h3>
-                                <a href="http://zillowhack.hud.opendata.arcgis.com/datasets/42c4d3d6648c4d5196fa0002af457383_0"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/HCVByTract/FeatureServer/0/query?outFields=*&where=1%3D1"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                            </div>
-                            <!-- he bg -->
-                        </div>
-                        <!-- he view -->
-                    </div>
-                    <!-- he wrap -->
-                </div>
-                <!-- end col-12 -->
+        <!--<div class="container">-->
 
-                <div class="portfolio-item graphic-design">
-                    <div class="he-wrap tpl6">
-                        <h4>SFH Locator</h4>
-                        <img src="assets/img/app_icons/sfh2.png" alt="">
+        <!--<div class="portfolio-centered">-->
+            <!--<div class="recentitems portfolio">-->
+                <!--<div class="portfolio-item graphic-design">-->
+                    <!--<div class="he-wrap tpl6">-->
+                        <!--<h4>CPD Maps</h4>-->
+                        <!--<img src="assets/img/app_icons/cpd_maps.PNG" alt="">-->
 
-                        <div class="he-view">
-                            <div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">SFH Locator</h3>
-                                <a href="http://zillowhack.hud.opendata.arcgis.com/datasets/c0d79831f95c46018349657dc768ddc4_0"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/LIHTC/FeatureServer/0/query?outFields=*&where=1%3D1"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                            </div>
-                            <!-- he bg -->
-                        </div>
-                        <!-- he view -->
-                    </div>
-                    <!-- he wrap -->
-                </div>
-                <!-- end col-12 -->
+                        <!--<div class="he-view">-->
+                            <!--<div class="bg a0" data-animate="fadeIn">-->
+                                <!--<h3 class="a1" data-animate="fadeInDown">CPD Maps</h3>-->
+                                <!--<a href="cpd-maps.html"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; he bg &ndash;&gt;-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; he view &ndash;&gt;-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; he wrap &ndash;&gt;-->
+                <!--</div>-->
+                <!--&lt;!&ndash; end col-12 &ndash;&gt;-->
 
-                <div class="portfolio-item graphic-design">
-                    <div class="he-wrap tpl6">
-                        <h4>Many More...</h4>
-                        <img src="assets/img/app_icons/app_browse_frame.png" alt="">
+                <!--<div class="portfolio-item web-design">-->
+                    <!--<div class="he-wrap tpl6">-->
+                        <!--<h4>EZ/RC Locator</h4>-->
+                        <!--<img src="assets/img/app_icons/ez_rc.PNG" alt="">-->
 
-                        <div class="he-view">
-                            <div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">More EGIS Apps</h3>
-                                <a href="applications.html"
-                                   class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                            </div>
-                            <!-- he bg -->
-                        </div>
-                        <!-- he view -->
-                    </div>
-                    <!-- he wrap -->
-                </div>
-                <!-- end col-12 -->
-            </div>
-            <!-- portfolio -->
-        </div>
-        <!-- portfolio container -->
-    </div>
+                        <!--<div class="he-view">-->
+                            <!--<div class="bg a0" data-animate="fadeIn">-->
+                                <!--<h3 class="a1" data-animate="fadeInDown">EZ/RC Locator</h3>-->
+                                <!--<a href="http://zillowhack.hud.opendata.arcgis.com/datasets/42c4d3d6648c4d5196fa0002af457383_0"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>-->
+                                <!--<a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/HCVByTract/FeatureServer/0/query?outFields=*&where=1%3D1"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; he bg &ndash;&gt;-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; he view &ndash;&gt;-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; he wrap &ndash;&gt;-->
+                <!--</div>-->
+                <!--&lt;!&ndash; end col-12 &ndash;&gt;-->
+
+                <!--<div class="portfolio-item graphic-design">-->
+                    <!--<div class="he-wrap tpl6">-->
+                        <!--<h4>SFH Locator</h4>-->
+                        <!--<img src="assets/img/app_icons/sfh2.png" alt="">-->
+
+                        <!--<div class="he-view">-->
+                            <!--<div class="bg a0" data-animate="fadeIn">-->
+                                <!--<h3 class="a1" data-animate="fadeInDown">SFH Locator</h3>-->
+                                <!--<a href="http://zillowhack.hud.opendata.arcgis.com/datasets/c0d79831f95c46018349657dc768ddc4_0"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>-->
+                                <!--<a href="http://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/LIHTC/FeatureServer/0/query?outFields=*&where=1%3D1"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; he bg &ndash;&gt;-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; he view &ndash;&gt;-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; he wrap &ndash;&gt;-->
+                <!--</div>-->
+                <!--&lt;!&ndash; end col-12 &ndash;&gt;-->
+
+                <!--<div class="portfolio-item graphic-design">-->
+                    <!--<div class="he-wrap tpl6">-->
+                        <!--<h4>Many More...</h4>-->
+                        <!--<img src="assets/img/app_icons/app_browse_frame.png" alt="">-->
+
+                        <!--<div class="he-view">-->
+                            <!--<div class="bg a0" data-animate="fadeIn">-->
+                                <!--<h3 class="a1" data-animate="fadeInDown">More EGIS Apps</h3>-->
+                                <!--<a href="applications.html"-->
+                                   <!--class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; he bg &ndash;&gt;-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; he view &ndash;&gt;-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; he wrap &ndash;&gt;-->
+                <!--</div>-->
+                <!--&lt;!&ndash; end col-12 &ndash;&gt;-->
+            <!--</div>-->
+            <!--&lt;!&ndash; portfolio &ndash;&gt;-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; portfolio container &ndash;&gt;-->
+    <!--</div>-->
     <!--/Portfoliowrap -->
     <div class="footer col-xs-12" style="background-color: rgb(235, 235, 235)">
         <div class="col-md-12" style="margin-top:30px; padding:0;">
@@ -743,7 +778,7 @@
         });
 
         function getColumnNumber() {
-            var winWidth = $(window).width(),
+            var winWidth = $("#portContainer").width(),
                     columnNumber = 1;
 
             if (winWidth > 1200) {
@@ -751,7 +786,7 @@
             } else if (winWidth > 950) {
                 columnNumber = 4;
             } else if (winWidth > 600) {
-                columnNumber = 3;
+                columnNumber = 2;
             } else if (winWidth > 400) {
                 columnNumber = 2;
             } else if (winWidth > 250) {
@@ -761,7 +796,7 @@
         }
 
         function setColumns() {
-            var winWidth = $(window).width(),
+            var winWidth = $("#portContainer").width(),
                     columnNumber = getColumnNumber(),
                     itemWidth = Math.floor(winWidth / columnNumber);
 
