@@ -283,6 +283,17 @@ a:focus {
     margin-bottom: 25px;
 }
 
+#appwrap2 {
+    padding-top: 60px;
+    margin-bottom: 60px;
+    display: block;
+    text-align: center
+}
+
+#appwrap2 h3 {
+    margin-bottom: 25px;
+}
+
 .portfolio {
     padding: 0 !important;
     margin: 0 !important;
@@ -290,6 +301,7 @@ a:focus {
 }
 
 .portfolio-item {
+    margin-top:15px;
     /*border: solid lightgray*/
 }
 
@@ -309,7 +321,7 @@ a:focus {
 }
 
 .portfolio-item img {
-    max-height:250px;
+    max-height:200px;
     padding:10px;
 }
 
@@ -759,6 +771,31 @@ span > .icon-bar {
 
 
 
+.spacer {
+    min-height: 40px;
+}
+
+.well {
+    min-width:262px;
+    background: none;
+    border: none;
+    box-shadow: none;
+
+}
+
+.wellfixed {
+    position:fixed;
+    top: 46px;
+    width:350px;
+}
+
+.wellfixedbottom {
+    /*position:absolute;*/
+    /*top: 0;*/
+    /*bottom: 200px;*/
+    /*width:15%;*/
+}
+
 
 @media(max-width:992px){
     #link-bar > li > a {
@@ -804,4 +841,9 @@ span > .icon-bar {
         /*top:175px*/
     }
 
+    .wellfixed {
+        position:fixed;
+        top: 46px;
+        width:100%;
+    }
 }
